@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://c7hhjdug82m3y" path="res://drumkits/pop/2.wav" id="3_qay8j"]
 [ext_resource type="AudioStream" uid="uid://bgqpk2lid82o4" path="res://drumkits/pop/3.wav" id="4_d76ke"]
 
-[node name="GlobalScene" type="Node2D"]
+[node name="Globals" type="Node2D"]
 script = ExtResource("1_wmx5g")
 
 [node name="Instrument1" type="AudioStreamPlayer" parent="."]
@@ -35,3 +35,5 @@ max_polyphony = 4
 
 [node name="Instrument8" type="AudioStreamPlayer" parent="."]
 max_polyphony = 4
+
+[node name="Timer" type="Timer" parent="."]
