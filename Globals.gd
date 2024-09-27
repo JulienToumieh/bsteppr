@@ -114,7 +114,6 @@ var beatF = [
 	["0000","0000","0000","0000","0000","0000","0000","0000"]
 ]
 
-'''
 var activeBeat = beatA
 
 var playbackPosition = 0
@@ -160,11 +159,11 @@ func playSound(id):
 		6: get_node("Instrument6").play()
 		7: get_node("Instrument7").play()
 		8: get_node("Instrument8").play()
+
+
+
+
 '''
-
-
-
-'
 var beats = {
 	"A": [["0000"] * 8 for _ in range(16)],
 	"B": [["0000"] * 8 for _ in range(16)],
@@ -172,8 +171,6 @@ var beats = {
 	"D": [["0000"] * 8 for _ in range(16)],
 	"E": [["0000"] * 8 for _ in range(16)],
 	"F": [["0000"] * 8 for _ in range(16)]
-}
-'
 
 var activeBeat = beatA
 var playbackPosition = 0
@@ -214,3 +211,4 @@ func playSound(id):
 		6: get_node("Instrument6").play()
 		7: get_node("Instrument7").play()
 		8: get_node("Instrument8").play()
+'''
