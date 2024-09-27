@@ -1,6 +1,7 @@
 extends Node2D
 
 var BeatStep = preload("res://components/beat_step.tscn")
+var InstrumentRow = preload("res://components/instrument_row.tscn")
 var grid = Globals.beatA
 
 func _ready():
@@ -19,6 +20,12 @@ func _ready():
 		x += 72
 		if (i + 1) % 4  == 0: x += 29
 	
+	for i in range(8):
+		var instrument = InstrumentRow.instantiate()
+		instrument.position = Vector2(-153, i*72)
+		instrument.name = "instrument" + str(i)
+		instrument.instrumentID = i + 1
+		add_child(instrument)
 
 func _process(delta):
 	pass

@@ -122,3 +122,12 @@ func _ready():
 
 func _process(delta):
 	pass
+
+
+func playSound(id):
+	print(id)
+	match id:
+		1: 
+			get_node("Instrument1").play()
+		2: 
+			get_node("Instrument2").play()

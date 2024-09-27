@@ -1,6 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyjphmfje7qcq"]
+[gd_scene load_steps=4 format=3 uid="uid://dyjphmfje7qcq"]
 
 [ext_resource type="Script" path="res://scenes/beat_grid.gd" id="1_31vxn"]
+[ext_resource type="Texture2D" uid="uid://bchy7yf4dedqm" path="res://assets/Frame 5.png" id="2_x3yry"]
+[ext_resource type="Texture2D" uid="uid://cwguhnm6ysoaf" path="res://assets/1px.png" id="3_ic01s"]
 
 [node name="BeatGrid" type="Node2D"]
 script = ExtResource("1_31vxn")
+
+[node name="Frame5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(495, 296)
+texture = ExtResource("2_x3yry")
+
+[node name="1Px" type="Sprite2D" parent="."]
+modulate = Color(0.0941176, 0.0941176, 0.0941176, 1)
+position = Vector2(108.824, 251.911)
+rotation = 3.14159
+scale = Vector2(317.112, -596.182)
+texture = ExtResource("3_ic01s")
+
+[node name="1Px2" type="Sprite2D" parent="."]
+modulate = Color(0.137255, 0.137255, 0.137255, 1)
+position = Vector2(426.283, 251.908)
+rotation = -3.14159
+scale = Vector2(317.824, -596.168)
+texture = ExtResource("3_ic01s")
+
+[node name="1Px3" type="Sprite2D" parent="."]
+modulate = Color(0.0941176, 0.0941176, 0.0941176, 1)
+position = Vector2(743.877, 251.905)
+rotation = 3.14159
+scale = Vector2(317.362, -596.17)
+texture = ExtResource("3_ic01s")
+
+[node name="1Px4" type="Sprite2D" parent="."]
+modulate = Color(0.137255, 0.137255, 0.137255, 1)
+position = Vector2(1061.55, 251.968)
+rotation = -3.14159
+scale = Vector2(317.983, -596.292)
+texture = ExtResource("3_ic01s")
