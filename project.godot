@@ -11,9 +11,20 @@ config_version=5
 [application]
 
 config/name="BSteppr"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://Globals.gd"
+
+[display]
+
+window/size/viewport_width=1550
+window/size/viewport_height=750
 
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.0666667, 0.0666667, 0.0666667, 1)

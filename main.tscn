@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://gptqi34mccih"]
+
+[ext_resource type="PackedScene" uid="uid://dyjphmfje7qcq" path="res://scenes/beat_grid.tscn" id="1_1by64"]
+[ext_resource type="Texture2D" uid="uid://bchy7yf4dedqm" path="res://assets/Frame 5.png" id="1_t6763"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Frame5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(770, 377)
+texture = ExtResource("1_t6763")
+
+[node name="BeatGrid" parent="." instance=ExtResource("1_1by64")]
+position = Vector2(273, 79)

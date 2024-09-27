@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyjphmfje7qcq"]
+
+[ext_resource type="Script" path="res://scenes/beat_grid.gd" id="1_31vxn"]
+
+[node name="BeatGrid" type="Node2D"]
+script = ExtResource("1_31vxn")
