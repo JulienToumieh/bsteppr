@@ -116,18 +116,46 @@ var beatF = [
 
 var activeBeat = beatA
 
+var playbackPosition = 0
+var playing = false
+
+var last_tick_time = 0
+var tempo = 60000/128
+
+func togglePlayback():
+	if playing:
+		playing = false
+		playbackPosition = 0
+	else:
+		playing = true
+
+func tick():
+	if playbackPosition == 16:
+		playbackPosition = 1
+	else:
+		playbackPosition += 1
+		
+	if playbackPosition % 4 == 0: playSound(3)
+
 func _ready():
 	pass
 
-
 func _process(delta):
-	pass
+	
+	if playing:
+		var current_time = Time.get_ticks_msec()
+		if current_time - last_tick_time >= tempo/4:
+			last_tick_time = current_time
+			tick()
 
 
 func playSound(id):
-	print(id)
 	match id:
-		1: 
-			get_node("Instrument1").play()
-		2: 
-			get_node("Instrument2").play()
+		1: get_node("Instrument1").play()
+		2: get_node("Instrument2").play()
+		3: get_node("Instrument3").play()
+		4: get_node("Instrument4").play()
+		5: get_node("Instrument5").play()
+		6: get_node("Instrument6").play()
+		7: get_node("Instrument7").play()
+		8: get_node("Instrument8").play()

@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://gptqi34mccih"]
+[gd_scene load_steps=7 format=3 uid="uid://gptqi34mccih"]
 
 [ext_resource type="PackedScene" uid="uid://dyjphmfje7qcq" path="res://scenes/beat_grid.tscn" id="1_1by64"]
+[ext_resource type="Script" path="res://main.gd" id="1_3c72v"]
 [ext_resource type="Texture2D" uid="uid://bchy7yf4dedqm" path="res://assets/Frame 5.png" id="1_t6763"]
+[ext_resource type="Texture2D" uid="uid://cg36m0tjfsvsn" path="res://assets/play.svg" id="3_go3ir"]
+[ext_resource type="Texture2D" uid="uid://wmohuhkst3hw" path="res://assets/pause.svg" id="5_vupvr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcn34"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_3c72v")
 
 [node name="Frame5" type="Sprite2D" parent="."]
 visible = false
@@ -12,3 +18,26 @@ texture = ExtResource("1_t6763")
 
 [node name="BeatGrid" parent="." instance=ExtResource("1_1by64")]
 position = Vector2(273, 79)
+
+[node name="PlayPauseButton" type="Button" parent="."]
+offset_left = 1417.0
+offset_top = 648.0
+offset_right = 1500.0
+offset_bottom = 733.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xcn34")
+flat = true
+
+[node name="Play" type="Sprite2D" parent="PlayPauseButton"]
+visible = false
+modulate = Color(0.16, 1, 0.65, 1)
+position = Vector2(40, 42)
+scale = Vector2(0.863444, 0.863444)
+texture = ExtResource("3_go3ir")
+
+[node name="Pause" type="Sprite2D" parent="PlayPauseButton"]
+modulate = Color(0.72, 0.72, 0.72, 1)
+position = Vector2(39, 41)
+scale = Vector2(0.320675, 0.320675)
+texture = ExtResource("5_vupvr")
+
+[connection signal="pressed" from="PlayPauseButton" to="." method="_on_play_pause_button_pressed"]
