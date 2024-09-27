@@ -8,7 +8,14 @@ var Q3 = 0
 var Q4 = 0
 
 func _ready():
-	pass
+	if beatIDX.y == 0: modulate = Color("FF4141")
+	if beatIDX.y == 1: modulate = Color("FF44BF")
+	if beatIDX.y == 2: modulate = Color("854BFF")
+	if beatIDX.y == 3: modulate = Color("3385FF")
+	if beatIDX.y == 4: modulate = Color("00F0FF")
+	if beatIDX.y == 5: modulate = Color("3CFF72")
+	if beatIDX.y == 6: modulate = Color("4CFF2F")
+	if beatIDX.y == 7: modulate = Color("#FF922D")
 
 
 func _process(delta):
