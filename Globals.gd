@@ -119,35 +119,42 @@ var activeBeat = beatA
 var playbackPosition = 0
 var playing = false
 
-var last_tick_time = 0
-var tempo = 60000/128
+var bpm = 128
+var beat_interval = 60000.0 / bpm
+var timer : Timer
+var start_time: float
 
 func togglePlayback():
 	if playing:
+		timer.stop()
 		playing = false
 		playbackPosition = 0
 	else:
+		start_time = Time.get_ticks_msec() / 1000.0  # Store the current time in seconds
+		timer.start()
 		playing = true
 
 func tick():
-	if playbackPosition == 16:
-		playbackPosition = 1
-	else:
-		playbackPosition += 1
-		
-	if playbackPosition % 4 == 0: playSound(3)
+	var current_time = Time.get_ticks_msec() / 1000.0  # Get the current time in seconds
+	var elapsed_time = current_time - start_time  # Calculate elapsed time
+
+	# Calculate how many beats have passed based on elapsed time
+	var beats_passed = int(elapsed_time / (beat_interval / 1000.0))
+	playbackPosition = (beats_passed % 16) + 1  # Wrap around to 1 after 16
+
+	#if playbackPosition % 4 == 0: playSound(3)
+	playSound(4)
 
 func _ready():
-	pass
+	timer = Timer.new()
+	timer.wait_time = beat_interval / 4000.0
+	print(beat_interval / 1000.0)
+	timer.one_shot = false
+	timer.connect("timeout", Callable(self, "tick"))
+	add_child(timer)
 
 func _process(delta):
-	
-	if playing:
-		var current_time = Time.get_ticks_msec()
-		if current_time - last_tick_time >= tempo/4:
-			last_tick_time = current_time
-			tick()
-
+	pass
 
 func playSound(id):
 	match id:
