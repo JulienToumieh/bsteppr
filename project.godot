@@ -31,7 +31,15 @@ window/size/viewport_height=750
 
 project/assembly_name="BSteppr"
 
+[physics]
+
+2d/run_on_separate_thread=true
+3d/run_on_separate_thread=true
+common/physics_ticks_per_second=120
+common/max_physics_steps_per_frame=10
+
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.0666667, 0.0666667, 0.0666667, 1)

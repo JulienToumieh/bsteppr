@@ -1,24 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://8cfy385fp777"]
+[gd_scene load_steps=3 format=3 uid="uid://8cfy385fp777"]
 
 [ext_resource type="Script" path="res://Globals.gd" id="1_wmx5g"]
-[ext_resource type="AudioStream" uid="uid://cgmrrxp73ev1m" path="res://drumkits/pop/1.wav" id="2_qgh4h"]
-[ext_resource type="AudioStream" uid="uid://c7hhjdug82m3y" path="res://drumkits/pop/2.wav" id="3_qay8j"]
-[ext_resource type="AudioStream" uid="uid://bgqpk2lid82o4" path="res://drumkits/pop/3.wav" id="4_d76ke"]
 [ext_resource type="AudioStream" uid="uid://e2n5c14oxs1v" path="res://drumkits/pop/tick.wav" id="5_t8e21"]
 
 [node name="Globals" type="Node2D"]
+process_mode = 3
+process_priority = 10
+process_thread_group = 1
+process_thread_group_order = 0
+process_thread_messages = 1
 script = ExtResource("1_wmx5g")
 
 [node name="Instrument1" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_qgh4h")
 max_polyphony = 4
 
 [node name="Instrument2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_qay8j")
 max_polyphony = 4
 
 [node name="Instrument3" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_d76ke")
 max_polyphony = 4
 
 [node name="Instrument4" type="AudioStreamPlayer" parent="."]

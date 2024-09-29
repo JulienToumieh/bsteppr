@@ -2,7 +2,7 @@ extends Node2D
 
 var BeatStep = preload("res://components/beat_step.tscn")
 var InstrumentRow = preload("res://components/instrument_row.tscn")
-var grid = Globals.beatA
+var grid = Globals.beat["A"]
 
 var playbackTracker = [-1000,0,72,144,216,317,389,461,533,634,706,778,850,951,1023,1095,1167]
 

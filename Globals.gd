@@ -1,6 +1,6 @@
 extends Node2D
 
-var beatA = [
+'var beatA = [
 	["0000","0000","0000","0000","0000","0000","0000","0000"],
 	["0000","0000","0000","0000","0000","0000","0000","0000"],
 	["0000","0000","0000","0000","0000","0000","0000","0000"],
@@ -113,42 +113,59 @@ var beatF = [
 	["0000","0000","0000","0000","0000","0000","0000","0000"],
 	["0000","0000","0000","0000","0000","0000","0000","0000"]
 ]
+'
 
-var activeBeat = beatA
+var beat = {
+	"A": Array(),
+	"B": Array(),
+	"C": Array(),
+	"D": Array(),
+	"E": Array(),
+	"F": Array()
+}
+
+
+var activeBeat = beat["A"]
 
 var playbackPosition = 0
+var barRound = 0
 var playing = false
 
 var bpm = 128
-var beat_interval = 60000.0 / bpm
+var beat_interval = 60.0 / (bpm * 4)
 var timer : Timer
-var start_time: float
 
 func togglePlayback():
 	if playing:
 		timer.stop()
-		playing = false
 		playbackPosition = 0
+		barRound = 0
 	else:
-		start_time = Time.get_ticks_msec() / 1000.0  # Store the current time in seconds
 		timer.start()
-		playing = true
+	playing = !playing
 
 func tick():
-	var current_time = Time.get_ticks_msec() / 1000.0  # Get the current time in seconds
-	var elapsed_time = current_time - start_time  # Calculate elapsed time
-
-	# Calculate how many beats have passed based on elapsed time
-	var beats_passed = int(elapsed_time / (beat_interval / 1000.0))
-	playbackPosition = (beats_passed % 16) + 1  # Wrap around to 1 after 16
-
-	#if playbackPosition % 4 == 0: playSound(3)
-	playSound(4)
+	if playbackPosition % 16 == 0: 
+		playbackPosition = 1
+		if barRound == 4: barRound = 1
+		else: barRound += 1
+	else: 
+		playbackPosition += 1
+	
+	for ins in range(8):
+		if beat["A"][playbackPosition - 1][ins][barRound-1] != "0": get_node("Instrument" + str(ins+1)).play()
+	
+	#if (playbackPosition + 3) % 4 == 0: playSound(3)
 
 func _ready():
+	for key in beat.keys():
+		for i in range(16):
+			beat[key].append(Array())
+			for j in range(8):
+				beat[key][i].append("1000")
+	
 	timer = Timer.new()
-	timer.wait_time = beat_interval / 4000.0
-	print(beat_interval / 1000.0)
+	timer.wait_time = beat_interval
 	timer.one_shot = false
 	timer.connect("timeout", Callable(self, "tick"))
 	add_child(timer)
