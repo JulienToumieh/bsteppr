@@ -33,3 +33,13 @@ visible = false
 rotation = -1.5708
 scale = Vector2(0.470588, 0.470588)
 texture = ExtResource("2_eola3")
+
+[node name="StepClick" type="Button" parent="."]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+flat = true
+
+[connection signal="button_down" from="StepClick" to="." method="_on_step_click_button_down"]
+[connection signal="button_up" from="StepClick" to="." method="_on_step_click_button_up"]

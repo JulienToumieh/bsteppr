@@ -7,6 +7,8 @@ var Q2 = 0
 var Q3 = 0
 var Q4 = 0
 
+var buttonTime = 0
+
 func _ready():
 	if beatIDX.y == 0: modulate = Color("FF4141")
 	if beatIDX.y == 1: modulate = Color("FF44BF")
@@ -30,3 +32,12 @@ func _process(delta):
 	get_node("BeatQuarter2").visible = true if (Q2 != 0) else false
 	get_node("BeatQuarter3").visible = true if (Q3 != 0) else false
 	get_node("BeatQuarter4").visible = true if (Q4 != 0) else false
+
+
+func _on_step_click_button_down():
+	buttonTime = Time.get_ticks_msec()
+
+
+func _on_step_click_button_up():
+	if (Time.get_ticks_msec() - buttonTime) < 500:
+		Globals.activateBeat(beatIDX)
