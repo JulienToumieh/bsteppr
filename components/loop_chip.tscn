@@ -60,7 +60,7 @@ text = "B"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="LoopChipButton" type="Button" parent="."]
 offset_left = -84.0
 offset_top = -28.0
 offset_right = 84.0
@@ -71,3 +71,6 @@ flat = true
 position = Vector2(47.5753, 0)
 scale = Vector2(0.138427, 0.148148)
 texture = ExtResource("3_52vi7")
+
+[connection signal="button_down" from="LoopChipButton" to="." method="_on_loop_chip_button_button_down"]
+[connection signal="button_up" from="LoopChipButton" to="." method="_on_loop_chip_button_button_up"]

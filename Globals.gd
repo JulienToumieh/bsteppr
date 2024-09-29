@@ -40,8 +40,8 @@ func tick():
 		playbackPosition += 1
 	
 	for ins in range(8):
-		get_node("Instrument" + str(ins+1)).volume_db = mapVol(beat["A"][playbackPosition - 1][ins][barRound-1])
-		if beat["A"][playbackPosition - 1][ins][barRound-1] != "0": get_node("Instrument" + str(ins+1)).play()
+		get_node("Instrument" + str(ins+1)).volume_db = mapVol(activeBeat[playbackPosition - 1][ins][barRound-1])
+		if activeBeat[playbackPosition - 1][ins][barRound-1] != "0": get_node("Instrument" + str(ins+1)).play()
 	
 	#if (playbackPosition + 3) % 4 == 0: playSound(3)
 
@@ -81,6 +81,9 @@ func activateBeatStep(beatIDX):
 func editBeatStep(beatIDX):
 	get_parent().get_node("Main").createEditBeatPopup(beatIDX)
 
+func selectBeatLoop(loopName):
+	activeBeat = beat[loopName]
+	print(activeBeat)
 
 func mapVol(val):
 	match val:

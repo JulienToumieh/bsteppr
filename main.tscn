@@ -45,26 +45,26 @@ texture = ExtResource("5_vupvr")
 
 [node name="ALoop" parent="LoopChips" instance=ExtResource("6_e2100")]
 position = Vector2(306, 688)
-LoopName = "A"
+loopName = "A"
 
 [node name="BLoop" parent="LoopChips" instance=ExtResource("6_e2100")]
 position = Vector2(482, 688)
-LoopName = "B"
+loopName = "B"
 
 [node name="CLoop" parent="LoopChips" instance=ExtResource("6_e2100")]
 position = Vector2(658, 688)
-LoopName = "C"
+loopName = "C"
 
 [node name="DLoop" parent="LoopChips" instance=ExtResource("6_e2100")]
 position = Vector2(834, 688)
-LoopName = "D"
+loopName = "D"
 
 [node name="ELoop" parent="LoopChips" instance=ExtResource("6_e2100")]
 position = Vector2(1010, 688)
-LoopName = "E"
+loopName = "E"
 
 [node name="FLoop" parent="LoopChips" instance=ExtResource("6_e2100")]
 position = Vector2(1186, 688)
-LoopName = "F"
+loopName = "F"
 
 [connection signal="pressed" from="PlayPauseButton" to="." method="_on_play_pause_button_pressed"]
