@@ -99,6 +99,8 @@ func selectBeatLoop(loopName):
 	else:
 		activeBeat = beat[loopName]
 		activeBeatQueue = beat[loopName]
+	activeLoop = loopName
+	get_parent().get_node("Main").resetLoopContainer()
 
 func editLoop(loopName):
 	get_parent().get_node("Main").createEditLoopPopup(loopName)
