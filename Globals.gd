@@ -162,7 +162,7 @@ func _ready():
 		for i in range(16):
 			beat[key].append(Array())
 			for j in range(8):
-				beat[key][i].append("1000")
+				beat[key][i].append("0000")
 	
 	timer = Timer.new()
 	timer.wait_time = beat_interval
