@@ -1,0 +1,233 @@
+[gd_scene load_steps=12 format=3 uid="uid://ciaayaw4pek7r"]
+
+[ext_resource type="Script" path="res://components/edit_loop_popup.gd" id="1_n4716"]
+[ext_resource type="Texture2D" uid="uid://cwguhnm6ysoaf" path="res://assets/1px.png" id="2_x67h4"]
+[ext_resource type="Texture2D" uid="uid://dcren3eiiyi0x" path="res://assets/arrow.svg" id="3_3x8pl"]
+[ext_resource type="Texture2D" uid="uid://bjndxmp6lsljl" path="res://assets/select a.svg" id="4_ujk17"]
+[ext_resource type="Texture2D" uid="uid://cobog8k5g0w1v" path="res://assets/select b.svg" id="5_uu7kg"]
+[ext_resource type="Texture2D" uid="uid://cvpmfpouict4v" path="res://assets/select c.svg" id="6_kpnaa"]
+[ext_resource type="Texture2D" uid="uid://7cn1b14xhw0n" path="res://assets/select d.svg" id="7_chw5f"]
+[ext_resource type="Texture2D" uid="uid://cbl6twfks34gx" path="res://assets/select e.svg" id="8_2i0hn"]
+[ext_resource type="Texture2D" uid="uid://bfbhsr8li1ig4" path="res://assets/select f.svg" id="9_5wcno"]
+[ext_resource type="Texture2D" uid="uid://cx2nv06c0ic2v" path="res://assets/select o.svg" id="10_dtuxa"]
+[ext_resource type="Texture2D" uid="uid://n5533s2q5oj2" path="res://assets/arrow line.svg" id="11_2dgwt"]
+
+[node name="EditLoopPopup" type="Node2D"]
+z_index = 2
+script = ExtResource("1_n4716")
+
+[node name="ClosePopup" type="Button" parent="."]
+offset_left = -1080.0
+offset_top = -512.0
+offset_right = 1080.0
+offset_bottom = 512.0
+flat = true
+
+[node name="darkbg" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.588235)
+position = Vector2(3.05176e-05, -1.52588e-05)
+scale = Vector2(2176, 1024)
+texture = ExtResource("2_x67h4")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -264.0
+offset_top = -112.0
+offset_right = 264.0
+offset_bottom = 112.0
+
+[node name="1Px2" type="Sprite2D" parent="."]
+position = Vector2(-9.05991e-06, -6.4373e-06)
+scale = Vector2(528, 224)
+texture = ExtResource("2_x67h4")
+
+[node name="1Px" type="Sprite2D" parent="."]
+modulate = Color(0.1365, 0.133, 0.14, 1)
+position = Vector2(2.86102e-05, 0)
+scale = Vector2(512, 208)
+texture = ExtResource("2_x67h4")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+modulate = Color(0.560535, 0.769547, 0.715359, 1)
+position = Vector2(-225.046, -55.931)
+scale = Vector2(0.314815, 0.314815)
+texture = ExtResource("3_3x8pl")
+
+[node name="NextLoops" type="Node2D" parent="."]
+
+[node name="SelectA" type="Sprite2D" parent="NextLoops"]
+modulate = Color(0.213839, 0.283951, 0.274429, 1)
+position = Vector2(-176, -56)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("4_ujk17")
+
+[node name="selA" type="Button" parent="NextLoops/SelectA"]
+offset_left = -43.0
+offset_top = -43.0
+offset_right = 43.0
+offset_bottom = 43.0
+flat = true
+
+[node name="SelectB" type="Sprite2D" parent="NextLoops"]
+modulate = Color(0.213839, 0.283951, 0.274429, 1)
+position = Vector2(-112, -56)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("5_uu7kg")
+
+[node name="selB" type="Button" parent="NextLoops/SelectB"]
+offset_left = -43.0
+offset_top = -43.0
+offset_right = 43.0
+offset_bottom = 43.0
+flat = true
+
+[node name="SelectC" type="Sprite2D" parent="NextLoops"]
+modulate = Color(0.213839, 0.283951, 0.274429, 1)
+position = Vector2(-48, -56)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("6_kpnaa")
+
+[node name="selC" type="Button" parent="NextLoops/SelectC"]
+offset_left = -43.0
+offset_top = -43.0
+offset_right = 43.0
+offset_bottom = 43.0
+flat = true
+
+[node name="SelectD" type="Sprite2D" parent="NextLoops"]
+modulate = Color(0.213839, 0.283951, 0.274429, 1)
+position = Vector2(16, -56)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("7_chw5f")
+
+[node name="selD" type="Button" parent="NextLoops/SelectD"]
+offset_left = -43.0
+offset_top = -43.0
+offset_right = 43.0
+offset_bottom = 43.0
+flat = true
+
+[node name="SelectE" type="Sprite2D" parent="NextLoops"]
+modulate = Color(0.213839, 0.283951, 0.274429, 1)
+position = Vector2(144, -56)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("8_2i0hn")
+
+[node name="selE" type="Button" parent="NextLoops/SelectE"]
+offset_left = -43.0
+offset_top = -43.0
+offset_right = 43.0
+offset_bottom = 43.0
+flat = true
+
+[node name="SelectF" type="Sprite2D" parent="NextLoops"]
+modulate = Color(0.213839, 0.283951, 0.274429, 1)
+position = Vector2(80, -56)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("9_5wcno")
+
+[node name="selF" type="Button" parent="NextLoops/SelectF"]
+offset_left = -43.0
+offset_top = -43.0
+offset_right = 43.0
+offset_bottom = 43.0
+flat = true
+
+[node name="SelectØ" type="Sprite2D" parent="NextLoops"]
+modulate = Color(0.213839, 0.283951, 0.274429, 1)
+position = Vector2(208, -56)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("10_dtuxa")
+
+[node name="selØ" type="Button" parent="NextLoops/SelectØ"]
+offset_left = -43.0
+offset_top = -43.0
+offset_right = 43.0
+offset_bottom = 43.0
+flat = true
+
+[node name="LoopCount" type="Node2D" parent="."]
+
+[node name="arrows" type="Node2D" parent="LoopCount"]
+modulate = Color(0.693255, 0.707819, 0.700807, 1)
+
+[node name="ArrowLine" type="Sprite2D" parent="LoopCount/arrows"]
+position = Vector2(80, 32)
+rotation = 1.5708
+scale = Vector2(0.23908, 0.23908)
+texture = ExtResource("11_2dgwt")
+
+[node name="ArrowLine2" type="Sprite2D" parent="LoopCount/arrows"]
+position = Vector2(144, 32)
+rotation = 1.5708
+scale = Vector2(0.23908, 0.23908)
+texture = ExtResource("11_2dgwt")
+
+[node name="ArrowLine3" type="Sprite2D" parent="LoopCount/arrows"]
+position = Vector2(160, 32)
+rotation = 1.5708
+scale = Vector2(0.23908, 0.23908)
+texture = ExtResource("11_2dgwt")
+
+[node name="ArrowLine4" type="Sprite2D" parent="LoopCount/arrows"]
+position = Vector2(-160, 32)
+rotation = -1.5708
+scale = Vector2(0.23908, 0.23908)
+texture = ExtResource("11_2dgwt")
+
+[node name="ArrowLine5" type="Sprite2D" parent="LoopCount/arrows"]
+position = Vector2(-144, 32)
+rotation = -1.5708
+scale = Vector2(0.23908, 0.23908)
+texture = ExtResource("11_2dgwt")
+
+[node name="ArrowLine6" type="Sprite2D" parent="LoopCount/arrows"]
+position = Vector2(-80, 32)
+rotation = -1.5708
+scale = Vector2(0.23908, 0.23908)
+texture = ExtResource("11_2dgwt")
+
+[node name="increase1" type="Button" parent="LoopCount"]
+offset_left = 48.0
+offset_right = 112.0
+offset_bottom = 64.0
+flat = true
+
+[node name="increase2" type="Button" parent="LoopCount"]
+offset_left = 120.0
+offset_right = 184.0
+offset_bottom = 64.0
+flat = true
+
+[node name="decrease1" type="Button" parent="LoopCount"]
+offset_left = -112.0
+offset_right = -48.0
+offset_bottom = 64.0
+flat = true
+
+[node name="decrease2" type="Button" parent="LoopCount"]
+offset_left = -184.0
+offset_right = -120.0
+offset_bottom = 64.0
+flat = true
+
+[node name="Label" type="Label" parent="LoopCount"]
+offset_left = -40.0
+offset_right = 40.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 40
+text = "64"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ClosePopup" to="." method="_on_close_popup_pressed"]
+[connection signal="pressed" from="NextLoops/SelectA/selA" to="." method="_on_sel_a_pressed"]
+[connection signal="pressed" from="NextLoops/SelectB/selB" to="." method="_on_sel_b_pressed"]
+[connection signal="pressed" from="NextLoops/SelectC/selC" to="." method="_on_sel_c_pressed"]
+[connection signal="pressed" from="NextLoops/SelectD/selD" to="." method="_on_sel_d_pressed"]
+[connection signal="pressed" from="NextLoops/SelectE/selE" to="." method="_on_sel_e_pressed"]
+[connection signal="pressed" from="NextLoops/SelectF/selF" to="." method="_on_sel_f_pressed"]
+[connection signal="pressed" from="NextLoops/SelectØ/selØ" to="." method="_on_sel_o_pressed"]
+[connection signal="pressed" from="LoopCount/increase1" to="." method="_on_increase_1_pressed"]
+[connection signal="pressed" from="LoopCount/increase2" to="." method="_on_increase_2_pressed"]
+[connection signal="pressed" from="LoopCount/decrease1" to="." method="_on_decrease_1_pressed"]
+[connection signal="pressed" from="LoopCount/decrease2" to="." method="_on_decrease_2_pressed"]

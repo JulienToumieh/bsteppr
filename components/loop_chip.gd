@@ -19,7 +19,7 @@ func _process(delta):
 		if Time.get_ticks_msec() - buttonTime >= 250 and not triggeredHold:
 			pressed = false
 			triggeredHold = true
-			#Globals.editBeatStep(beatIDX)
+			Globals.editLoop(loopName)
 
 
 func _on_loop_chip_button_button_down():

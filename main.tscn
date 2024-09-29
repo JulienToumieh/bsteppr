@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://gptqi34mccih"]
+[gd_scene load_steps=7 format=3 uid="uid://gptqi34mccih"]
 
 [ext_resource type="PackedScene" uid="uid://dyjphmfje7qcq" path="res://scenes/beat_grid.tscn" id="1_1by64"]
 [ext_resource type="Script" path="res://main.gd" id="1_3c72v"]
 [ext_resource type="Texture2D" uid="uid://bchy7yf4dedqm" path="res://assets/Frame 5.png" id="1_t6763"]
 [ext_resource type="Texture2D" uid="uid://cg36m0tjfsvsn" path="res://assets/play.svg" id="3_go3ir"]
 [ext_resource type="Texture2D" uid="uid://wmohuhkst3hw" path="res://assets/pause.svg" id="5_vupvr"]
-[ext_resource type="PackedScene" uid="uid://8vdsc2ommrfn" path="res://components/loop_chip.tscn" id="6_e2100"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcn34"]
 
@@ -40,31 +39,5 @@ modulate = Color(0.72, 0.72, 0.72, 1)
 position = Vector2(39, 41)
 scale = Vector2(0.320675, 0.320675)
 texture = ExtResource("5_vupvr")
-
-[node name="LoopChips" type="Node2D" parent="."]
-
-[node name="ALoop" parent="LoopChips" instance=ExtResource("6_e2100")]
-position = Vector2(306, 688)
-loopName = "A"
-
-[node name="BLoop" parent="LoopChips" instance=ExtResource("6_e2100")]
-position = Vector2(482, 688)
-loopName = "B"
-
-[node name="CLoop" parent="LoopChips" instance=ExtResource("6_e2100")]
-position = Vector2(658, 688)
-loopName = "C"
-
-[node name="DLoop" parent="LoopChips" instance=ExtResource("6_e2100")]
-position = Vector2(834, 688)
-loopName = "D"
-
-[node name="ELoop" parent="LoopChips" instance=ExtResource("6_e2100")]
-position = Vector2(1010, 688)
-loopName = "E"
-
-[node name="FLoop" parent="LoopChips" instance=ExtResource("6_e2100")]
-position = Vector2(1186, 688)
-loopName = "F"
 
 [connection signal="pressed" from="PlayPauseButton" to="." method="_on_play_pause_button_pressed"]

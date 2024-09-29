@@ -9,9 +9,20 @@ var beat = {
 	"F": Array()
 }
 
+var loop = {
+	"A": [1, "B"],
+	"B": [2, "C"],
+	"C": [4, "D"],
+	"D": [4, "E"],
+	"E": [2, "F"],
+	"F": [1, "Ø"]
+}
 
+var activeLoop = "A"
+var activeBeat = beat[activeLoop]
+var activeBeatQueue = activeBeat
+var loopCounter = 0
 
-var activeBeat = beat["A"]
 
 var playbackPosition = 0
 var barRound = 0
@@ -36,6 +47,7 @@ func tick():
 		playbackPosition = 1
 		if barRound == 4: barRound = 1
 		else: barRound += 1
+		activeBeat = activeBeatQueue
 	else: 
 		playbackPosition += 1
 	
@@ -82,8 +94,17 @@ func editBeatStep(beatIDX):
 	get_parent().get_node("Main").createEditBeatPopup(beatIDX)
 
 func selectBeatLoop(loopName):
-	activeBeat = beat[loopName]
-	print(activeBeat)
+	if playing:
+		activeBeatQueue = beat[loopName]
+	else:
+		activeBeat = beat[loopName]
+		activeBeatQueue = beat[loopName]
+
+func editLoop(loopName):
+	get_parent().get_node("Main").createEditLoopPopup(loopName)
+	
+func updateLoopChips():
+	get_parent().get_node("Main").resetLoopContainer()
 
 func mapVol(val):
 	match val:
