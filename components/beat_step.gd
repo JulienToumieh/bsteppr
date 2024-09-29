@@ -8,6 +8,8 @@ var Q3 = 0
 var Q4 = 0
 
 var buttonTime = 0
+var pressed = false
+var triggeredHold = false
 
 func _ready():
 	if beatIDX.y == 0: modulate = Color("FF4141")
@@ -21,6 +23,12 @@ func _ready():
 
 
 func _process(delta):
+	if pressed:
+		if Time.get_ticks_msec() - buttonTime >= 500 and not triggeredHold:
+			pressed = false
+			triggeredHold = true
+			Globals.editBeatStep(beatIDX)  
+	
 	var beatQ = Globals.activeBeat[beatIDX.x][beatIDX.y]
 	
 	Q1 = int(beatQ[0])
@@ -36,8 +44,9 @@ func _process(delta):
 
 func _on_step_click_button_down():
 	buttonTime = Time.get_ticks_msec()
+	pressed = true
+	triggeredHold = false
 
 
 func _on_step_click_button_up():
-	if (Time.get_ticks_msec() - buttonTime) < 500:
-		Globals.activateBeat(beatIDX)
+	pressed = false

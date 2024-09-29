@@ -9,6 +9,8 @@ var beat = {
 	"F": Array()
 }
 
+
+
 var activeBeat = beat["A"]
 
 var playbackPosition = 0
@@ -18,6 +20,7 @@ var playing = false
 var bpm = 128
 var beat_interval = 60.0 / (bpm * 4)
 var timer : Timer
+
 
 func togglePlayback():
 	if playing:
@@ -68,12 +71,14 @@ func playSound(id):
 		7: get_node("Instrument7").play()
 		8: get_node("Instrument8").play()
 
-func activateBeat(beatIDX):
+func activateBeatStep(beatIDX):
 	if (activeBeat[beatIDX.x][beatIDX.y] == "0000"):
 		activeBeat[beatIDX.x][beatIDX.y] = "5555"
 	else:
 		activeBeat[beatIDX.x][beatIDX.y] = "0000"
 
+func editBeatStep(beatIDX):
+	get_parent().get_node("Main").createEditBeatPopup(beatIDX)
 
 '''
 var beats = {

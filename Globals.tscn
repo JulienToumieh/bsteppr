@@ -11,8 +11,6 @@ process_thread_group_order = 0
 process_thread_messages = 1
 script = ExtResource("1_wmx5g")
 
-[node name="Node2D" type="Node2D" parent="."]
-
 [node name="Instrument1" type="AudioStreamPlayer" parent="."]
 max_polyphony = 4
 
