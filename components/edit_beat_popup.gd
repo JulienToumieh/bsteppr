@@ -10,10 +10,7 @@ func _ready():
 		if get_node("VelocitySlider").value < int(beatVal[bQ]): get_node("VelocitySlider").value = int(beatVal[bQ])
 		
 		beatVal = Globals.activeBeat[beatIDX.x][beatIDX.y]
-		if beatVal[bQ] == "0":
-			get_node("BeatEditQuarter" + str(bQ+1)).modulate = Color(1, 1, 1, 0.4)
-		else:
-			get_node("BeatEditQuarter" + str(bQ+1)).modulate = Color(1, 1, 1, 1)
+		updateGlobal()
 
 func _on_close_popup_pressed():
 	queue_free()
@@ -24,7 +21,7 @@ func updateGlobal():
 	for bQ in range(4):
 		beatVal = Globals.activeBeat[beatIDX.x][beatIDX.y]
 		if beatVal[bQ] == "0":
-			get_node("BeatEditQuarter" + str(bQ+1)).modulate = Color(1, 1, 1, 0.4)
+			get_node("BeatEditQuarter" + str(bQ+1)).modulate = Color(1, 1, 1, 0.2)
 		else:
 			get_node("BeatEditQuarter" + str(bQ+1)).modulate = Color(1, 1, 1, 1)
 

@@ -42,7 +42,7 @@ scale = Vector2(317.983, -596.292)
 texture = ExtResource("3_ic01s")
 
 [node name="PlaybackTracker" type="Sprite2D" parent="."]
-modulate = Color(0.27, 1, 0.501167, 1)
+modulate = Color(0.2457, 0.91, 0.456062, 1)
 position = Vector2(0, 252)
 scale = Vector2(0.495781, 0.527433)
 texture = ExtResource("4_suubu")
