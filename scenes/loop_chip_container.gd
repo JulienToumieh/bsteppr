@@ -14,9 +14,5 @@ func _ready():
 		lc.loopName = Globals.loop.keys()[i]
 		lc.loopCount = Globals.loop[Globals.loop.keys()[i]][0]
 		lc.nextLoop = Globals.loop[Globals.loop.keys()[i]][1]
-		if Globals.loop.keys()[i] != Globals.activeLoop: lc.modulate.v = 0.4
 		add_child(lc)
 	
-
-func _process(delta):
-	pass

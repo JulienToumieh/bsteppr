@@ -10,9 +10,14 @@ var triggeredHold = false
 
 func _ready():
 	$LoopName.text = loopName
-	$LoopCount.text = "x" + str(loopCount)
-	$NextLoop.text = nextLoop
+	_on_update_ui()
+	Globals.connect("update_ui", Callable(self, "_on_update_ui"))
 
+func _on_update_ui():
+	if loopName != Globals.activeLoop: modulate.v = 0.4
+	else: modulate.v = 1
+	$LoopCount.text = "x" + str(Globals.loop[loopName][0])
+	$NextLoop.text = Globals.loop[loopName][1]
 
 func _process(delta):
 	if pressed:

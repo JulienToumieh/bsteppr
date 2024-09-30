@@ -5,27 +5,15 @@ var EditLoopPopup = preload("res://components/edit_loop_popup.tscn")
 var LoopContainer = preload("res://scenes/loop_chip_container.tscn")
 
 func _ready():
-	resetLoopContainer()
+	Globals.connect("update_ui", Callable(self, "_on_update_ui"))
 
-
-func _process(delta):
+func _on_update_ui():
 	get_node("PlayPauseButton/Play").visible = not Globals.playing
 	get_node("PlayPauseButton/Pause").visible = Globals.playing
-
+	get_node("BeatGrid").updateTrackerPos()
 
 func _on_play_pause_button_pressed():
 	Globals.togglePlayback()
-
-
-func resetLoopContainer():
-	if get_node("LoopChipContainer"):
-		get_node("LoopChipContainer").queue_free()
-	await get_tree().process_frame
-	await get_tree().process_frame
-	var loopContainer = LoopContainer.instantiate()
-	loopContainer.position = Vector2(305, 690)
-	loopContainer.name = "LoopChipContainer"
-	add_child(loopContainer)
 
 func createEditBeatPopup(beatIDX):
 	var bEditPopup = EditBeatPopup.instantiate()

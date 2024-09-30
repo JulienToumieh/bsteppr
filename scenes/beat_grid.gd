@@ -28,7 +28,9 @@ func _ready():
 		instrument.name = "instrument" + str(i)
 		instrument.instrumentID = i + 1
 		add_child(instrument)
-	
+		
+	Globals.updateUI()
+	updateTrackerPos()
 
-func _process(delta):
+func updateTrackerPos():
 	get_node("PlaybackTracker").position.x = playbackTracker[Globals.playbackPosition]

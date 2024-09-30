@@ -1,5 +1,11 @@
 extends Node2D
 
+signal update_ui
+
+# Method to trigger the signal
+func updateUI():
+	emit_signal("update_ui")
+
 var beat = {
 	"A": Array(),
 	"B": Array(),
@@ -42,8 +48,10 @@ func togglePlayback():
 		timer.start()
 	loopCounter = loop[activeLoop][0]
 	playing = !playing
+	updateUI()
 
 func tick():
+	get_parent().get_node("Main/BeatGrid").updateTrackerPos()
 	if playbackPosition % 16 == 0: 
 		playbackPosition = 1
 		if barRound == 4: barRound = 1
@@ -59,7 +67,7 @@ func tick():
 				activeBeat = beat[activeLoop]
 				activeBeatQueue = activeBeat
 				loopCounter = loop[activeLoop][0]
-				get_parent().get_node("Main").resetLoopContainer()
+				updateUI()
 		loopCounter -= 1
 	else: 
 		playbackPosition += 1
@@ -83,9 +91,6 @@ func _ready():
 	timer.connect("timeout", Callable(self, "tick"))
 	add_child(timer)
 
-func _process(delta):
-	pass
-
 func playSound(id):
 	match id:
 		1: get_node("Instrument1").play()
@@ -102,6 +107,7 @@ func activateBeatStep(beatIDX):
 		activeBeat[beatIDX.x][beatIDX.y] = "5555"
 	else:
 		activeBeat[beatIDX.x][beatIDX.y] = "0000"
+	updateUI()
 
 func editBeatStep(beatIDX):
 	get_parent().get_node("Main").createEditBeatPopup(beatIDX)
@@ -115,14 +121,13 @@ func selectBeatLoop(loopName):
 		activeBeat = beat[loopName]
 		activeBeatQueue = beat[loopName]
 		loopCounter = loop[loopName][0]
-	
-	get_parent().get_node("Main").resetLoopContainer()
+	updateUI()
 
 func editLoop(loopName):
 	get_parent().get_node("Main").createEditLoopPopup(loopName)
 	
 func updateLoopChips():
-	get_parent().get_node("Main").resetLoopContainer()
+	updateUI()
 
 func mapVol(val):
 	match val:

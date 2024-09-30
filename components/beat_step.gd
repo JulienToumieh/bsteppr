@@ -21,16 +21,9 @@ func _ready():
 	if beatIDX.y == 5: modulate = Color("3CFF72")
 	if beatIDX.y == 6: modulate = Color("4CFF2F")
 	if beatIDX.y == 7: modulate = Color("#FF922D")
+	Globals.connect("update_ui", Callable(self, "_on_update_ui"))
 
-
-func _process(delta):
-	if pressed:
-		if Time.get_ticks_msec() - buttonTime >= 250 and not triggeredHold:
-			pressed = false
-			triggeredHold = true
-			Globals.editBeatStep(beatIDX)
-			
-	
+func _on_update_ui():
 	var beatQ = Globals.activeBeat[beatIDX.x][beatIDX.y]
 	
 	Q1 = int(beatQ[0])
@@ -47,6 +40,16 @@ func _process(delta):
 	for bQ in range(4):
 		if val < int(beatQ[bQ]): val = int(beatQ[bQ])
 	modulate.v = 0.5 + val/10.0
+
+
+func _process(delta):
+	if pressed:
+		if Time.get_ticks_msec() - buttonTime >= 250 and not triggeredHold:
+			pressed = false
+			triggeredHold = true
+			Globals.editBeatStep(beatIDX)
+			
+
 
 
 func _on_step_click_button_down():

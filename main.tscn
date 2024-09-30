@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://gptqi34mccih"]
+[gd_scene load_steps=8 format=3 uid="uid://gptqi34mccih"]
 
 [ext_resource type="PackedScene" uid="uid://dyjphmfje7qcq" path="res://scenes/beat_grid.tscn" id="1_1by64"]
 [ext_resource type="Script" path="res://main.gd" id="1_3c72v"]
 [ext_resource type="Texture2D" uid="uid://bchy7yf4dedqm" path="res://assets/Frame 5.png" id="1_t6763"]
 [ext_resource type="Texture2D" uid="uid://cg36m0tjfsvsn" path="res://assets/play.svg" id="3_go3ir"]
 [ext_resource type="Texture2D" uid="uid://wmohuhkst3hw" path="res://assets/pause.svg" id="5_vupvr"]
+[ext_resource type="PackedScene" uid="uid://c0b6f0lpdqqq6" path="res://scenes/loop_chip_container.tscn" id="6_ob1h3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcn34"]
 
@@ -39,5 +40,8 @@ modulate = Color(0.72, 0.72, 0.72, 1)
 position = Vector2(39, 41)
 scale = Vector2(0.320675, 0.320675)
 texture = ExtResource("5_vupvr")
+
+[node name="LoopChipContainer" parent="." instance=ExtResource("6_ob1h3")]
+position = Vector2(305, 690)
 
 [connection signal="pressed" from="PlayPauseButton" to="." method="_on_play_pause_button_pressed"]

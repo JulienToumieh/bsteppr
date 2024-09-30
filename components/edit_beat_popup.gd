@@ -24,6 +24,8 @@ func updateGlobal():
 			get_node("BeatEditQuarter" + str(bQ+1)).modulate = Color(1, 1, 1, 0.2)
 		else:
 			get_node("BeatEditQuarter" + str(bQ+1)).modulate = Color(1, 1, 1, 1)
+	
+	Globals.updateUI()
 
 func _on_velocity_slider_drag_ended(value_changed):
 	if beatVal == "0000":
