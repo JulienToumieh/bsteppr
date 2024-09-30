@@ -28,16 +28,23 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_xcn34")
 flat = true
 
 [node name="Play" type="Sprite2D" parent="PlayPauseButton"]
-visible = false
-modulate = Color(0.16, 1, 0.65, 1)
+modulate = Color(0.16, 1, 0.533333, 1)
 position = Vector2(40, 42)
 scale = Vector2(0.863444, 0.863444)
 texture = ExtResource("3_go3ir")
 
 [node name="Pause" type="Sprite2D" parent="PlayPauseButton"]
+visible = false
 modulate = Color(0.72, 0.72, 0.72, 1)
 position = Vector2(39, 41)
 scale = Vector2(0.320675, 0.320675)
 texture = ExtResource("5_vupvr")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 656.0
+offset_right = 112.0
+offset_bottom = 709.0
+text = "e"
 
 [connection signal="pressed" from="PlayPauseButton" to="." method="_on_play_pause_button_pressed"]

@@ -40,6 +40,7 @@ func togglePlayback():
 		barRound = 0
 	else:
 		timer.start()
+	loopCounter = loop[activeLoop][0]
 	playing = !playing
 
 func tick():
@@ -47,7 +48,15 @@ func tick():
 		playbackPosition = 1
 		if barRound == 4: barRound = 1
 		else: barRound += 1
+		if activeBeat != activeBeatQueue:
+			loopCounter = loop[activeLoop][0]
 		activeBeat = activeBeatQueue
+		if loopCounter == 0:
+			activeLoop = loop[activeLoop][1]
+			activeBeat = beat[activeLoop]
+			activeBeatQueue = activeBeat
+			loopCounter = loop[activeLoop][0]
+		loopCounter -= 1
 	else: 
 		playbackPosition += 1
 	
@@ -94,12 +103,15 @@ func editBeatStep(beatIDX):
 	get_parent().get_node("Main").createEditBeatPopup(beatIDX)
 
 func selectBeatLoop(loopName):
+	activeLoop = loopName
+	loopCounter = loop[activeLoop][0]
 	if playing:
 		activeBeatQueue = beat[loopName]
 	else:
 		activeBeat = beat[loopName]
 		activeBeatQueue = beat[loopName]
-	activeLoop = loopName
+		loopCounter = loop[loopName][0]
+	
 	get_parent().get_node("Main").resetLoopContainer()
 
 func editLoop(loopName):
@@ -127,20 +139,7 @@ func mapVol(val):
 
 
 '''
-var beats = {
-	"A": [["0000"] * 8 for _ in range(16)],
-	"B": [["0000"] * 8 for _ in range(16)],
-	"C": [["0000"] * 8 for _ in range(16)],
-	"D": [["0000"] * 8 for _ in range(16)],
-	"E": [["0000"] * 8 for _ in range(16)],
-	"F": [["0000"] * 8 for _ in range(16)]
-
-var activeBeat = beatA
-var playbackPosition = 0
-var playing = false
-
 var tempo = 60000 / 128  # Tempo in milliseconds
-
 
 @onready var metronome_timer = $Timer  # Reference to the Timer node
 
@@ -164,14 +163,4 @@ func _ready():
 func _on_Timer_timeout():
 	tick()  # Call tick on timer timeout
 
-func playSound(id):
-	match id:
-		1: get_node("Instrument1").play()
-		2: get_node("Instrument2").play()
-		3: get_node("Instrument3").play()
-		4: get_node("Instrument4").play()
-		5: get_node("Instrument5").play()
-		6: get_node("Instrument6").play()
-		7: get_node("Instrument7").play()
-		8: get_node("Instrument8").play()
 '''
