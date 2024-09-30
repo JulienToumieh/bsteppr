@@ -59,6 +59,7 @@ func tick():
 				activeBeat = beat[activeLoop]
 				activeBeatQueue = activeBeat
 				loopCounter = loop[activeLoop][0]
+				get_parent().get_node("Main").resetLoopContainer()
 		loopCounter -= 1
 	else: 
 		playbackPosition += 1
