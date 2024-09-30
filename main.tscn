@@ -40,11 +40,4 @@ position = Vector2(39, 41)
 scale = Vector2(0.320675, 0.320675)
 texture = ExtResource("5_vupvr")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 28.0
-offset_top = 656.0
-offset_right = 112.0
-offset_bottom = 709.0
-text = "e"
-
 [connection signal="pressed" from="PlayPauseButton" to="." method="_on_play_pause_button_pressed"]

@@ -52,10 +52,13 @@ func tick():
 			loopCounter = loop[activeLoop][0]
 		activeBeat = activeBeatQueue
 		if loopCounter == 0:
-			activeLoop = loop[activeLoop][1]
-			activeBeat = beat[activeLoop]
-			activeBeatQueue = activeBeat
-			loopCounter = loop[activeLoop][0]
+			if loop[activeLoop][1] == "Ø":
+				togglePlayback()
+			else:
+				activeLoop = loop[activeLoop][1]
+				activeBeat = beat[activeLoop]
+				activeBeatQueue = activeBeat
+				loopCounter = loop[activeLoop][0]
 		loopCounter -= 1
 	else: 
 		playbackPosition += 1

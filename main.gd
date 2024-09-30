@@ -9,7 +9,6 @@ func _ready():
 
 
 func _process(delta):
-	$Label.text = str(Globals.loopCounter) + " " + Globals.activeLoop
 	get_node("PlayPauseButton/Play").visible = not Globals.playing
 	get_node("PlayPauseButton/Pause").visible = Globals.playing
 
