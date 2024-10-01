@@ -72,5 +72,4 @@ position = Vector2(47.5753, 0)
 scale = Vector2(0.138427, 0.148148)
 texture = ExtResource("3_52vi7")
 
-[connection signal="button_down" from="LoopChipButton" to="." method="_on_loop_chip_button_button_down"]
-[connection signal="button_up" from="LoopChipButton" to="." method="_on_loop_chip_button_button_up"]
+[connection signal="gui_input" from="LoopChipButton" to="." method="_on_loop_chip_button_gui_input"]

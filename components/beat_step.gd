@@ -51,14 +51,18 @@ func _process(delta):
 			
 
 
-
-func _on_step_click_button_down():
-	buttonTime = Time.get_ticks_msec()
-	pressed = true
-	triggeredHold = false
-
-
-func _on_step_click_button_up():
-	pressed = false
-	if not triggeredHold:
-		Globals.activateBeatStep(beatIDX)
+func _on_step_click_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.pressed:  
+			match event.button_index:
+				1:
+					buttonTime = Time.get_ticks_msec()
+					pressed = true
+					triggeredHold = false
+				2:
+					Globals.editBeatStep(beatIDX)
+		elif event.is_released():
+			match event.button_index:
+				1:
+					pressed = false
+					if not triggeredHold: Globals.activateBeatStep(beatIDX)

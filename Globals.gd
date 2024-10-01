@@ -80,6 +80,10 @@ func tick():
 		if activeBeat[playbackPosition - 1][ins][barRound-1] != "0": playSound(ins+1)
 	
 
+func _process(delta):
+	if Input.is_action_just_pressed("start-stop"):
+		togglePlayback()
+
 func _ready():
 	for key in beat.keys():
 		for i in range(16):

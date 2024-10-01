@@ -42,5 +42,4 @@ offset_bottom = 32.0
 rotation = 0.0050771
 flat = true
 
-[connection signal="button_down" from="StepClick" to="." method="_on_step_click_button_down"]
-[connection signal="button_up" from="StepClick" to="." method="_on_step_click_button_up"]
+[connection signal="gui_input" from="StepClick" to="." method="_on_step_click_gui_input"]
