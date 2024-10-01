@@ -48,7 +48,6 @@ func _process(delta):
 			pressed = false
 			triggeredHold = true
 			Globals.editBeatStep(beatIDX)
-			
 
 
 func _on_step_click_gui_input(event):
@@ -65,4 +64,5 @@ func _on_step_click_gui_input(event):
 			match event.button_index:
 				1:
 					pressed = false
-					if not triggeredHold: Globals.activateBeatStep(beatIDX)
+					if not triggeredHold: 
+						Globals.activateBeatStep(beatIDX)

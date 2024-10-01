@@ -111,8 +111,12 @@ func playSound(id):
 func activateBeatStep(beatIDX):
 	if (activeBeat[beatIDX.x][beatIDX.y] == "0000"):
 		activeBeat[beatIDX.x][beatIDX.y] = "5555"
+		if !playing:
+			Globals.get_node("Instrument" + str(beatIDX.y+1)).volume_db = 0
+			playSound(beatIDX.y+1)
 	else:
 		activeBeat[beatIDX.x][beatIDX.y] = "0000"
+
 	updateUI()
 
 func editBeatStep(beatIDX):
