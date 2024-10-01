@@ -2,9 +2,33 @@ extends Node2D
 
 signal update_ui
 
-# Method to trigger the signal
+func getFileNames(directory: String) -> Array:
+	var dir = DirAccess.open(directory)
+	var file_names = []
+
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		
+		while file_name != "":
+			if not dir.current_is_dir() and not file_name.ends_with(".import"): 
+				file_names.append(file_name)
+			file_name = dir.get_next()
+		
+		dir.list_dir_end()
+	print(file_names)
+	return file_names
+
+
+var instrumentNames = []
+
 func updateUI():
 	emit_signal("update_ui")
+	
+func loadInstruments(genre):
+	instrumentNames = getFileNames("res://drum_kits/" + genre + "/")
+	for ins in range(8):
+		get_node("Instrument" + str(ins + 1)).stream = load("res://drum_kits/" + genre + "/" + instrumentNames[ins])
 
 var beat = {
 	"A": Array(),
@@ -84,6 +108,7 @@ func _ready():
 			beat[key].append(Array())
 			for j in range(8):
 				beat[key][i].append("0000")
+	loadInstruments("EDM")
 	setTempo()
 
 func setTempo():

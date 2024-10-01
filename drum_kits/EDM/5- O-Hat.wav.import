@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bgqpk2lid82o4"
-path="res://.godot/imported/3.wav-4a7abceac4b16129a591a2f2a21febc5.sample"
+uid="uid://bqren4wr6axr3"
+path="res://.godot/imported/5- O-Hat.wav-cd315e2e10d356fd482dd35452e3f6b1.sample"
 
 [deps]
 
-source_file="res://drumkits/pop/3.wav"
-dest_files=["res://.godot/imported/3.wav-4a7abceac4b16129a591a2f2a21febc5.sample"]
+source_file="res://drum_kits/EDM/5- O-Hat.wav"
+dest_files=["res://.godot/imported/5- O-Hat.wav-cd315e2e10d356fd482dd35452e3f6b1.sample"]
 
 [params]
 

@@ -11,10 +11,11 @@ func _ready():
 	if instrumentID == 6: modulate = Color("3CFF72")
 	if instrumentID == 7: modulate = Color("4CFF2F")
 	if instrumentID == 8: modulate = Color("#FF922D")
+	
+	Globals.connect("update_ui", Callable(self, "_on_update_ui"))
 
-
-func _process(delta):
-	pass
+func _on_update_ui():
+	get_node("Button").text = Globals.instrumentNames[instrumentID-1].substr(3).get_basename()
 
 
 func _on_button_pressed():

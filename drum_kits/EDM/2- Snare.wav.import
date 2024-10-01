@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://c7hhjdug82m3y"
-path="res://.godot/imported/2.wav-73aa89bf47ec1fb4cc2c4fff349cc15a.sample"
+uid="uid://djktjsp0hyb4"
+path="res://.godot/imported/2- Snare.wav-491f033f1a069c6a3c9b72b18ba53a4c.sample"
 
 [deps]
 
-source_file="res://drumkits/pop/2.wav"
-dest_files=["res://.godot/imported/2.wav-73aa89bf47ec1fb4cc2c4fff349cc15a.sample"]
+source_file="res://drum_kits/EDM/2- Snare.wav"
+dest_files=["res://.godot/imported/2- Snare.wav-491f033f1a069c6a3c9b72b18ba53a4c.sample"]
 
 [params]
 

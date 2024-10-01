@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cgmrrxp73ev1m"
-path="res://.godot/imported/1.wav-d70f3bb2bbe270ac576c1675bc906323.sample"
+uid="uid://b721857pt3qh6"
+path="res://.godot/imported/4- C-Hat.wav-567d0a774787ef9130d81c01c086daeb.sample"
 
 [deps]
 
-source_file="res://drumkits/pop/1.wav"
-dest_files=["res://.godot/imported/1.wav-d70f3bb2bbe270ac576c1675bc906323.sample"]
+source_file="res://drum_kits/EDM/4- C-Hat.wav"
+dest_files=["res://.godot/imported/4- C-Hat.wav-567d0a774787ef9130d81c01c086daeb.sample"]
 
 [params]
 

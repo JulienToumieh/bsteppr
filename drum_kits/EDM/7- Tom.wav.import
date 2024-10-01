@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://e2n5c14oxs1v"
-path="res://.godot/imported/tick.wav-a2cac328635e2c0581010ecb9f848631.sample"
+uid="uid://d3j4apliqu0u3"
+path="res://.godot/imported/7- Tom.wav-e811cdd4f76a4a8dc6149208658eb3e6.sample"
 
 [deps]
 
-source_file="res://drumkits/pop/tick.wav"
-dest_files=["res://.godot/imported/tick.wav-a2cac328635e2c0581010ecb9f848631.sample"]
+source_file="res://drum_kits/EDM/7- Tom.wav"
+dest_files=["res://.godot/imported/7- Tom.wav-e811cdd4f76a4a8dc6149208658eb3e6.sample"]
 
 [params]
 

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b0qm5vwbhra5r"
+path="res://.godot/imported/8- Cymbal.WAV-509e28e878bdcb2f393a8494b9ae46b2.sample"
+
+[deps]
+
+source_file="res://drum_kits/EDM/8- Cymbal.WAV"
+dest_files=["res://.godot/imported/8- Cymbal.WAV-509e28e878bdcb2f393a8494b9ae46b2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

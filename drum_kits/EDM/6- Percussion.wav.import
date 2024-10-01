@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cs186ckldnera"
+path="res://.godot/imported/6- Percussion.wav-95c6fb912a9ebda11a3760513235fbc0.sample"
+
+[deps]
+
+source_file="res://drum_kits/EDM/6- Percussion.wav"
+dest_files=["res://.godot/imported/6- Percussion.wav-95c6fb912a9ebda11a3760513235fbc0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

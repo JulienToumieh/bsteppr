@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://8cfy385fp777"]
+[gd_scene load_steps=2 format=3 uid="uid://8cfy385fp777"]
 
 [ext_resource type="Script" path="res://Globals.gd" id="1_wmx5g"]
-[ext_resource type="AudioStream" uid="uid://e2n5c14oxs1v" path="res://drumkits/pop/tick.wav" id="5_t8e21"]
 
 [node name="Globals" type="Node2D"]
 process_mode = 3
@@ -21,7 +20,6 @@ max_polyphony = 4
 max_polyphony = 4
 
 [node name="Instrument4" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_t8e21")
 max_polyphony = 4
 
 [node name="Instrument5" type="AudioStreamPlayer" parent="."]
