@@ -1,34 +1,5 @@
 extends Node2D
 
-signal update_ui
-
-func getFileNames(directory: String) -> Array:
-	var dir = DirAccess.open(directory)
-	var file_names = []
-
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		
-		while file_name != "":
-			if not dir.current_is_dir() and not file_name.ends_with(".import"): 
-				file_names.append(file_name)
-			file_name = dir.get_next()
-		
-		dir.list_dir_end()
-	print(file_names)
-	return file_names
-
-
-var instrumentNames = []
-
-func updateUI():
-	emit_signal("update_ui")
-	
-func loadInstruments(genre):
-	instrumentNames = getFileNames("res://drum_kits/" + genre + "/")
-	for ins in range(8):
-		get_node("Instrument" + str(ins + 1)).stream = load("res://drum_kits/" + genre + "/" + instrumentNames[ins])
 
 var beat = {
 	"A": Array(),
@@ -48,6 +19,9 @@ var loop = {
 	"F": [1, "Ø"]
 }
 
+signal update_ui
+var instrumentNames = []
+
 var activeLoop = "A"
 var activeBeat = beat[activeLoop]
 var activeBeatQueue = activeBeat
@@ -62,6 +36,8 @@ var bpm = 128
 var swing = 0
 var timer : Timer
 
+func updateUI():
+	emit_signal("update_ui")
 
 func togglePlayback():
 	if playing:
@@ -110,6 +86,11 @@ func _ready():
 				beat[key][i].append("0000")
 	loadInstruments("EDM")
 	setTempo()
+
+func loadInstruments(genre):
+	instrumentNames = getFileNames("res://drum_kits/" + genre + "/")
+	for ins in range(8):
+		get_node("Instrument" + str(ins + 1)).stream = load("res://drum_kits/" + genre + "/" + instrumentNames[ins])
 
 func setTempo():
 	timer = get_node("Timer")
@@ -171,7 +152,22 @@ func mapVol(val):
 		"5":
 			return 0
 
+func getFileNames(directory: String) -> Array:
+	var dir = DirAccess.open(directory)
+	var file_names = []
 
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		
+		while file_name != "":
+			if not dir.current_is_dir() and not file_name.ends_with(".import"): 
+				file_names.append(file_name)
+			file_name = dir.get_next()
+		
+		dir.list_dir_end()
+	print(file_names)
+	return file_names
 
 
 '''
