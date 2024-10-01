@@ -18,6 +18,7 @@ func _ready():
 func _on_close_popup_pressed():
 	Globals.bpm = bpm
 	Globals.swing = swing
+	Globals.setTempo()
 	Globals.updateUI()
 	queue_free()
 

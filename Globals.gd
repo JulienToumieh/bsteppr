@@ -36,7 +36,6 @@ var playing = false
 
 var bpm = 128
 var swing = 0
-var beat_interval = 60.0 / (bpm * 4)
 var timer : Timer
 
 
@@ -49,10 +48,10 @@ func togglePlayback():
 		timer.start()
 	loopCounter = loop[activeLoop][0]
 	playing = !playing
+	get_parent().get_node("Main/BeatGrid").updateTrackerPos()
 	updateUI()
 
 func tick():
-	get_parent().get_node("Main/BeatGrid").updateTrackerPos()
 	if playbackPosition % 16 == 0: 
 		playbackPosition = 1
 		if barRound == 4: barRound = 1
@@ -72,12 +71,12 @@ func tick():
 		loopCounter -= 1
 	else: 
 		playbackPosition += 1
+	get_parent().get_node("Main/BeatGrid").updateTrackerPos()
 	
 	for ins in range(8):
 		get_node("Instrument" + str(ins+1)).volume_db = mapVol(activeBeat[playbackPosition - 1][ins][barRound-1])
 		if activeBeat[playbackPosition - 1][ins][barRound-1] != "0": get_node("Instrument" + str(ins+1)).play()
 	
-	#if (playbackPosition + 3) % 4 == 0: playSound(3)
 
 func _ready():
 	for key in beat.keys():
@@ -85,9 +84,11 @@ func _ready():
 			beat[key].append(Array())
 			for j in range(8):
 				beat[key][i].append("0000")
-	
-	timer = Timer.new()
-	timer.wait_time = beat_interval
+	setTempo()
+
+func setTempo():
+	timer = get_node("Timer")
+	timer.wait_time = 60.0 / (bpm * 4)
 	timer.one_shot = false
 	timer.connect("timeout", Callable(self, "tick"))
 	add_child(timer)
