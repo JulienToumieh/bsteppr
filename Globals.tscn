@@ -32,3 +32,5 @@ max_polyphony = 4
 max_polyphony = 4
 
 [node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="tick"]

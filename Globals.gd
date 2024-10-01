@@ -102,8 +102,7 @@ func setTempo():
 	timer = get_node("Timer")
 	timer.wait_time = 60.0 / (bpm * 4)
 	timer.one_shot = false
-	timer.connect("timeout", Callable(self, "tick"))
-	add_child(timer)
+
 
 func playSound(id):
 	get_node("Instrument" + str(id)).play()
