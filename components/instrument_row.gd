@@ -19,4 +19,5 @@ func _on_update_ui():
 
 
 func _on_button_pressed():
+	Globals.get_node("Instrument" + str(instrumentID)).volume_db = 0
 	Globals.playSound(instrumentID)

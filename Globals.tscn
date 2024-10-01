@@ -5,9 +5,6 @@
 [node name="Globals" type="Node2D"]
 process_mode = 3
 process_priority = 10
-process_thread_group = 1
-process_thread_group_order = 0
-process_thread_messages = 1
 script = ExtResource("1_wmx5g")
 
 [node name="Instrument1" type="AudioStreamPlayer" parent="."]

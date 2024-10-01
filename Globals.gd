@@ -73,9 +73,11 @@ func tick():
 		playbackPosition += 1
 	get_parent().get_node("Main/BeatGrid").updateTrackerPos()
 	
+
 	for ins in range(8):
-		get_node("Instrument" + str(ins+1)).volume_db = mapVol(activeBeat[playbackPosition - 1][ins][barRound-1])
-		if activeBeat[playbackPosition - 1][ins][barRound-1] != "0": get_node("Instrument" + str(ins+1)).play()
+		if activeBeat[playbackPosition - 1][ins][barRound-1] != "0": 
+			get_node("Instrument" + str(ins+1)).volume_db = mapVol(activeBeat[playbackPosition - 1][ins][barRound-1])
+		if activeBeat[playbackPosition - 1][ins][barRound-1] != "0": playSound(ins+1)
 	
 
 func _ready():
@@ -100,15 +102,8 @@ func setTempo():
 	add_child(timer)
 
 func playSound(id):
-	match id:
-		1: get_node("Instrument1").play()
-		2: get_node("Instrument2").play()
-		3: get_node("Instrument3").play()
-		4: get_node("Instrument4").play()
-		5: get_node("Instrument5").play()
-		6: get_node("Instrument6").play()
-		7: get_node("Instrument7").play()
-		8: get_node("Instrument8").play()
+	get_node("Instrument" + str(id)).play()
+
 
 func activateBeatStep(beatIDX):
 	if (activeBeat[beatIDX.x][beatIDX.y] == "0000"):
@@ -166,7 +161,6 @@ func getFileNames(directory: String) -> Array:
 			file_name = dir.get_next()
 		
 		dir.list_dir_end()
-	print(file_names)
 	return file_names
 
 
