@@ -1,0 +1,232 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2u3gkf4nof71"]
+
+[ext_resource type="Script" path="res://components/edit_tempo_popup.gd" id="1_1wo6j"]
+[ext_resource type="Texture2D" uid="uid://cwguhnm6ysoaf" path="res://assets/1px.png" id="2_i6y0g"]
+[ext_resource type="Texture2D" uid="uid://n5533s2q5oj2" path="res://assets/arrow line.svg" id="3_8slsu"]
+
+[node name="EditTempoPopup" type="Node2D"]
+script = ExtResource("1_1wo6j")
+
+[node name="ClosePopup" type="Button" parent="."]
+offset_left = -1080.0
+offset_top = -512.0
+offset_right = 1080.0
+offset_bottom = 512.0
+flat = true
+
+[node name="darkbg" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.588235)
+position = Vector2(3.05176e-05, -1.52588e-05)
+scale = Vector2(2176, 1024)
+texture = ExtResource("2_i6y0g")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -264.0
+offset_top = -168.0
+offset_right = 264.0
+offset_bottom = 160.0
+
+[node name="1Px2" type="Sprite2D" parent="."]
+position = Vector2(-9.05991e-06, -3.99998)
+scale = Vector2(528, 328)
+texture = ExtResource("2_i6y0g")
+
+[node name="1Px" type="Sprite2D" parent="."]
+modulate = Color(0.1365, 0.133, 0.14, 1)
+position = Vector2(0, -3.99997)
+scale = Vector2(512, 312)
+texture = ExtResource("2_i6y0g")
+
+[node name="TempoSlider" type="HSlider" parent="."]
+offset_left = -216.0
+offset_top = -40.0
+offset_right = 216.0
+offset_bottom = -24.0
+
+[node name="SwingSlider" type="HSlider" parent="."]
+offset_left = -216.0
+offset_top = 104.0
+offset_right = 216.0
+offset_bottom = 120.0
+
+[node name="BPMLabel" type="Label" parent="."]
+offset_left = -64.0
+offset_top = -136.0
+offset_right = 64.0
+offset_bottom = -81.0
+theme_override_font_sizes/font_size = 40
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SwingLabel" type="Label" parent="."]
+offset_left = -64.0
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color(0.683128, 0.683128, 0.683128, 1)
+offset_left = -64.0
+offset_top = -88.0
+offset_right = 64.0
+offset_bottom = -60.0
+theme_override_font_sizes/font_size = 20
+text = "BPM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+modulate = Color(0.683128, 0.683128, 0.683128, 1)
+offset_left = -64.0
+offset_top = 56.0
+offset_right = 64.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 20
+text = "% swing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonArrows" type="Node2D" parent="."]
+position = Vector2(0, 8.00003)
+
+[node name="ArrowLine" type="Sprite2D" parent="ButtonArrows"]
+position = Vector2(96, -104)
+rotation = 1.5708
+scale = Vector2(0.229958, 0.229958)
+texture = ExtResource("3_8slsu")
+
+[node name="ArrowLine2" type="Sprite2D" parent="ButtonArrows"]
+position = Vector2(160, -104)
+rotation = 1.5708
+scale = Vector2(0.229958, 0.229958)
+texture = ExtResource("3_8slsu")
+
+[node name="ArrowLine3" type="Sprite2D" parent="ButtonArrows"]
+position = Vector2(176, -104)
+rotation = 1.5708
+scale = Vector2(0.229958, 0.229958)
+texture = ExtResource("3_8slsu")
+
+[node name="ArrowLine4" type="Sprite2D" parent="ButtonArrows"]
+position = Vector2(-176, -104)
+rotation = 4.71239
+scale = Vector2(0.229958, 0.229958)
+texture = ExtResource("3_8slsu")
+
+[node name="ArrowLine5" type="Sprite2D" parent="ButtonArrows"]
+position = Vector2(-160, -104)
+rotation = 4.71239
+scale = Vector2(0.229958, 0.229958)
+texture = ExtResource("3_8slsu")
+
+[node name="ArrowLine6" type="Sprite2D" parent="ButtonArrows"]
+position = Vector2(-96, -104)
+rotation = 4.71239
+scale = Vector2(0.229958, 0.229958)
+texture = ExtResource("3_8slsu")
+
+[node name="ArrowLine7" type="Sprite2D" parent="ButtonArrows"]
+position = Vector2(96, 40)
+rotation = 1.5708
+scale = Vector2(0.229958, 0.229958)
+texture = ExtResource("3_8slsu")
+
+[node name="ArrowLine8" type="Sprite2D" parent="ButtonArrows"]
+position = Vector2(160, 40)
+rotation = 1.5708
+scale = Vector2(0.229958, 0.229958)
+texture = ExtResource("3_8slsu")
+
+[node name="ArrowLine9" type="Sprite2D" parent="ButtonArrows"]
+position = Vector2(176, 40)
+rotation = 1.5708
+scale = Vector2(0.229958, 0.229958)
+texture = ExtResource("3_8slsu")
+
+[node name="ArrowLine10" type="Sprite2D" parent="ButtonArrows"]
+position = Vector2(-176, 40)
+rotation = 4.71239
+scale = Vector2(0.229958, 0.229958)
+texture = ExtResource("3_8slsu")
+
+[node name="ArrowLine11" type="Sprite2D" parent="ButtonArrows"]
+position = Vector2(-160, 40)
+rotation = 4.71239
+scale = Vector2(0.229958, 0.229958)
+texture = ExtResource("3_8slsu")
+
+[node name="ArrowLine12" type="Sprite2D" parent="ButtonArrows"]
+position = Vector2(-96, 40)
+rotation = 4.71239
+scale = Vector2(0.229958, 0.229958)
+texture = ExtResource("3_8slsu")
+
+[node name="Buttons" type="Node2D" parent="."]
+position = Vector2(136, -128)
+
+[node name="IncreaseTempo" type="Button" parent="Buttons"]
+offset_left = -72.0
+offset_right = -8.0
+offset_bottom = 64.0
+flat = true
+
+[node name="IncreaseTempo2" type="Button" parent="Buttons"]
+offset_right = 64.0
+offset_bottom = 64.0
+flat = true
+
+[node name="DecreaseTempo2" type="Button" parent="Buttons"]
+offset_left = -336.0
+offset_right = -272.0
+offset_bottom = 64.0
+flat = true
+
+[node name="DecreaseTempo" type="Button" parent="Buttons"]
+offset_left = -264.0
+offset_right = -200.0
+offset_bottom = 64.0
+flat = true
+
+[node name="IncreaseSwing" type="Button" parent="Buttons"]
+offset_left = -72.0
+offset_top = 144.0
+offset_right = -8.0
+offset_bottom = 208.0
+flat = true
+
+[node name="IncreaseSwing2" type="Button" parent="Buttons"]
+offset_top = 144.0
+offset_right = 64.0
+offset_bottom = 208.0
+flat = true
+
+[node name="DecreaseSwing2" type="Button" parent="Buttons"]
+offset_left = -336.0
+offset_top = 144.0
+offset_right = -272.0
+offset_bottom = 208.0
+flat = true
+
+[node name="DecreaseSwing" type="Button" parent="Buttons"]
+offset_left = -264.0
+offset_top = 144.0
+offset_right = -200.0
+offset_bottom = 208.0
+flat = true
+
+[connection signal="pressed" from="ClosePopup" to="." method="_on_close_popup_pressed"]
+[connection signal="value_changed" from="TempoSlider" to="." method="_on_tempo_slider_value_changed"]
+[connection signal="value_changed" from="SwingSlider" to="." method="_on_swing_slider_value_changed"]
+[connection signal="pressed" from="Buttons/IncreaseTempo" to="." method="_on_increase_tempo_pressed"]
+[connection signal="pressed" from="Buttons/IncreaseTempo2" to="." method="_on_increase_tempo_2_pressed"]
+[connection signal="pressed" from="Buttons/DecreaseTempo2" to="." method="_on_decrease_tempo_2_pressed"]
+[connection signal="pressed" from="Buttons/DecreaseTempo" to="." method="_on_decrease_tempo_pressed"]
+[connection signal="pressed" from="Buttons/IncreaseSwing" to="." method="_on_increase_swing_pressed"]
+[connection signal="pressed" from="Buttons/IncreaseSwing2" to="." method="_on_increase_swing_2_pressed"]
+[connection signal="pressed" from="Buttons/DecreaseSwing2" to="." method="_on_decrease_swing_2_pressed"]
+[connection signal="pressed" from="Buttons/DecreaseSwing" to="." method="_on_decrease_swing_pressed"]

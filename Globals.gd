@@ -35,6 +35,7 @@ var barRound = 0
 var playing = false
 
 var bpm = 128
+var swing = 0
 var beat_interval = 60.0 / (bpm * 4)
 var timer : Timer
 
