@@ -163,8 +163,8 @@ func getFileNames(directory: String) -> Array:
 		var file_name = dir.get_next()
 		
 		while file_name != "":
-			if not dir.current_is_dir() and not file_name.ends_with(".import"): 
-				file_names.append(file_name)
+			if not dir.current_is_dir() and file_name.ends_with(".import"): 
+				file_names.append(file_name.replace('.import', ''))
 			file_name = dir.get_next()
 		
 		dir.list_dir_end()

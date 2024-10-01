@@ -27,6 +27,8 @@ Globals="*res://Globals.tscn"
 window/size/viewport_width=1550
 window/size/viewport_height=750
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
 
 [dotnet]
 

@@ -15,6 +15,7 @@ offset_left = -73.0
 offset_top = -27.0
 offset_right = 73.0
 offset_bottom = 27.0
+theme_override_font_sizes/font_size = 24
 text = "Drum"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
