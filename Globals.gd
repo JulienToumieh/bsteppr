@@ -67,18 +67,19 @@ func tick():
 				activeBeat = beat[activeLoop]
 				activeBeatQueue = activeBeat
 				loopCounter = loop[activeLoop][0]
-				updateUI()
+		updateUI()
 		loopCounter -= 1
 	else: 
 		playbackPosition += 1
 	get_parent().get_node("Main/BeatGrid").updateTrackerPos()
 	
-
+	if playbackPosition % 2 and swing != 0: await get_tree().create_timer(((60 / bpm) * 4) * (swing * 1.0 / 100.0) * 0.035).timeout
 	for ins in range(8):
 		if activeBeat[playbackPosition - 1][ins][barRound-1] != "0": 
 			get_node("Instrument" + str(ins+1)).volume_db = mapVol(activeBeat[playbackPosition - 1][ins][barRound-1])
 		if activeBeat[playbackPosition - 1][ins][barRound-1] != "0": playSound(ins+1)
-	
+
+
 
 func _process(delta):
 	if Input.is_action_just_pressed("start-stop"):
