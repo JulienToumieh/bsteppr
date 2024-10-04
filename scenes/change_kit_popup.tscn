@@ -55,7 +55,7 @@ offset_top = -256.0
 offset_right = 488.0
 offset_bottom = -200.0
 theme_override_font_sizes/font_size = 30
-text = "Loops"
+text = "Beat Presets"
 horizontal_alignment = 1
 vertical_alignment = 1
 
