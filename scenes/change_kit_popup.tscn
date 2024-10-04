@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://cijlatr7tp2kd"]
+
+[ext_resource type="Texture2D" uid="uid://cwguhnm6ysoaf" path="res://assets/1px.png" id="1_4gpbf"]
+[ext_resource type="Script" path="res://scenes/change_kit_popup.gd" id="1_d71od"]
+
+[node name="ChangeKitPopup" type="Node2D"]
+script = ExtResource("1_d71od")
+
+[node name="ClosePopup" type="Button" parent="."]
+offset_left = -1080.0
+offset_top = -512.0
+offset_right = 1080.0
+offset_bottom = 512.0
+flat = true
+
+[node name="darkbg" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.588235)
+position = Vector2(3.05176e-05, -1.52588e-05)
+scale = Vector2(2176, 1024)
+texture = ExtResource("1_4gpbf")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -264.0
+offset_top = -168.0
+offset_right = 264.0
+offset_bottom = 160.0
+
+[node name="1Px2" type="Sprite2D" parent="."]
+position = Vector2(-9.05991e-06, 8.10623e-06)
+scale = Vector2(992, 560)
+texture = ExtResource("1_4gpbf")
+
+[node name="1Px" type="Sprite2D" parent="."]
+modulate = Color(0.1365, 0.133, 0.14, 1)
+position = Vector2(0, 1.12057e-05)
+scale = Vector2(976, 544)
+texture = ExtResource("1_4gpbf")
+
+[node name="1Px3" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, 2.27374e-13)
+scale = Vector2(4, 480)
+texture = ExtResource("1_4gpbf")
+
+[node name="DrumKits" type="Label" parent="."]
+offset_left = -488.0
+offset_top = -256.0
+offset_bottom = -200.0
+theme_override_font_sizes/font_size = 30
+text = "Drum Kits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loops" type="Label" parent="."]
+offset_top = -256.0
+offset_right = 488.0
+offset_bottom = -200.0
+theme_override_font_sizes/font_size = 30
+text = "Loops"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KitList" type="ItemList" parent="."]
+offset_left = -464.0
+offset_top = -184.0
+offset_right = -256.0
+offset_bottom = 240.0
+theme_override_font_sizes/font_size = 22
+
+[node name="BSelectKit" type="Button" parent="."]
+offset_left = -240.0
+offset_top = 192.0
+offset_right = -16.0
+offset_bottom = 240.0
+text = "Select Kit"
+
+[connection signal="pressed" from="ClosePopup" to="." method="_on_close_popup_pressed"]
+[connection signal="item_selected" from="KitList" to="." method="_on_item_list_item_selected"]
+[connection signal="pressed" from="BSelectKit" to="." method="_on_b_select_kit_pressed"]

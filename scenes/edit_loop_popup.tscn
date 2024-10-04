@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://ciaayaw4pek7r"]
 
-[ext_resource type="Script" path="res://components/edit_loop_popup.gd" id="1_n4716"]
+[ext_resource type="Script" path="res://scenes/edit_loop_popup.gd" id="1_n4716"]
 [ext_resource type="Texture2D" uid="uid://cwguhnm6ysoaf" path="res://assets/1px.png" id="2_x67h4"]
 [ext_resource type="Texture2D" uid="uid://dcren3eiiyi0x" path="res://assets/arrow.svg" id="3_3x8pl"]
 [ext_resource type="Texture2D" uid="uid://bjndxmp6lsljl" path="res://assets/select a.svg" id="4_ujk17"]

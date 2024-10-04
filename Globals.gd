@@ -22,6 +22,8 @@ var loop = {
 signal update_ui
 var instrumentNames = []
 
+var currentKit = "EDM"
+
 var activeLoop = "A"
 var activeBeat = beat[activeLoop]
 var activeBeatQueue = activeBeat
@@ -91,13 +93,13 @@ func _ready():
 			beat[key].append(Array())
 			for j in range(8):
 				beat[key][i].append("0000")
-	loadInstruments("EDM")
+	loadInstruments(currentKit)
 	setTempo()
 
-func loadInstruments(genre):
-	instrumentNames = getFileNames("res://drum_kits/" + genre + "/")
+func loadInstruments(kit):
+	instrumentNames = getFileNames("res://drum_kits/" + kit + "/")
 	for ins in range(8):
-		get_node("Instrument" + str(ins + 1)).stream = load("res://drum_kits/" + genre + "/" + instrumentNames[ins])
+		get_node("Instrument" + str(ins + 1)).stream = load("res://drum_kits/" + kit + "/" + instrumentNames[ins])
 
 func setTempo():
 	timer = get_node("Timer")

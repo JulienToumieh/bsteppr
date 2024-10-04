@@ -1,8 +1,9 @@
 extends Node2D
 
-var EditBeatPopup = preload("res://components/edit_beat_popup.tscn")
-var EditLoopPopup = preload("res://components/edit_loop_popup.tscn")
-var EditTempoPopup = preload("res://components/edit_tempo_popup.tscn")
+var EditBeatPopup = preload("res://scenes/edit_beat_popup.tscn")
+var EditLoopPopup = preload("res://scenes/edit_loop_popup.tscn")
+var EditTempoPopup = preload("res://scenes/edit_tempo_popup.tscn")
+var ChangeKitPopup = preload("res://scenes/change_kit_popup.tscn")
 var LoopContainer = preload("res://scenes/loop_chip_container.tscn")
 
 func _ready():
@@ -28,6 +29,18 @@ func createEditLoopPopup(loopName):
 	lEditPopup.loopName = loopName
 	add_child(lEditPopup)
 
+func createChangeKitPopup():
+	var kChangePopup = ChangeKitPopup.instantiate()
+	add_child(kChangePopup)
+
 func _on_tempo_button_pressed():
 	var tEditPopup = EditTempoPopup.instantiate()
 	add_child(tEditPopup)
+
+
+func _on_b_drum_kit_pressed():
+	createChangeKitPopup()
+
+
+func _on_b_settings_pressed():
+	pass # Replace with function body.

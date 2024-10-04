@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://gptqi34mccih"]
+[gd_scene load_steps=11 format=3 uid="uid://gptqi34mccih"]
 
 [ext_resource type="PackedScene" uid="uid://dyjphmfje7qcq" path="res://scenes/beat_grid.tscn" id="1_1by64"]
 [ext_resource type="Script" path="res://main.gd" id="1_3c72v"]
@@ -6,8 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://cg36m0tjfsvsn" path="res://assets/play.svg" id="3_go3ir"]
 [ext_resource type="Texture2D" uid="uid://wmohuhkst3hw" path="res://assets/pause.svg" id="5_vupvr"]
 [ext_resource type="PackedScene" uid="uid://c0b6f0lpdqqq6" path="res://scenes/loop_chip_container.tscn" id="6_ob1h3"]
+[ext_resource type="Texture2D" uid="uid://dru3lrb1yb3v8" path="res://assets/drum set.svg" id="7_jdhqv"]
+[ext_resource type="Texture2D" uid="uid://d2l8uygqao7uf" path="res://assets/settings.svg" id="8_own0v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcn34"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_58uxl"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3c72v")
@@ -74,5 +78,57 @@ offset_right = 1392.0
 offset_bottom = 727.0
 flat = true
 
+[node name="UIButtons" type="Node2D" parent="."]
+
+[node name="DrumSet" type="Sprite2D" parent="UIButtons"]
+modulate = Color(0.598537, 0.769547, 0.632317, 1)
+position = Vector2(85.0312, 690.031)
+scale = Vector2(0.287183, 0.287183)
+texture = ExtResource("7_jdhqv")
+
+[node name="Settings" type="Sprite2D" parent="UIButtons"]
+modulate = Color(0.598537, 0.769547, 0.632317, 1)
+position = Vector2(165.031, 691.031)
+scale = Vector2(0.228903, 0.228903)
+texture = ExtResource("8_own0v")
+
+[node name="BDrumKit" type="Button" parent="UIButtons"]
+offset_left = 48.0
+offset_top = 659.0
+offset_right = 122.0
+offset_bottom = 724.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_58uxl")
+flat = true
+
+[node name="BSettings" type="Button" parent="UIButtons"]
+offset_left = 132.0
+offset_top = 660.0
+offset_right = 198.0
+offset_bottom = 722.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_58uxl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_58uxl")
+flat = true
+
 [connection signal="pressed" from="PlayPauseButton" to="." method="_on_play_pause_button_pressed"]
 [connection signal="pressed" from="TempoDisp/TempoButton" to="." method="_on_tempo_button_pressed"]
+[connection signal="pressed" from="UIButtons/BDrumKit" to="." method="_on_b_drum_kit_pressed"]
+[connection signal="pressed" from="UIButtons/BSettings" to="." method="_on_b_settings_pressed"]
