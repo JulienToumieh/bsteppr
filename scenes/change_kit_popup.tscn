@@ -66,13 +66,24 @@ offset_right = -256.0
 offset_bottom = 240.0
 theme_override_font_sizes/font_size = 22
 
+[node name="KIntrumentsList" type="ItemList" parent="."]
+offset_left = -240.0
+offset_top = -184.0
+offset_right = -24.0
+offset_bottom = 176.0
+theme_override_font_sizes/font_size = 22
+
 [node name="BSelectKit" type="Button" parent="."]
 offset_left = -240.0
 offset_top = 192.0
-offset_right = -16.0
+offset_right = -24.0
 offset_bottom = 240.0
 text = "Select Kit"
 
+[node name="InstrumentPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="ClosePopup" to="." method="_on_close_popup_pressed"]
 [connection signal="item_selected" from="KitList" to="." method="_on_item_list_item_selected"]
+[connection signal="item_clicked" from="KIntrumentsList" to="." method="_on_k_intruments_list_item_clicked"]
+[connection signal="item_selected" from="KIntrumentsList" to="." method="_on_k_intruments_list_item_selected"]
 [connection signal="pressed" from="BSelectKit" to="." method="_on_b_select_kit_pressed"]

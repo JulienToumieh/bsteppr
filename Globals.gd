@@ -100,6 +100,7 @@ func loadInstruments(kit):
 	instrumentNames = getFileNames("res://drum_kits/" + kit + "/")
 	for ins in range(8):
 		get_node("Instrument" + str(ins + 1)).stream = load("res://drum_kits/" + kit + "/" + instrumentNames[ins])
+	updateUI()
 
 func setTempo():
 	timer = get_node("Timer")
