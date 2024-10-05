@@ -103,6 +103,21 @@ func save_loop(loopName):
 	save_file.close()
 
 
+func load_loop(loopName):
+	var load_file = FileAccess.open(data_path + "/Loop Presets/" + loopName + ".blp", FileAccess.READ)
+	
+	var json_data = load_file.get_line()
+	load_file.close() 
+	var json = JSON.new()
+	var parse_result = json.parse(json_data)
+
+	var loop_data = json.data
+	
+	beat = loop_data["beat"]
+	loop = loop_data["loop"]
+
+
+
 func _ready():
 	if OS.has_feature("android"):
 		OS.request_permissions()
@@ -116,8 +131,6 @@ func _ready():
 			beat[key].append(Array())
 			for j in range(8):
 				beat[key][i].append("0000")
-	
-	save_loop("Test Loop")
 	
 	loadInstruments(currentKit)
 	setTempo()
