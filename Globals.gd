@@ -38,6 +38,11 @@ var bpm = 128
 var swing = 0
 var timer : Timer
 
+var executable_path = OS.get_executable_path().get_base_dir()
+var android_path = "/storage/emulated/0/BSteppr"
+var data_path
+
+
 func updateUI():
 	emit_signal("update_ui")
 
@@ -82,17 +87,38 @@ func tick():
 		if activeBeat[playbackPosition - 1][ins][barRound-1] != "0": playSound(ins+1)
 
 
-
 func _process(delta):
 	if Input.is_action_just_pressed("start-stop"):
 		togglePlayback()
 
+func save_loop(loopName):
+	var save_file = FileAccess.open(data_path + "/Loop Presets/" + loopName + ".blp", FileAccess.WRITE)
+	
+	var loop_data = {
+		"beat": beat,
+		"loop": loop
+	}
+	
+	save_file.store_line(JSON.stringify(loop_data))
+	save_file.close()
+
+
 func _ready():
+	if OS.has_feature("android"):
+		OS.request_permissions()
+		data_path = "/storage/emulated/0/BSteppr"
+	else:
+		data_path = OS.get_executable_path().get_base_dir()
+		DirAccess.make_dir_absolute(data_path + "/Loop Presets")
+		
 	for key in beat.keys():
 		for i in range(16):
 			beat[key].append(Array())
 			for j in range(8):
 				beat[key][i].append("0000")
+	
+	save_loop("Test Loop")
+	
 	loadInstruments(currentKit)
 	setTempo()
 
