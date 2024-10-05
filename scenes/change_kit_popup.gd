@@ -93,7 +93,6 @@ func _on_b_save_loop_pressed():
 func _on_b_load_loop_pressed():
 	if selectedLoop != null:
 		Globals.load_loop(selectedLoop)
-		Globals.updateUI()
 
 func _on_loop_preset_list_item_clicked(index, at_position, mouse_button_index):
 	selectedLoop = get_node("LoopPresetList").get_item_text(index)

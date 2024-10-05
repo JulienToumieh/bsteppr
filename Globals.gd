@@ -94,7 +94,9 @@ func save_loop(loopName):
 	
 	var loop_data = {
 		"beat": beat,
-		"loop": loop
+		"loop": loop,
+		"tempo": bpm,
+		"swing": swing
 	}
 	
 	save_file.store_line(JSON.stringify(loop_data))
@@ -113,8 +115,12 @@ func load_loop(loopName):
 	
 	beat = loop_data["beat"]
 	loop = loop_data["loop"]
+	bpm = loop_data["tempo"]
+	swing = loop_data["swing"]
 	
 	activeBeat = beat[activeLoop]
+	
+	updateUI()
 
 
 func _ready():
@@ -130,7 +136,7 @@ func _ready():
 			beat[key].append(Array())
 			for j in range(8):
 				beat[key][i].append("0000")
-				
+		
 	
 	loadInstruments(currentKit)
 	setTempo()
