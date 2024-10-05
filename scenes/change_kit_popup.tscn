@@ -55,7 +55,7 @@ offset_top = -256.0
 offset_right = 488.0
 offset_bottom = -200.0
 theme_override_font_sizes/font_size = 30
-text = "Beat Presets"
+text = "Loop Presets"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -82,8 +82,40 @@ text = "Select Kit"
 
 [node name="InstrumentPlayer" type="AudioStreamPlayer" parent="."]
 
+[node name="LoopPresetList" type="ItemList" parent="."]
+offset_left = 24.0
+offset_top = -184.0
+offset_right = 232.0
+offset_bottom = 176.0
+theme_override_font_sizes/font_size = 22
+
+[node name="InputLoopName" type="TextEdit" parent="."]
+offset_left = 248.0
+offset_top = 128.0
+offset_right = 464.0
+offset_bottom = 176.0
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Loop Name"
+
+[node name="BSaveLoop" type="Button" parent="."]
+offset_left = 248.0
+offset_top = 192.0
+offset_right = 464.0
+offset_bottom = 240.0
+text = "Save Loop"
+
+[node name="BLoadLoop" type="Button" parent="."]
+offset_left = 24.0
+offset_top = 192.0
+offset_right = 232.0
+offset_bottom = 240.0
+text = "Load Loop"
+
 [connection signal="pressed" from="ClosePopup" to="." method="_on_close_popup_pressed"]
 [connection signal="item_selected" from="KitList" to="." method="_on_item_list_item_selected"]
 [connection signal="item_clicked" from="KIntrumentsList" to="." method="_on_k_intruments_list_item_clicked"]
 [connection signal="item_selected" from="KIntrumentsList" to="." method="_on_k_intruments_list_item_selected"]
 [connection signal="pressed" from="BSelectKit" to="." method="_on_b_select_kit_pressed"]
+[connection signal="item_clicked" from="LoopPresetList" to="." method="_on_loop_preset_list_item_clicked"]
+[connection signal="pressed" from="BSaveLoop" to="." method="_on_b_save_loop_pressed"]
+[connection signal="pressed" from="BLoadLoop" to="." method="_on_b_load_loop_pressed"]
