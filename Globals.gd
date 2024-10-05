@@ -131,7 +131,6 @@ func _ready():
 			for j in range(8):
 				beat[key][i].append("0000")
 				
-	save_loop("tlp")
 	
 	loadInstruments(currentKit)
 	setTempo()
