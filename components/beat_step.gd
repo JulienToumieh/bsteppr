@@ -42,7 +42,7 @@ func _on_update_ui():
 	modulate.v = 0.5 + val/10.0
 
 
-func _process(delta):
+func _process(_delta):
 	if pressed:
 		if Time.get_ticks_msec() - buttonTime >= 250 and not triggeredHold:
 			pressed = false

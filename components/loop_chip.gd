@@ -19,7 +19,7 @@ func _on_update_ui():
 	$LoopCount.text = "x" + str(Globals.loop[loopName][0])
 	$NextLoop.text = Globals.loop[loopName][1]
 
-func _process(delta):
+func _process(_delta):
 	if pressed:
 		if Time.get_ticks_msec() - buttonTime >= 250 and not triggeredHold:
 			pressed = false

@@ -27,7 +27,7 @@ func updateGlobal():
 	
 	Globals.updateUI()
 
-func _on_velocity_slider_drag_ended(value_changed):
+func _on_velocity_slider_drag_ended(_value_changed):
 	if beatVal == "0000":
 		beatVal = str(int(get_node("VelocitySlider").value)) + str(int(get_node("VelocitySlider").value)) + str(int(get_node("VelocitySlider").value)) + str(int(get_node("VelocitySlider").value))
 	else:
