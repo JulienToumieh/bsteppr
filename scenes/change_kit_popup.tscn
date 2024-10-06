@@ -111,6 +111,13 @@ offset_right = 232.0
 offset_bottom = 240.0
 text = "Load Loop"
 
+[node name="BInitLoop" type="Button" parent="."]
+offset_left = 248.0
+offset_top = 64.0
+offset_right = 464.0
+offset_bottom = 112.0
+text = "Clear Loop"
+
 [connection signal="pressed" from="ClosePopup" to="." method="_on_close_popup_pressed"]
 [connection signal="item_selected" from="KitList" to="." method="_on_item_list_item_selected"]
 [connection signal="item_clicked" from="KIntrumentsList" to="." method="_on_k_intruments_list_item_clicked"]
@@ -119,3 +126,4 @@ text = "Load Loop"
 [connection signal="item_clicked" from="LoopPresetList" to="." method="_on_loop_preset_list_item_clicked"]
 [connection signal="pressed" from="BSaveLoop" to="." method="_on_b_save_loop_pressed"]
 [connection signal="pressed" from="BLoadLoop" to="." method="_on_b_load_loop_pressed"]
+[connection signal="pressed" from="BInitLoop" to="." method="_on_b_init_loop_pressed"]

@@ -15,7 +15,8 @@ func _ready():
 	Globals.connect("update_ui", Callable(self, "_on_update_ui"))
 
 func _on_update_ui():
-	get_node("Button").text = Globals.instrumentNames[instrumentID-1].substr(3).get_basename()
+	if instrumentID <= Globals.instrumentNames.size():
+		get_node("Button").text = Globals.instrumentNames[instrumentID-1].substr(3).get_basename()
 
 
 func _on_button_pressed():
