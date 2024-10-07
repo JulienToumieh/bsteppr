@@ -39,9 +39,11 @@ var swing = 0
 var timer : Timer
 
 var data_path = "user:/"
+var autoSaveConf = false
 
 func updateUI():
 	emit_signal("update_ui")
+	if autoSaveConf: saveConfig()
 
 func togglePlayback():
 	if playing:
@@ -135,11 +137,58 @@ func _ready():
 			for j in range(8):
 				beat[key][i].append("0000")
 	initLoop()
+	
 	#relocKit()
 	
 	loadInstruments(currentKit)
 	setTempo()
+	loadConfig()
+	autoSaveConf = true
+
+func saveConfig():
+	var save_file = FileAccess.open(data_path + "/config.bcfg", FileAccess.WRITE)
 	
+	var data = {
+		"beat": beat,
+		"loop": loop,
+		"tempo": bpm,
+		"swing": swing,
+		"kit": currentKit
+	}
+	
+	save_file.store_line(JSON.stringify(data))
+	save_file.close()
+
+
+func loadConfig():
+	if FileAccess.file_exists(data_path + "/config.bcfg"):
+		if playing:
+			togglePlayback()
+		
+		var load_file = FileAccess.open(data_path + "/config.bcfg", FileAccess.READ)
+		
+		var json_data = load_file.get_line()
+		load_file.close() 
+		var json = JSON.new()
+		var _parse_result = json.parse(json_data)
+
+		var data = json.data
+		
+		beat = data["beat"]
+		loop = data["loop"]
+		bpm = data["tempo"]
+		swing = data["swing"]
+		
+		loadInstruments(data["kit"])
+		activeBeat = beat[activeLoop]
+		activeBeatQueue = activeBeat
+		setTempo()
+		
+		updateUI()
+	else:
+		saveConfig()
+
+
 '
 func relocKit():
 	DirAccess.make_dir_absolute(data_path + "/Drum Kits")
