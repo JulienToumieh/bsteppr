@@ -74,5 +74,6 @@ texture = ExtResource("3_52vi7")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.25
+one_shot = true
 
 [connection signal="gui_input" from="LoopChipButton" to="." method="_on_loop_chip_button_gui_input"]
