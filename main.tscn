@@ -133,21 +133,25 @@ flat = true
 position = Vector2(120, 640)
 
 [node name="b4" type="Sprite2D" parent="BarIndicator"]
+modulate = Color(0.606547, 0.995885, 0.683453, 1)
 position = Vector2(48, 0)
 scale = Vector2(24, 7.99999)
 texture = ExtResource("9_7kt5k")
 
 [node name="b3" type="Sprite2D" parent="BarIndicator"]
+modulate = Color(0.606547, 0.995885, 0.683453, 1)
 position = Vector2(16, 0)
 scale = Vector2(24, 7.99999)
 texture = ExtResource("9_7kt5k")
 
 [node name="b2" type="Sprite2D" parent="BarIndicator"]
+modulate = Color(0.606547, 0.995885, 0.683453, 1)
 position = Vector2(-16, 0)
 scale = Vector2(24, 7.99999)
 texture = ExtResource("9_7kt5k")
 
 [node name="b1" type="Sprite2D" parent="BarIndicator"]
+modulate = Color(0.606547, 0.995885, 0.683453, 1)
 position = Vector2(-48, 0)
 scale = Vector2(24, 7.99999)
 texture = ExtResource("9_7kt5k")
