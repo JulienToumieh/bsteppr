@@ -11,8 +11,11 @@ var buttonTime = 0
 var pressed = false
 var triggeredHold = false
 
+@onready var timer = $Timer
 
 func _ready():
+	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
+	Globals.connect("update_ui", Callable(self, "_on_update_ui"))
 	if beatIDX.y == 0: modulate = Color("FF4141")
 	if beatIDX.y == 1: modulate = Color("FF44BF")
 	if beatIDX.y == 2: modulate = Color("854BFF")
@@ -21,7 +24,7 @@ func _ready():
 	if beatIDX.y == 5: modulate = Color("3CFF72")
 	if beatIDX.y == 6: modulate = Color("4CFF2F")
 	if beatIDX.y == 7: modulate = Color("#FF922D")
-	Globals.connect("update_ui", Callable(self, "_on_update_ui"))
+
 
 func _on_update_ui():
 	var beatQ = Globals.activeBeat[beatIDX.x][beatIDX.y]
@@ -42,27 +45,26 @@ func _on_update_ui():
 	modulate.v = 0.5 + val/10.0
 
 
-func _process(_delta):
-	if pressed:
-		if Time.get_ticks_msec() - buttonTime >= 250 and not triggeredHold:
-			pressed = false
-			triggeredHold = true
-			Globals.editBeatStep(beatIDX)
-
-
 func _on_step_click_gui_input(event):
 	if event is InputEventMouseButton:
-		if event.pressed:  
+		if event.pressed:
 			match event.button_index:
 				1:
 					buttonTime = Time.get_ticks_msec()
 					pressed = true
 					triggeredHold = false
+					timer.start() 
 				2:
 					Globals.editBeatStep(beatIDX)
 		elif event.is_released():
 			match event.button_index:
 				1:
 					pressed = false
+					timer.stop()
 					if not triggeredHold: 
 						Globals.activateBeatStep(beatIDX)
+
+func _on_timer_timeout():
+	if not triggeredHold:
+		triggeredHold = true
+		Globals.editBeatStep(beatIDX)

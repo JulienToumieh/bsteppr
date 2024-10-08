@@ -42,4 +42,7 @@ offset_bottom = 32.0
 rotation = 0.0050771
 flat = true
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+
 [connection signal="gui_input" from="StepClick" to="." method="_on_step_click_gui_input"]
