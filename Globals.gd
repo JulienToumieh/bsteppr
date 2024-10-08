@@ -78,6 +78,7 @@ func tick():
 	else: 
 		playbackPosition += 1
 	get_parent().get_node("Main/BeatGrid").updateTrackerPos()
+	get_parent().get_node("Main").updateBarIndicator()
 	
 	if playbackPosition % 2 and swing != 0: await get_tree().create_timer(((60.0 / bpm) * 4) * (swing * 1.0 / 100.0) * 0.035).timeout
 	for ins in range(8):

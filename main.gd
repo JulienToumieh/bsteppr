@@ -15,6 +15,22 @@ func _on_update_ui():
 	get_node("PlayPauseButton/Pause").visible = Globals.playing
 	get_node("TempoDisp/Tempo").text = str(Globals.bpm)
 	get_node("TempoDisp/Swing").text = str(Globals.swing) + "%"
+	updateBarIndicator()
+
+func updateBarIndicator():
+	get_node("BarIndicator/b1").modulate.a = 0.3
+	get_node("BarIndicator/b2").modulate.a = 0.3
+	get_node("BarIndicator/b3").modulate.a = 0.3
+	get_node("BarIndicator/b4").modulate.a = 0.3
+	match Globals.barRound - 1:
+		0:
+			get_node("BarIndicator/b1").modulate.a = 1
+		1:
+			get_node("BarIndicator/b2").modulate.a = 1
+		2:
+			get_node("BarIndicator/b3").modulate.a = 1
+		3:
+			get_node("BarIndicator/b4").modulate.a = 1
 
 func _on_play_pause_button_pressed():
 	Globals.togglePlayback()

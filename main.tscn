@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://gptqi34mccih"]
+[gd_scene load_steps=12 format=3 uid="uid://gptqi34mccih"]
 
 [ext_resource type="PackedScene" uid="uid://dyjphmfje7qcq" path="res://scenes/beat_grid.tscn" id="1_1by64"]
 [ext_resource type="Script" path="res://main.gd" id="1_3c72v"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c0b6f0lpdqqq6" path="res://scenes/loop_chip_container.tscn" id="6_ob1h3"]
 [ext_resource type="Texture2D" uid="uid://dru3lrb1yb3v8" path="res://assets/drum set.svg" id="7_jdhqv"]
 [ext_resource type="Texture2D" uid="uid://d2l8uygqao7uf" path="res://assets/settings.svg" id="8_own0v"]
+[ext_resource type="Texture2D" uid="uid://cwguhnm6ysoaf" path="res://assets/1px.png" id="9_7kt5k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcn34"]
 
@@ -127,6 +128,29 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_58uxl")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_58uxl")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_58uxl")
 flat = true
+
+[node name="BarIndicator" type="Node2D" parent="."]
+position = Vector2(120, 640)
+
+[node name="b4" type="Sprite2D" parent="BarIndicator"]
+position = Vector2(48, 0)
+scale = Vector2(24, 7.99999)
+texture = ExtResource("9_7kt5k")
+
+[node name="b3" type="Sprite2D" parent="BarIndicator"]
+position = Vector2(16, 0)
+scale = Vector2(24, 7.99999)
+texture = ExtResource("9_7kt5k")
+
+[node name="b2" type="Sprite2D" parent="BarIndicator"]
+position = Vector2(-16, 0)
+scale = Vector2(24, 7.99999)
+texture = ExtResource("9_7kt5k")
+
+[node name="b1" type="Sprite2D" parent="BarIndicator"]
+position = Vector2(-48, 0)
+scale = Vector2(24, 7.99999)
+texture = ExtResource("9_7kt5k")
 
 [connection signal="pressed" from="PlayPauseButton" to="." method="_on_play_pause_button_pressed"]
 [connection signal="pressed" from="TempoDisp/TempoButton" to="." method="_on_tempo_button_pressed"]
