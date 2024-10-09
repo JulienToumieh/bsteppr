@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://n5533s2q5oj2" path="res://assets/arrow line.svg" id="3_8slsu"]
 
 [node name="EditTempoPopup" type="Node2D"]
+position = Vector2(0, -48)
 script = ExtResource("1_1wo6j")
 
 [node name="ClosePopup" type="Button" parent="."]
@@ -24,17 +25,18 @@ texture = ExtResource("2_i6y0g")
 offset_left = -264.0
 offset_top = -168.0
 offset_right = 264.0
-offset_bottom = 160.0
+offset_bottom = 240.0
+metadata/_edit_use_anchors_ = true
 
 [node name="1Px2" type="Sprite2D" parent="."]
-position = Vector2(-9.05991e-06, -3.99998)
-scale = Vector2(528, 328)
+position = Vector2(-9.05991e-06, 36)
+scale = Vector2(528, 408)
 texture = ExtResource("2_i6y0g")
 
 [node name="1Px" type="Sprite2D" parent="."]
 modulate = Color(0.1365, 0.133, 0.14, 1)
-position = Vector2(0, -3.99997)
-scale = Vector2(512, 312)
+position = Vector2(0, 36)
+scale = Vector2(512, 392)
 texture = ExtResource("2_i6y0g")
 
 [node name="TempoSlider" type="HSlider" parent="."]
@@ -42,12 +44,14 @@ offset_left = -216.0
 offset_top = -40.0
 offset_right = 216.0
 offset_bottom = -24.0
+metadata/_edit_use_anchors_ = true
 
 [node name="SwingSlider" type="HSlider" parent="."]
 offset_left = -216.0
-offset_top = 104.0
+offset_top = 184.0
 offset_right = 216.0
-offset_bottom = 120.0
+offset_bottom = 200.0
+metadata/_edit_use_anchors_ = true
 
 [node name="BPMLabel" type="Label" parent="."]
 offset_left = -64.0
@@ -58,16 +62,18 @@ theme_override_font_sizes/font_size = 40
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="SwingLabel" type="Label" parent="."]
 offset_left = -64.0
-offset_top = 8.0
+offset_top = 88.0
 offset_right = 64.0
-offset_bottom = 64.0
+offset_bottom = 144.0
 theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="."]
 modulate = Color(0.683128, 0.683128, 0.683128, 1)
@@ -79,17 +85,19 @@ theme_override_font_sizes/font_size = 20
 text = "BPM"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label4" type="Label" parent="."]
 modulate = Color(0.683128, 0.683128, 0.683128, 1)
 offset_left = -64.0
-offset_top = 56.0
+offset_top = 136.0
 offset_right = 64.0
-offset_bottom = 84.0
+offset_bottom = 164.0
 theme_override_font_sizes/font_size = 20
 text = "% swing"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ButtonArrows" type="Node2D" parent="."]
 position = Vector2(0, 8.00003)
@@ -131,37 +139,37 @@ scale = Vector2(0.229958, 0.229958)
 texture = ExtResource("3_8slsu")
 
 [node name="ArrowLine7" type="Sprite2D" parent="ButtonArrows"]
-position = Vector2(96, 40)
+position = Vector2(96, 120)
 rotation = 1.5708
 scale = Vector2(0.229958, 0.229958)
 texture = ExtResource("3_8slsu")
 
 [node name="ArrowLine8" type="Sprite2D" parent="ButtonArrows"]
-position = Vector2(160, 40)
+position = Vector2(160, 120)
 rotation = 1.5708
 scale = Vector2(0.229958, 0.229958)
 texture = ExtResource("3_8slsu")
 
 [node name="ArrowLine9" type="Sprite2D" parent="ButtonArrows"]
-position = Vector2(176, 40)
+position = Vector2(176, 120)
 rotation = 1.5708
 scale = Vector2(0.229958, 0.229958)
 texture = ExtResource("3_8slsu")
 
 [node name="ArrowLine10" type="Sprite2D" parent="ButtonArrows"]
-position = Vector2(-176, 40)
+position = Vector2(-176, 120)
 rotation = 4.71239
 scale = Vector2(0.229958, 0.229958)
 texture = ExtResource("3_8slsu")
 
 [node name="ArrowLine11" type="Sprite2D" parent="ButtonArrows"]
-position = Vector2(-160, 40)
+position = Vector2(-160, 120)
 rotation = 4.71239
 scale = Vector2(0.229958, 0.229958)
 texture = ExtResource("3_8slsu")
 
 [node name="ArrowLine12" type="Sprite2D" parent="ButtonArrows"]
-position = Vector2(-96, 40)
+position = Vector2(-96, 120)
 rotation = 4.71239
 scale = Vector2(0.229958, 0.229958)
 texture = ExtResource("3_8slsu")
@@ -174,50 +182,109 @@ offset_left = -72.0
 offset_right = -8.0
 offset_bottom = 64.0
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="IncreaseTempo2" type="Button" parent="Buttons"]
 offset_right = 64.0
 offset_bottom = 64.0
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="DecreaseTempo2" type="Button" parent="Buttons"]
 offset_left = -336.0
 offset_right = -272.0
 offset_bottom = 64.0
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="DecreaseTempo" type="Button" parent="Buttons"]
 offset_left = -264.0
 offset_right = -200.0
 offset_bottom = 64.0
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="IncreaseSwing" type="Button" parent="Buttons"]
 offset_left = -72.0
-offset_top = 144.0
+offset_top = 224.0
 offset_right = -8.0
-offset_bottom = 208.0
+offset_bottom = 288.0
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="IncreaseSwing2" type="Button" parent="Buttons"]
-offset_top = 144.0
+offset_top = 224.0
 offset_right = 64.0
-offset_bottom = 208.0
+offset_bottom = 288.0
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="DecreaseSwing2" type="Button" parent="Buttons"]
 offset_left = -336.0
-offset_top = 144.0
+offset_top = 224.0
 offset_right = -272.0
-offset_bottom = 208.0
+offset_bottom = 288.0
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="DecreaseSwing" type="Button" parent="Buttons"]
 offset_left = -264.0
-offset_top = 144.0
+offset_top = 224.0
 offset_right = -200.0
-offset_bottom = 208.0
+offset_bottom = 288.0
 flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TapTempo" type="Button" parent="Buttons"]
+offset_left = -128.0
+offset_top = 128.0
+offset_right = 80.0
+offset_bottom = 192.0
+text = "Tap Tempo"
+metadata/_edit_use_anchors_ = true
+
+[node name="TapTempoIndicator" type="Node2D" parent="."]
+modulate = Color(0.0946502, 0.92176, 1, 1)
+
+[node name="P1" type="Sprite2D" parent="TapTempoIndicator"]
+position = Vector2(-196, 18)
+scale = Vector2(40, 20)
+texture = ExtResource("2_i6y0g")
+
+[node name="P5" type="Sprite2D" parent="TapTempoIndicator"]
+position = Vector2(-196, 46)
+scale = Vector2(40, 20)
+texture = ExtResource("2_i6y0g")
+
+[node name="P2" type="Sprite2D" parent="TapTempoIndicator"]
+position = Vector2(-140, 18)
+scale = Vector2(40, 20)
+texture = ExtResource("2_i6y0g")
+
+[node name="P6" type="Sprite2D" parent="TapTempoIndicator"]
+position = Vector2(-140, 46)
+scale = Vector2(40, 20)
+texture = ExtResource("2_i6y0g")
+
+[node name="P3" type="Sprite2D" parent="TapTempoIndicator"]
+position = Vector2(-84, 18)
+scale = Vector2(40, 20)
+texture = ExtResource("2_i6y0g")
+
+[node name="P7" type="Sprite2D" parent="TapTempoIndicator"]
+position = Vector2(-84, 46)
+scale = Vector2(40, 20)
+texture = ExtResource("2_i6y0g")
+
+[node name="P4" type="Sprite2D" parent="TapTempoIndicator"]
+position = Vector2(-28, 18)
+scale = Vector2(40, 20)
+texture = ExtResource("2_i6y0g")
+
+[node name="P8" type="Sprite2D" parent="TapTempoIndicator"]
+position = Vector2(-28, 46)
+scale = Vector2(40, 20)
+texture = ExtResource("2_i6y0g")
 
 [connection signal="pressed" from="ClosePopup" to="." method="_on_close_popup_pressed"]
 [connection signal="value_changed" from="TempoSlider" to="." method="_on_tempo_slider_value_changed"]
@@ -230,3 +297,4 @@ flat = true
 [connection signal="pressed" from="Buttons/IncreaseSwing2" to="." method="_on_increase_swing_2_pressed"]
 [connection signal="pressed" from="Buttons/DecreaseSwing2" to="." method="_on_decrease_swing_2_pressed"]
 [connection signal="pressed" from="Buttons/DecreaseSwing" to="." method="_on_decrease_swing_pressed"]
+[connection signal="pressed" from="Buttons/TapTempo" to="." method="tapTempo"]
