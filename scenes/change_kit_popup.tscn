@@ -91,32 +91,38 @@ theme_override_font_sizes/font_size = 22
 
 [node name="InputLoopName" type="TextEdit" parent="."]
 offset_left = 248.0
-offset_top = 128.0
+offset_top = 64.0
 offset_right = 464.0
-offset_bottom = 176.0
+offset_bottom = 112.0
 theme_override_font_sizes/font_size = 20
 placeholder_text = "Loop Name"
 
 [node name="BSaveLoop" type="Button" parent="."]
 offset_left = 248.0
-offset_top = 192.0
+offset_top = 128.0
 offset_right = 464.0
-offset_bottom = 240.0
-text = "Save Loop"
+offset_bottom = 176.0
+text = "Save Preset"
 
 [node name="BLoadLoop" type="Button" parent="."]
 offset_left = 24.0
 offset_top = 192.0
 offset_right = 232.0
 offset_bottom = 240.0
-text = "Load Loop"
+text = "Load Preset"
 
 [node name="BInitLoop" type="Button" parent="."]
 offset_left = 248.0
-offset_top = 64.0
 offset_right = 464.0
-offset_bottom = 112.0
+offset_bottom = 48.0
 text = "Clear Loop"
+
+[node name="BDeleteLoop" type="Button" parent="."]
+offset_left = 248.0
+offset_top = 192.0
+offset_right = 464.0
+offset_bottom = 240.0
+text = "Delete Preset"
 
 [connection signal="pressed" from="ClosePopup" to="." method="_on_close_popup_pressed"]
 [connection signal="item_selected" from="KitList" to="." method="_on_item_list_item_selected"]
@@ -127,3 +133,4 @@ text = "Clear Loop"
 [connection signal="pressed" from="BSaveLoop" to="." method="_on_b_save_loop_pressed"]
 [connection signal="pressed" from="BLoadLoop" to="." method="_on_b_load_loop_pressed"]
 [connection signal="pressed" from="BInitLoop" to="." method="_on_b_init_loop_pressed"]
+[connection signal="pressed" from="BDeleteLoop" to="." method="_on_b_delete_loop_pressed"]

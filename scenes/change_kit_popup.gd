@@ -83,3 +83,8 @@ func _on_loop_preset_list_item_clicked(index, _at_position, _mouse_button_index)
 
 func _on_b_init_loop_pressed():
 	Globals.initLoop()
+
+
+func _on_b_delete_loop_pressed():
+	DirAccess.remove_absolute(Globals.data_path + "/Loop Presets/" + selectedLoop + ".blp")
+	loadLoopPresets()
