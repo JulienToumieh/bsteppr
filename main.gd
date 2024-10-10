@@ -4,6 +4,7 @@ var EditBeatPopup = preload("res://scenes/edit_beat_popup.tscn")
 var EditLoopPopup = preload("res://scenes/edit_loop_popup.tscn")
 var EditTempoPopup = preload("res://scenes/edit_tempo_popup.tscn")
 var ChangeKitPopup = preload("res://scenes/change_kit_popup.tscn")
+var SettingsPopup = preload("res://scenes/settings_popup.tscn")
 var LoopContainer = preload("res://scenes/loop_chip_container.tscn")
 
 func _ready():
@@ -59,4 +60,5 @@ func _on_b_drum_kit_pressed():
 
 
 func _on_b_settings_pressed():
-	pass # Replace with function body.
+	var bSettingsPopup = SettingsPopup.instantiate()
+	add_child(bSettingsPopup)
