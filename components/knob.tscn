@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://rch5kmlbvg0y"]
+
+[ext_resource type="Script" path="res://components/knob.gd" id="1_hcu6u"]
+[ext_resource type="Texture2D" uid="uid://sw0llbq21x7j" path="res://assets/knob body.svg" id="2_eeyb5"]
+[ext_resource type="Texture2D" uid="uid://ddwodawk8kg6l" path="res://assets/knob arrow.svg" id="3_rmk36"]
+
+[node name="Knob" type="Node2D"]
+modulate = Color(0.73251, 0.891023, 1, 1)
+script = ExtResource("1_hcu6u")
+
+[node name="bKnob" type="Button" parent="."]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+flat = true
+
+[node name="KnobBody" type="Sprite2D" parent="."]
+self_modulate = Color(0.26, 0.26, 0.26, 1)
+scale = Vector2(0.540084, 0.540084)
+texture = ExtResource("2_eeyb5")
+
+[node name="KnobArrow" type="Sprite2D" parent="."]
+scale = Vector2(0.540084, 0.540084)
+texture = ExtResource("3_rmk36")
+
+[node name="KnobVal" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -24.0
+offset_right = 32.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 22
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="button_down" from="bKnob" to="." method="_on_b_knob_button_down"]
+[connection signal="button_up" from="bKnob" to="." method="_on_b_knob_button_up"]

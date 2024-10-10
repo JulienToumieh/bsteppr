@@ -1,3 +1,33 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://dh0t5oisuyssx"]
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://dh0t5oisuyssx"]
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_085y1"]
+resource_name = "Compressor"
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_f1qjp"]
+resource_name = "Distortion"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_5hkob"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectHighShelfFilter" id="AudioEffectHighShelfFilter_e3nqf"]
+resource_name = "HighShelfFilter"
+
+[sub_resource type="AudioEffectLowShelfFilter" id="AudioEffectLowShelfFilter_xcqix"]
+resource_name = "LowShelfFilter"
+
+[sub_resource type="AudioEffectFilter" id="AudioEffectFilter_dnqof"]
+resource_name = "Filter"
 
 [resource]
+bus/0/effect/0/effect = SubResource("AudioEffectCompressor_085y1")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectDistortion_f1qjp")
+bus/0/effect/1/enabled = false
+bus/0/effect/2/effect = SubResource("AudioEffectReverb_5hkob")
+bus/0/effect/2/enabled = false
+bus/0/effect/3/effect = SubResource("AudioEffectHighShelfFilter_e3nqf")
+bus/0/effect/3/enabled = false
+bus/0/effect/4/effect = SubResource("AudioEffectLowShelfFilter_xcqix")
+bus/0/effect/4/enabled = false
+bus/0/effect/5/effect = SubResource("AudioEffectFilter_dnqof")
+bus/0/effect/5/enabled = false
