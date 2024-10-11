@@ -7,6 +7,8 @@
 [node name="Knob" type="Node2D"]
 modulate = Color(0.73251, 0.891023, 1, 1)
 script = ExtResource("1_hcu6u")
+minVal = 1
+maxVal = 2
 
 [node name="bKnob" type="Button" parent="."]
 offset_left = -64.0
