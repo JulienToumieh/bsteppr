@@ -9,8 +9,6 @@ var filter: AudioEffectFilter
 
 func _ready():
 	position = get_viewport().get_size() / 2
-	addReverb()
-	removeFX("reverb")
 
 func addFilter():
 	filter = AudioEffectFilter.new()
