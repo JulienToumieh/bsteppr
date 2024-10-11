@@ -16,7 +16,7 @@ var startPos = 0
 func _ready():
 	$KnobArrow.rotation_degrees = (pos * 2.0 / 100.0) * 150.0 - 150.0
 	var val = minVal + (maxVal - minVal) * pos / 100.0
-	$KnobVal.text = str(val)
+	$KnobVal.text = str("%.2f" % val)
 
 
 func _process(delta):
