@@ -17,7 +17,16 @@ var loop = {
 	"D": [1, "D"],
 	"E": [1, "E"],
 	"F": [1, "F"]
-	}
+}
+
+var fx = {
+	"A": [1, "A"],
+	"B": [1, "B"],
+	"C": [1, "C"],
+	"D": [1, "D"],
+	"E": [1, "E"],
+	"F": [1, "F"]
+}
 
 signal update_ui
 var instrumentNames = []

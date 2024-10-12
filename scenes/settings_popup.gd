@@ -5,7 +5,7 @@ var compressor: AudioEffectCompressor
 var distortion: AudioEffectDistortion
 var hisf: AudioEffectHighShelfFilter
 var losf: AudioEffectLowShelfFilter
-var filter: AudioEffectFilter
+var eq: AudioEffectEQ
 
 func _ready():
 	position = get_viewport().get_size() / 2
@@ -34,22 +34,10 @@ func removeFX(fxName):
 				if effect is AudioEffectDistortion:
 					AudioServer.remove_bus_effect(master_bus_index, i)
 					break
-		"hisf":
+		"eq":
 			for i in range(effect_count):
 				var effect = AudioServer.get_bus_effect(master_bus_index, i)
-				if effect is AudioEffectHighShelfFilter:
-					AudioServer.remove_bus_effect(master_bus_index, i)
-					break
-		"losf":
-			for i in range(effect_count):
-				var effect = AudioServer.get_bus_effect(master_bus_index, i)
-				if effect is AudioEffectLowShelfFilter:
-					AudioServer.remove_bus_effect(master_bus_index, i)
-					break
-		"filter":
-			for i in range(effect_count):
-				var effect = AudioServer.get_bus_effect(master_bus_index, i)
-				if effect is AudioEffectFilter:
+				if effect is AudioEffectEQ:
 					AudioServer.remove_bus_effect(master_bus_index, i)
 					break
 
@@ -84,33 +72,17 @@ func addFX(fxName):
 			distortion.post_gain = 0
 			
 			AudioServer.add_bus_effect(AudioServer.get_bus_index("Master"), distortion)
-		"hisf":
-			hisf = AudioEffectHighShelfFilter.new()
+		"eq":
+			eq = AudioEffectEQ.new()
 			
-			hisf.cutoff_hz = 2000
-			hisf.resonance = 0.5 
-			hisf.gain = 0.5
-			hisf.db = 0
+			eq.set_band_gain_db(0, 0)
+			eq.set_band_gain_db(1, 0)
+			eq.set_band_gain_db(2, 0)
+			eq.set_band_gain_db(3, 0)
+			eq.set_band_gain_db(4, 0)
+			eq.set_band_gain_db(5, 0)
 			
-			AudioServer.add_bus_effect(AudioServer.get_bus_index("Master"), hisf)
-		"losf":
-			losf = AudioEffectLowShelfFilter.new()
-			
-			losf.cutoff_hz = 2000
-			losf.resonance = 0.5 
-			losf.gain = 0.5
-			losf.db = 0
-			
-			AudioServer.add_bus_effect(AudioServer.get_bus_index("Master"), losf)
-		"filter":
-			filter = AudioEffectFilter.new()
-			
-			filter.cutoff_hz = 2000
-			filter.resonance = 0.5 
-			filter.gain = 0.5
-			filter.db = 0
-			
-			AudioServer.add_bus_effect(AudioServer.get_bus_index("Master"), filter)
+			AudioServer.add_bus_effect(AudioServer.get_bus_index("Master"), eq)
 
 
 func _on_close_popup_pressed():
