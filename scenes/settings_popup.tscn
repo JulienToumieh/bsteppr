@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://clfu1x3y874cg"]
+[gd_scene load_steps=5 format=3 uid="uid://clfu1x3y874cg"]
 
 [ext_resource type="Script" path="res://scenes/settings_popup.gd" id="1_i0dgv"]
 [ext_resource type="Texture2D" uid="uid://cwguhnm6ysoaf" path="res://assets/1px.png" id="1_qnq13"]
+[ext_resource type="PackedScene" uid="uid://rch5kmlbvg0y" path="res://components/knob.tscn" id="3_go0pl"]
+[ext_resource type="Script" path="res://scenes/b_dist_mode.gd" id="4_46hd8"]
 
 [node name="SettingsPopup" type="Node2D"]
 script = ExtResource("1_i0dgv")
@@ -20,44 +22,213 @@ scale = Vector2(2176, 1024)
 texture = ExtResource("1_qnq13")
 
 [node name="Button" type="Button" parent="."]
-offset_left = -352.0
-offset_top = -232.0
-offset_right = 352.0
-offset_bottom = 232.0
+offset_left = -576.0
+offset_top = -320.0
+offset_right = 576.0
+offset_bottom = 320.0
 
 [node name="1Px2" type="Sprite2D" parent="."]
 position = Vector2(-9.05991e-06, -1.14441e-05)
-scale = Vector2(704, 464)
+scale = Vector2(1152, 640)
 texture = ExtResource("1_qnq13")
 
 [node name="1Px" type="Sprite2D" parent="."]
 modulate = Color(0.1365, 0.133, 0.14, 1)
 position = Vector2(0, -7.62939e-06)
-scale = Vector2(688, 448)
+scale = Vector2(1136, 624)
 texture = ExtResource("1_qnq13")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -344.0
-offset_top = -224.0
-offset_bottom = -176.0
+offset_left = -568.0
+offset_top = -304.0
+offset_bottom = -256.0
 theme_override_font_sizes/font_size = 30
 text = "Effects"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="1Px3" type="Sprite2D" parent="."]
-position = Vector2(-168, -176)
-scale = Vector2(280, 1.99999)
+position = Vector2(-284, -256)
+scale = Vector2(520, 1.99999)
+texture = ExtResource("1_qnq13")
+
+[node name="Compressor" type="Node2D" parent="."]
+position = Vector2(-8, 41)
+
+[node name="Button" type="Button" parent="Compressor"]
+offset_left = -536.0
+offset_top = -248.0
+offset_right = -448.0
+offset_bottom = -184.0
+toggle_mode = true
+text = "Comp"
+
+[node name="Thresh" parent="Compressor" instance=ExtResource("3_go0pl")]
+position = Vector2(-400, -232)
+minVal = -60
+maxVal = 0
+
+[node name="Ratio" parent="Compressor" instance=ExtResource("3_go0pl")]
+position = Vector2(-328, -200)
+maxVal = 48
+
+[node name="Gain" parent="Compressor" instance=ExtResource("3_go0pl")]
+position = Vector2(-256, -232)
+minVal = -20
+maxVal = 20
+
+[node name="Att (us)" parent="Compressor" instance=ExtResource("3_go0pl")]
+position = Vector2(-184, -200)
+minVal = 20
+maxVal = 2000
+
+[node name="Rel (ms)" parent="Compressor" instance=ExtResource("3_go0pl")]
+position = Vector2(-112, -232)
+
+[node name="Mix" parent="Compressor" instance=ExtResource("3_go0pl")]
+position = Vector2(-40, -200)
+minVal = 0
+maxVal = 1
+
+[node name="1Px4" type="Sprite2D" parent="."]
+modulate = Color(0.45679, 0.45679, 0.45679, 1)
+position = Vector2(-288, -95)
+scale = Vector2(400, 1.99999)
+texture = ExtResource("1_qnq13")
+
+[node name="Distortion" type="Node2D" parent="."]
+position = Vector2(-8, 177)
+
+[node name="Button" type="Button" parent="Distortion"]
+offset_left = -536.0
+offset_top = -248.0
+offset_right = -448.0
+offset_bottom = -184.0
+toggle_mode = true
+text = "Dist"
+
+[node name="Pre-Gain" parent="Distortion" instance=ExtResource("3_go0pl")]
+position = Vector2(-288, -216)
+minVal = -60
+maxVal = 60
+
+[node name="Drive" parent="Distortion" instance=ExtResource("3_go0pl")]
+position = Vector2(-192, -216)
+minVal = 0
+maxVal = 1
+pos = 0
+
+[node name="Post-Gain" parent="Distortion" instance=ExtResource("3_go0pl")]
+position = Vector2(-96, -216)
+minVal = -80
+maxVal = 24
+
+[node name="bDistMode" type="Button" parent="Distortion"]
+offset_left = -424.0
+offset_top = -248.0
+offset_right = -344.0
+offset_bottom = -192.0
+text = "Mode"
+script = ExtResource("4_46hd8")
+
+[node name="Label" type="Label" parent="Distortion"]
+offset_left = -416.0
+offset_top = -184.0
+offset_right = -352.0
+offset_bottom = -164.0
+theme_override_font_sizes/font_size = 14
+text = "Mode"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="1Px5" type="Sprite2D" parent="."]
+modulate = Color(0.45679, 0.45679, 0.45679, 1)
+position = Vector2(-288, 25)
+scale = Vector2(400, 1.99999)
+texture = ExtResource("1_qnq13")
+
+[node name="EQ" type="Node2D" parent="."]
+position = Vector2(-8, 313)
+
+[node name="Button" type="Button" parent="EQ"]
+offset_left = -536.0
+offset_top = -248.0
+offset_right = -448.0
+offset_bottom = -184.0
+toggle_mode = true
+text = "EQ"
+
+[node name="32hz" parent="EQ" instance=ExtResource("3_go0pl")]
+position = Vector2(-400, -229)
+minVal = -60
+maxVal = 24
+
+[node name="100hz" parent="EQ" instance=ExtResource("3_go0pl")]
+position = Vector2(-328, -200)
+minVal = -60
+maxVal = 24
+
+[node name="320hz" parent="EQ" instance=ExtResource("3_go0pl")]
+position = Vector2(-256, -232)
+minVal = -60
+maxVal = 24
+
+[node name="1000hz" parent="EQ" instance=ExtResource("3_go0pl")]
+position = Vector2(-184, -200)
+minVal = -60
+maxVal = 24
+
+[node name="3200hz" parent="EQ" instance=ExtResource("3_go0pl")]
+position = Vector2(-112, -232)
+minVal = -60
+maxVal = 24
+
+[node name="10000hz" parent="EQ" instance=ExtResource("3_go0pl")]
+position = Vector2(-40, -200)
+minVal = -60
+maxVal = 24
+
+[node name="1Px6" type="Sprite2D" parent="."]
+modulate = Color(0.45679, 0.45679, 0.45679, 1)
+position = Vector2(-288, 177)
+scale = Vector2(400, 1.99999)
 texture = ExtResource("1_qnq13")
 
 [node name="Reverb" type="Node2D" parent="."]
+position = Vector2(-8, 465)
 
 [node name="Button" type="Button" parent="Reverb"]
-offset_left = -320.0
-offset_top = -144.0
-offset_right = -256.0
-offset_bottom = -80.0
+offset_left = -536.0
+offset_top = -248.0
+offset_right = -448.0
+offset_bottom = -184.0
 toggle_mode = true
-text = "Reverb"
+text = "Rvrb"
+
+[node name="Size" parent="Reverb" instance=ExtResource("3_go0pl")]
+position = Vector2(-400, -232)
+minVal = 0
+maxVal = 1
+
+[node name="Damp" parent="Reverb" instance=ExtResource("3_go0pl")]
+position = Vector2(-312, -232)
+minVal = 0
+maxVal = 1
+
+[node name="Spread" parent="Reverb" instance=ExtResource("3_go0pl")]
+position = Vector2(-224, -232)
+minVal = 0
+maxVal = 1
+
+[node name="Hi-Pass" parent="Reverb" instance=ExtResource("3_go0pl")]
+position = Vector2(-136, -232)
+minVal = 0
+maxVal = 1
+
+[node name="Dry-Wet" parent="Reverb" instance=ExtResource("3_go0pl")]
+position = Vector2(-48, -232)
+minVal = 0
+maxVal = 1
 
 [connection signal="pressed" from="ClosePopup" to="." method="_on_close_popup_pressed"]
+[connection signal="pressed" from="Distortion/bDistMode" to="Distortion/bDistMode" method="_on_pressed"]
