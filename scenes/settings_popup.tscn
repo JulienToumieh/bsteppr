@@ -87,7 +87,6 @@ position = Vector2(-112, -232)
 
 [node name="Mix" parent="Compressor" instance=ExtResource("3_go0pl")]
 position = Vector2(-40, -200)
-minVal = 0
 maxVal = 1
 
 [node name="1Px4" type="Sprite2D" parent="."]
@@ -97,7 +96,7 @@ scale = Vector2(400, 1.99999)
 texture = ExtResource("1_qnq13")
 
 [node name="Distortion" type="Node2D" parent="."]
-position = Vector2(-8, 177)
+position = Vector2(-8, 328)
 
 [node name="Button" type="Button" parent="Distortion"]
 offset_left = -536.0
@@ -114,9 +113,7 @@ maxVal = 60
 
 [node name="Drive" parent="Distortion" instance=ExtResource("3_go0pl")]
 position = Vector2(-192, -216)
-minVal = 0
 maxVal = 1
-pos = 0
 
 [node name="Post-Gain" parent="Distortion" instance=ExtResource("3_go0pl")]
 position = Vector2(-96, -216)
@@ -143,12 +140,12 @@ vertical_alignment = 1
 
 [node name="1Px5" type="Sprite2D" parent="."]
 modulate = Color(0.45679, 0.45679, 0.45679, 1)
-position = Vector2(-288, 25)
+position = Vector2(-288, 56)
 scale = Vector2(400, 1.99999)
 texture = ExtResource("1_qnq13")
 
 [node name="EQ" type="Node2D" parent="."]
-position = Vector2(-8, 313)
+position = Vector2(-8, 192)
 
 [node name="Button" type="Button" parent="EQ"]
 offset_left = -536.0
@@ -207,27 +204,22 @@ text = "Rvrb"
 
 [node name="Size" parent="Reverb" instance=ExtResource("3_go0pl")]
 position = Vector2(-400, -232)
-minVal = 0
 maxVal = 1
 
 [node name="Damp" parent="Reverb" instance=ExtResource("3_go0pl")]
 position = Vector2(-312, -232)
-minVal = 0
 maxVal = 1
 
 [node name="Spread" parent="Reverb" instance=ExtResource("3_go0pl")]
 position = Vector2(-224, -232)
-minVal = 0
 maxVal = 1
 
 [node name="Hi-Pass" parent="Reverb" instance=ExtResource("3_go0pl")]
 position = Vector2(-136, -232)
-minVal = 0
 maxVal = 1
 
 [node name="Dry-Wet" parent="Reverb" instance=ExtResource("3_go0pl")]
 position = Vector2(-48, -232)
-minVal = 0
 maxVal = 1
 
 [connection signal="pressed" from="ClosePopup" to="." method="_on_close_popup_pressed"]

@@ -3,8 +3,6 @@ extends Node2D
 var reverb: AudioEffectReverb
 var compressor: AudioEffectCompressor
 var distortion: AudioEffectDistortion
-var hisf: AudioEffectHighShelfFilter
-var losf: AudioEffectLowShelfFilter
 var eq: AudioEffectEQ
 
 func _ready():
@@ -16,22 +14,10 @@ func removeFX(fxName):
 	var effect_count = AudioServer.get_bus_effect_count(master_bus_index)
 	
 	match fxName: 
-		"reverb":
-			for i in range(effect_count):
-				var effect = AudioServer.get_bus_effect(master_bus_index, i)
-				if effect is AudioEffectReverb:
-					AudioServer.remove_bus_effect(master_bus_index, i)
-					break
 		"compressor":
 			for i in range(effect_count):
 				var effect = AudioServer.get_bus_effect(master_bus_index, i)
 				if effect is AudioEffectCompressor:
-					AudioServer.remove_bus_effect(master_bus_index, i)
-					break
-		"distortion":
-			for i in range(effect_count):
-				var effect = AudioServer.get_bus_effect(master_bus_index, i)
-				if effect is AudioEffectDistortion:
 					AudioServer.remove_bus_effect(master_bus_index, i)
 					break
 		"eq":
@@ -40,19 +26,21 @@ func removeFX(fxName):
 				if effect is AudioEffectEQ:
 					AudioServer.remove_bus_effect(master_bus_index, i)
 					break
+		"distortion":
+			for i in range(effect_count):
+				var effect = AudioServer.get_bus_effect(master_bus_index, i)
+				if effect is AudioEffectDistortion:
+					AudioServer.remove_bus_effect(master_bus_index, i)
+					break
+		"reverb":
+			for i in range(effect_count):
+				var effect = AudioServer.get_bus_effect(master_bus_index, i)
+				if effect is AudioEffectReverb:
+					AudioServer.remove_bus_effect(master_bus_index, i)
+					break
 
 func addFX(fxName):
 	match fxName: 
-		"reverb":
-			reverb = AudioEffectReverb.new()
-			reverb.room_size = 0.5 
-			reverb.damping = 0.5 
-			reverb.wet = 0.5
-			reverb.hipass = 0
-			reverb.predelay_msec = 0
-			reverb.dry = 1 - reverb.wet 
-			
-			AudioServer.add_bus_effect(AudioServer.get_bus_index("Master"), reverb)
 		"compressor":
 			compressor = AudioEffectCompressor.new()
 			compressor.threshold = 0.5 
@@ -63,15 +51,6 @@ func addFX(fxName):
 			compressor.mix = 1
 			
 			AudioServer.add_bus_effect(AudioServer.get_bus_index("Master"), compressor)
-		"distortion":
-			distortion = AudioEffectDistortion.new()
-			
-			distortion.mode = AudioEffectDistortion.MODE_CLIP
-			distortion.pre_gain = 0.5 
-			distortion.drive = 0.5
-			distortion.post_gain = 0
-			
-			AudioServer.add_bus_effect(AudioServer.get_bus_index("Master"), distortion)
 		"eq":
 			eq = AudioEffectEQ.new()
 			
@@ -83,6 +62,26 @@ func addFX(fxName):
 			eq.set_band_gain_db(5, 0)
 			
 			AudioServer.add_bus_effect(AudioServer.get_bus_index("Master"), eq)
+		"distortion":
+			distortion = AudioEffectDistortion.new()
+			
+			distortion.mode = AudioEffectDistortion.MODE_CLIP
+			distortion.pre_gain = 0.5 
+			distortion.drive = 0.5
+			distortion.post_gain = 0
+			
+			AudioServer.add_bus_effect(AudioServer.get_bus_index("Master"), distortion)
+		"reverb":
+			reverb = AudioEffectReverb.new()
+			reverb.room_size = 0.5 
+			reverb.damping = 0.5 
+			reverb.wet = 0.5
+			reverb.hipass = 0
+			reverb.spread = 1
+			reverb.predelay_msec = 0
+			reverb.dry = 1 - reverb.wet 
+			
+			AudioServer.add_bus_effect(AudioServer.get_bus_index("Master"), reverb)
 
 
 func _on_close_popup_pressed():

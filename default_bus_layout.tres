@@ -3,11 +3,11 @@
 [sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_dc378"]
 resource_name = "Compressor"
 
-[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_yho41"]
-resource_name = "Distortion"
-
 [sub_resource type="AudioEffectEQ" id="AudioEffectEQ_rw3ii"]
 resource_name = "EQ"
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_yho41"]
+resource_name = "Distortion"
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_6l7pf"]
 resource_name = "Reverb"
@@ -15,9 +15,9 @@ resource_name = "Reverb"
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectCompressor_dc378")
 bus/0/effect/0/enabled = false
-bus/0/effect/1/effect = SubResource("AudioEffectDistortion_yho41")
+bus/0/effect/1/effect = SubResource("AudioEffectEQ_rw3ii")
 bus/0/effect/1/enabled = false
-bus/0/effect/2/effect = SubResource("AudioEffectEQ_rw3ii")
+bus/0/effect/2/effect = SubResource("AudioEffectDistortion_yho41")
 bus/0/effect/2/enabled = false
 bus/0/effect/3/effect = SubResource("AudioEffectReverb_6l7pf")
 bus/0/effect/3/enabled = false

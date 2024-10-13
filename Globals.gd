@@ -20,12 +20,36 @@ var loop = {
 }
 
 var fx = {
-	"A": [1, "A"],
-	"B": [1, "B"],
-	"C": [1, "C"],
-	"D": [1, "D"],
-	"E": [1, "E"],
-	"F": [1, "F"]
+	"Compressor": {
+		"threshold" = 0,
+		"ratio" = 4,
+		"gain" = 0,
+		"attack_us" = 20,
+		"release_ms" = 250,
+		"mix" = 1
+	},
+	"EQ": {
+		"band1" = 0,
+		"band2" = 0,
+		"band3" = 0,
+		"band4" = 0,
+		"band5" = 0,
+		"band6" = 0
+	},
+	"Distortion": {
+		"mode" = "Clip",
+		"pre_gain" = 0,
+		"drive" = 0,
+		"post_gain" = 0
+	},
+	"Reverb": {
+		"room_size" = 0.8,
+		"damping" = 0.5,
+		"spread" = 1,
+		"wet" = 0.5,
+		"hipass" = 0,
+		"predelay_msec" = 0 
+	}
 }
 
 signal update_ui
