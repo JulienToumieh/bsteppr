@@ -7,13 +7,17 @@ extends Node2D
 @export var maxVal = 100
 @export var integer = false
 
-@export var pos = 50
+@export var initVal = 50
+
+var pos
 
 var pressed = false
 
 var startPos = 0
 
 func _ready():
+	pos = (initVal - minVal) * 100.0 / (maxVal - minVal)
+	
 	$KnobArrow.rotation_degrees = (pos * 2.0 / 100.0) * 150.0 - 150.0
 	var val = minVal + (maxVal - minVal) * pos / 100.0
 	if abs(abs(maxVal) - abs(minVal)) > 5:
@@ -23,7 +27,7 @@ func _ready():
 	$Label.text = name
 
 
-func _process(delta):
+func _process(_delta):
 	if pressed:
 		if abs((get_global_mouse_position() - startPos).y) > abs((get_global_mouse_position() - startPos).x):
 			pos -= (get_global_mouse_position() - startPos).y / 2
