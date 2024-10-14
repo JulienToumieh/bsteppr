@@ -44,6 +44,8 @@ func _process(_delta):
 			$KnobVal.text = str(int(val))
 		else:
 			$KnobVal.text = str("%.2f" % val)
+			
+		Globals.fx[fxName][fxAttr] = val
 
 
 func _on_b_knob_button_down():

@@ -14,6 +14,7 @@ var modes = {
 var mode = 0
 
 func _ready():
+	mode = modes.keys().find(Globals.fx[fxName][fxAttr])
 	text = modes.find_key(mode)
 
 func _on_pressed():
@@ -22,3 +23,4 @@ func _on_pressed():
 	else:
 		mode += 1
 	text = modes.find_key(mode)
+	Globals.fx[fxName][fxAttr] = modes.find_key(mode)

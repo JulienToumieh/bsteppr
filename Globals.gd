@@ -21,6 +21,7 @@ var loop = {
 
 var fx = {
 	"Compressor": {
+		"enabled": false,
 		"threshold": 0,
 		"ratio": 4,
 		"gain": 0,
@@ -29,6 +30,7 @@ var fx = {
 		"mix": 1
 	},
 	"EQ": {
+		"enabled": false,
 		"band1": 0,
 		"band2": 0,
 		"band3": 0,
@@ -37,12 +39,14 @@ var fx = {
 		"band6": 0
 	},
 	"Distortion": {
+		"enabled": false,
 		"mode": "Clip",
 		"pre_gain": 0,
 		"drive": 0,
 		"post_gain": 0
 	},
 	"Reverb": {
+		"enabled": false,
 		"room_size": 0.8,
 		"damping": 0.5,
 		"spread": 1,
@@ -77,6 +81,9 @@ var autoSaveConf = false
 func updateUI():
 	emit_signal("update_ui")
 	if autoSaveConf: saveConfig()
+
+func updateFX():
+	pass
 
 func togglePlayback():
 	if playing:
