@@ -1,5 +1,7 @@
 extends Node2D
 
+var master_bus_index = AudioServer.get_bus_index("Master")
+var effect_count = AudioServer.get_bus_effect_count(master_bus_index)
 
 var beat = {
 	"A": Array(),
@@ -82,8 +84,73 @@ func updateUI():
 	emit_signal("update_ui")
 	if autoSaveConf: saveConfig()
 
-func updateFX():
-	pass
+func updateFXEnabled():
+	for i in range(effect_count):
+		var effect = AudioServer.get_bus_effect(master_bus_index, i)
+		if effect is AudioEffectCompressor:
+			AudioServer.set_bus_effect_enabled(master_bus_index, i, fx["Compressor"]["enabled"])
+		if effect is AudioEffectDistortion:
+			AudioServer.set_bus_effect_enabled(master_bus_index, i, fx["Distortion"]["enabled"])
+		if effect is AudioEffectEQ:
+			AudioServer.set_bus_effect_enabled(master_bus_index, i, fx["EQ"]["enabled"])
+		if effect is AudioEffectReverb:
+			AudioServer.set_bus_effect_enabled(master_bus_index, i, fx["Reverb"]["enabled"])
+
+func updateCompFX():
+	for i in range(effect_count):
+		var effect = AudioServer.get_bus_effect(master_bus_index, i)
+		if effect is AudioEffectCompressor:
+			effect.threshold = fx["Compressor"]["threshold"] 
+			effect.ratio = fx["Compressor"]["ratio"]  
+			effect.gain = fx["Compressor"]["gain"] 
+			effect.attack_us = fx["Compressor"]["attack_us"] 
+			effect.release_ms = fx["Compressor"]["release_ms"] 
+			effect.mix = fx["Compressor"]["mix"] 
+			break
+
+func updateEQFX():
+	for i in range(effect_count):
+		var effect = AudioServer.get_bus_effect(master_bus_index, i)
+		if effect is AudioEffectEQ:
+			effect.set_band_gain_db(0, fx["EQ"]["band1"])
+			effect.set_band_gain_db(1, fx["EQ"]["band2"])
+			effect.set_band_gain_db(2, fx["EQ"]["band3"])
+			effect.set_band_gain_db(3, fx["EQ"]["band4"])
+			effect.set_band_gain_db(4, fx["EQ"]["band5"])
+			effect.set_band_gain_db(5, fx["EQ"]["band6"])
+			break
+
+func updateDistFX():
+	var modes = {
+		"Clip": AudioEffectDistortion.MODE_CLIP,
+		"ATan": AudioEffectDistortion.MODE_ATAN,
+		"LoFi": AudioEffectDistortion.MODE_LOFI,
+		"OvrDrv": AudioEffectDistortion.MODE_OVERDRIVE,
+		"WavShp": AudioEffectDistortion.MODE_WAVESHAPE
+	}
+	for i in range(effect_count):
+		var effect = AudioServer.get_bus_effect(master_bus_index, i)
+		if effect is AudioEffectDistortion:
+			effect.mode = modes[fx["Distortion"]["mode"]]
+			effect.pre_gain = fx["Distortion"]["pre_gain"] 
+			effect.drive = fx["Distortion"]["drive"] 
+			effect.post_gain = fx["Distortion"]["post_gain"] 
+			break
+
+func updateRevFX():
+	for i in range(effect_count):
+		var effect = AudioServer.get_bus_effect(master_bus_index, i)
+		if effect is AudioEffectReverb:
+			effect.room_size = fx["Reverb"]["room_size"]
+			effect.damping = fx["Reverb"]["damping"] 
+			effect.spread = fx["Reverb"]["spread"] 
+			effect.hipass = fx["Reverb"]["hipass"] 
+			effect.predelay_msec = fx["Reverb"]["predelay_msec"] 
+			effect.wet = fx["Reverb"]["wet"] 
+			effect.dry = 1 - fx["Reverb"]["wet"] 
+			break
+			
+			
 
 func togglePlayback():
 	if playing:
@@ -183,6 +250,13 @@ func _ready():
 	
 	loadInstruments(currentKit)
 	setTempo()
+	
+	updateFXEnabled()
+	updateCompFX()
+	updateDistFX()
+	updateEQFX()
+	updateRevFX()
+	
 	loadConfig()
 	autoSaveConf = true
 

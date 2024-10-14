@@ -28,39 +28,23 @@ func _on_close_popup_pressed():
 
 func _on_b_comp_pressed():
 	Globals.fx["Compressor"]["enabled"] = !Globals.fx["Compressor"]["enabled"]
-	for i in range(effect_count):
-		var effect = AudioServer.get_bus_effect(master_bus_index, i)
-		if effect is AudioEffectCompressor:
-			AudioServer.set_bus_effect_enabled(master_bus_index, i, Globals.fx["Compressor"]["enabled"])
-	
+	Globals.updateFXEnabled()
 	updateSettingsUI()
 
 
 func _on_b_dist_pressed():
 	Globals.fx["Distortion"]["enabled"] = !Globals.fx["Distortion"]["enabled"]
-	for i in range(effect_count):
-		var effect = AudioServer.get_bus_effect(master_bus_index, i)
-		if effect is AudioEffectDistortion:
-			AudioServer.set_bus_effect_enabled(master_bus_index, i, Globals.fx["Distortion"]["enabled"])
-	
+	Globals.updateFXEnabled()
 	updateSettingsUI()
 
 
 func _on_b_eq_pressed():
 	Globals.fx["EQ"]["enabled"] = !Globals.fx["EQ"]["enabled"]
-	for i in range(effect_count):
-		var effect = AudioServer.get_bus_effect(master_bus_index, i)
-		if effect is AudioEffectEQ:
-			AudioServer.set_bus_effect_enabled(master_bus_index, i, Globals.fx["EQ"]["enabled"])
-	
+	Globals.updateFXEnabled()
 	updateSettingsUI()
 
 
 func _on_b_rev_pressed():
 	Globals.fx["Reverb"]["enabled"] = !Globals.fx["Reverb"]["enabled"]
-	for i in range(effect_count):
-		var effect = AudioServer.get_bus_effect(master_bus_index, i)
-		if effect is AudioEffectReverb:
-			AudioServer.set_bus_effect_enabled(master_bus_index, i, Globals.fx["Reverb"]["enabled"])
-	
+	Globals.updateFXEnabled()
 	updateSettingsUI()

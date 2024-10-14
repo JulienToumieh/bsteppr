@@ -46,7 +46,15 @@ func _process(_delta):
 			$KnobVal.text = str("%.2f" % val)
 			
 		Globals.fx[fxName][fxAttr] = val
-
+		match fxName: 
+			"Compressor":
+				Globals.updateCompFX()
+			"EQ":
+				Globals.updateEQFX()
+			"Distortion":
+				Globals.updateDistFX()
+			"Reverb":
+				Globals.updateRevFX()
 
 func _on_b_knob_button_down():
 	pressed = true
