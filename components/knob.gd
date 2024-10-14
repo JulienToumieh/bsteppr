@@ -7,21 +7,23 @@ extends Node2D
 @export var maxVal = 100
 @export var integer = false
 
-@export var initVal = 50
+@export var defaultVal = 50.0
 
 var pos
-
+var startPos = 0
 var pressed = false
 
-var startPos = 0
+var last_click_time = 0.0
+var click_count = 0
+var double_click_threshold = 0.25 
 
 func _ready():
-	initVal = Globals.fx[fxName][fxAttr]
+	var val = Globals.fx[fxName][fxAttr]
 	
-	pos = (initVal - minVal) * 100.0 / (maxVal - minVal)
+	pos = (val - minVal) * 100.0 / (maxVal - minVal)
 	
 	$KnobArrow.rotation_degrees = (pos * 2.0 / 100.0) * 150.0 - 150.0
-	var val = minVal + (maxVal - minVal) * pos / 100.0
+	val = minVal + (maxVal - minVal) * pos / 100.0
 	if abs(abs(maxVal) - abs(minVal)) > 5:
 		$KnobVal.text = str(int(val))
 	else:
@@ -56,9 +58,25 @@ func _process(_delta):
 			"Reverb":
 				Globals.updateRevFX()
 
+func doubleClick():
+	Globals.fx[fxName][fxAttr] = defaultVal
+	_ready()
+
+
+
 func _on_b_knob_button_down():
 	pressed = true
 	startPos = get_global_mouse_position()
+	var current_time = Time.get_ticks_msec() / 1000.0
+	
+	if current_time - last_click_time <= double_click_threshold:
+		click_count += 1
+	else:
+		click_count = 1
+	
+	last_click_time = current_time
+	if click_count == 2:
+		doubleClick()
 
 func _on_b_knob_button_up():
 	pressed = false

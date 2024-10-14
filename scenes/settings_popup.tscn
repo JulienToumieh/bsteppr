@@ -75,12 +75,14 @@ fxName = "Compressor"
 fxAttr = "threshold"
 minVal = -60
 maxVal = 0
+defaultVal = 0.0
 
 [node name="Ratio" parent="Compressor" instance=ExtResource("3_go0pl")]
 position = Vector2(-328, -200)
 fxName = "Compressor"
 fxAttr = "ratio"
 maxVal = 48
+defaultVal = 4.0
 
 [node name="Gain" parent="Compressor" instance=ExtResource("3_go0pl")]
 position = Vector2(-256, -232)
@@ -88,6 +90,7 @@ fxName = "Compressor"
 fxAttr = "gain"
 minVal = -20
 maxVal = 20
+defaultVal = 0.0
 
 [node name="Att (us)" parent="Compressor" instance=ExtResource("3_go0pl")]
 position = Vector2(-184, -200)
@@ -95,17 +98,22 @@ fxName = "Compressor"
 fxAttr = "attack_us"
 minVal = 20
 maxVal = 2000
+defaultVal = 20.0
 
 [node name="Rel (ms)" parent="Compressor" instance=ExtResource("3_go0pl")]
 position = Vector2(-112, -232)
 fxName = "Compressor"
 fxAttr = "release_ms"
+minVal = 20
+maxVal = 2000
+defaultVal = 250.0
 
 [node name="Mix" parent="Compressor" instance=ExtResource("3_go0pl")]
 position = Vector2(-40, -200)
 fxName = "Compressor"
 fxAttr = "mix"
 maxVal = 1
+defaultVal = 1.0
 
 [node name="1Px4" type="Sprite2D" parent="."]
 modulate = Color(0.45679, 0.45679, 0.45679, 1)
@@ -136,12 +144,14 @@ fxName = "Distortion"
 fxAttr = "pre_gain"
 minVal = -60
 maxVal = 60
+defaultVal = 0.0
 
 [node name="Drive" parent="Distortion" instance=ExtResource("3_go0pl")]
 position = Vector2(-192, -216)
 fxName = "Distortion"
 fxAttr = "drive"
 maxVal = 1
+defaultVal = 0.0
 
 [node name="Post-Gain" parent="Distortion" instance=ExtResource("3_go0pl")]
 position = Vector2(-96, -216)
@@ -149,6 +159,7 @@ fxName = "Distortion"
 fxAttr = "post_gain"
 minVal = -80
 maxVal = 24
+defaultVal = 0.0
 
 [node name="bDistMode" type="Button" parent="Distortion"]
 offset_left = -424.0
@@ -199,6 +210,7 @@ fxName = "EQ"
 fxAttr = "band1"
 minVal = -60
 maxVal = 24
+defaultVal = 0.0
 
 [node name="100hz" parent="EQ" instance=ExtResource("3_go0pl")]
 position = Vector2(-328, -200)
@@ -206,6 +218,7 @@ fxName = "EQ"
 fxAttr = "band2"
 minVal = -60
 maxVal = 24
+defaultVal = 0.0
 
 [node name="320hz" parent="EQ" instance=ExtResource("3_go0pl")]
 position = Vector2(-256, -232)
@@ -213,6 +226,7 @@ fxName = "EQ"
 fxAttr = "band3"
 minVal = -60
 maxVal = 24
+defaultVal = 0.0
 
 [node name="1000hz" parent="EQ" instance=ExtResource("3_go0pl")]
 position = Vector2(-184, -200)
@@ -220,6 +234,7 @@ fxName = "EQ"
 fxAttr = "band4"
 minVal = -60
 maxVal = 24
+defaultVal = 0.0
 
 [node name="3200hz" parent="EQ" instance=ExtResource("3_go0pl")]
 position = Vector2(-112, -232)
@@ -227,6 +242,7 @@ fxName = "EQ"
 fxAttr = "band5"
 minVal = -60
 maxVal = 24
+defaultVal = 0.0
 
 [node name="10000hz" parent="EQ" instance=ExtResource("3_go0pl")]
 position = Vector2(-40, -200)
@@ -234,6 +250,7 @@ fxName = "EQ"
 fxAttr = "band6"
 minVal = -60
 maxVal = 24
+defaultVal = 0.0
 
 [node name="1Px6" type="Sprite2D" parent="."]
 modulate = Color(0.45679, 0.45679, 0.45679, 1)
@@ -263,18 +280,21 @@ position = Vector2(-400, -232)
 fxName = "Reverb"
 fxAttr = "room_size"
 maxVal = 1
+defaultVal = 0.8
 
 [node name="Damp" parent="Reverb" instance=ExtResource("3_go0pl")]
 position = Vector2(-328, -201)
 fxName = "Reverb"
 fxAttr = "damping"
 maxVal = 1
+defaultVal = 0.5
 
 [node name="Spread" parent="Reverb" instance=ExtResource("3_go0pl")]
 position = Vector2(-256, -233)
 fxName = "Reverb"
 fxAttr = "spread"
 maxVal = 1
+defaultVal = 1.0
 
 [node name="Pre-Dly" parent="Reverb" instance=ExtResource("3_go0pl")]
 position = Vector2(-184, -201)
@@ -282,18 +302,21 @@ fxName = "Reverb"
 fxAttr = "predelay_msec"
 minVal = 20
 maxVal = 500
+defaultVal = 0.0
 
 [node name="Hi-Pass" parent="Reverb" instance=ExtResource("3_go0pl")]
 position = Vector2(-112, -233)
 fxName = "Reverb"
 fxAttr = "hipass"
 maxVal = 1
+defaultVal = 0.0
 
 [node name="Dry-Wet" parent="Reverb" instance=ExtResource("3_go0pl")]
 position = Vector2(-40, -201)
 fxName = "Reverb"
 fxAttr = "wet"
 maxVal = 1
+defaultVal = 0.5
 
 [connection signal="pressed" from="ClosePopup" to="." method="_on_close_popup_pressed"]
 [connection signal="pressed" from="Compressor/bComp" to="." method="_on_b_comp_pressed"]
