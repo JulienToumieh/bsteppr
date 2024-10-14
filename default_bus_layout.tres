@@ -11,6 +11,7 @@ resource_name = "Distortion"
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_6l7pf"]
 resource_name = "Reverb"
+predelay_msec = 500.0
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectCompressor_dc378")

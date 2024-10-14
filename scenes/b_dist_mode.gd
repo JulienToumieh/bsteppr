@@ -1,5 +1,8 @@
 extends Button
 
+@export var fxName = ""
+@export var fxAttr = ""
+
 var modes = {
 	"Clip": AudioEffectDistortion.MODE_CLIP,
 	"ATan": AudioEffectDistortion.MODE_ATAN,

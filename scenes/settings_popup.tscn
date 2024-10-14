@@ -22,24 +22,24 @@ scale = Vector2(2176, 1024)
 texture = ExtResource("1_qnq13")
 
 [node name="Button" type="Button" parent="."]
-offset_left = -576.0
-offset_top = -320.0
-offset_right = 576.0
-offset_bottom = 320.0
+offset_left = -600.0
+offset_top = -328.0
+offset_right = 600.0
+offset_bottom = 328.0
 
 [node name="1Px2" type="Sprite2D" parent="."]
 position = Vector2(-9.05991e-06, -1.14441e-05)
-scale = Vector2(1152, 640)
+scale = Vector2(1200, 656)
 texture = ExtResource("1_qnq13")
 
 [node name="1Px" type="Sprite2D" parent="."]
 modulate = Color(0.1365, 0.133, 0.14, 1)
 position = Vector2(0, -7.62939e-06)
-scale = Vector2(1136, 624)
+scale = Vector2(1184, 640)
 texture = ExtResource("1_qnq13")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -568.0
+offset_left = -592.0
 offset_top = -304.0
 offset_bottom = -256.0
 theme_override_font_sizes/font_size = 30
@@ -48,12 +48,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="1Px3" type="Sprite2D" parent="."]
-position = Vector2(-284, -256)
+position = Vector2(-296, -256)
 scale = Vector2(520, 1.99999)
 texture = ExtResource("1_qnq13")
 
 [node name="Compressor" type="Node2D" parent="."]
-position = Vector2(-8, 41)
+position = Vector2(-24, 33)
+metadata/_edit_group_ = true
 
 [node name="Button" type="Button" parent="Compressor"]
 offset_left = -536.0
@@ -65,38 +66,51 @@ text = "Comp"
 
 [node name="Thresh" parent="Compressor" instance=ExtResource("3_go0pl")]
 position = Vector2(-400, -232)
+fxName = "Compressor"
+fxAttr = "threshold"
 minVal = -60
 maxVal = 0
 
 [node name="Ratio" parent="Compressor" instance=ExtResource("3_go0pl")]
 position = Vector2(-328, -200)
+fxName = "Compressor"
+fxAttr = "ratio"
 maxVal = 48
 
 [node name="Gain" parent="Compressor" instance=ExtResource("3_go0pl")]
 position = Vector2(-256, -232)
+fxName = "Compressor"
+fxAttr = "gain"
 minVal = -20
 maxVal = 20
 
 [node name="Att (us)" parent="Compressor" instance=ExtResource("3_go0pl")]
 position = Vector2(-184, -200)
+fxName = "Compressor"
+fxAttr = "attack_us"
 minVal = 20
 maxVal = 2000
 
 [node name="Rel (ms)" parent="Compressor" instance=ExtResource("3_go0pl")]
 position = Vector2(-112, -232)
+fxName = "Compressor"
+fxAttr = "release_ms"
 
 [node name="Mix" parent="Compressor" instance=ExtResource("3_go0pl")]
 position = Vector2(-40, -200)
+fxName = "Compressor"
+fxAttr = "mix"
 maxVal = 1
 
 [node name="1Px4" type="Sprite2D" parent="."]
 modulate = Color(0.45679, 0.45679, 0.45679, 1)
-position = Vector2(-288, -95)
+position = Vector2(-304, -103)
 scale = Vector2(400, 1.99999)
 texture = ExtResource("1_qnq13")
 
 [node name="Distortion" type="Node2D" parent="."]
-position = Vector2(-8, 328)
+position = Vector2(-24, 320)
+metadata/_edit_group_ = true
 
 [node name="Button" type="Button" parent="Distortion"]
 offset_left = -536.0
@@ -108,15 +122,21 @@ text = "Dist"
 
 [node name="Pre-Gain" parent="Distortion" instance=ExtResource("3_go0pl")]
 position = Vector2(-288, -216)
+fxName = "Distortion"
+fxAttr = "pre_gain"
 minVal = -60
 maxVal = 60
 
 [node name="Drive" parent="Distortion" instance=ExtResource("3_go0pl")]
 position = Vector2(-192, -216)
+fxName = "Distortion"
+fxAttr = "drive"
 maxVal = 1
 
 [node name="Post-Gain" parent="Distortion" instance=ExtResource("3_go0pl")]
 position = Vector2(-96, -216)
+fxName = "Distortion"
+fxAttr = "post_gain"
 minVal = -80
 maxVal = 24
 
@@ -127,6 +147,8 @@ offset_right = -344.0
 offset_bottom = -192.0
 text = "Mode"
 script = ExtResource("4_46hd8")
+fxName = "Distortion"
+fxAttr = "mode"
 
 [node name="Label" type="Label" parent="Distortion"]
 offset_left = -416.0
@@ -140,12 +162,13 @@ vertical_alignment = 1
 
 [node name="1Px5" type="Sprite2D" parent="."]
 modulate = Color(0.45679, 0.45679, 0.45679, 1)
-position = Vector2(-288, 56)
+position = Vector2(-304, 48)
 scale = Vector2(400, 1.99999)
 texture = ExtResource("1_qnq13")
 
 [node name="EQ" type="Node2D" parent="."]
-position = Vector2(-8, 192)
+position = Vector2(-24, 184)
+metadata/_edit_group_ = true
 
 [node name="Button" type="Button" parent="EQ"]
 offset_left = -536.0
@@ -157,42 +180,55 @@ text = "EQ"
 
 [node name="32hz" parent="EQ" instance=ExtResource("3_go0pl")]
 position = Vector2(-400, -229)
+fxName = "EQ"
+fxAttr = "band1"
 minVal = -60
 maxVal = 24
 
 [node name="100hz" parent="EQ" instance=ExtResource("3_go0pl")]
 position = Vector2(-328, -200)
+fxName = "EQ"
+fxAttr = "band2"
 minVal = -60
 maxVal = 24
 
 [node name="320hz" parent="EQ" instance=ExtResource("3_go0pl")]
 position = Vector2(-256, -232)
+fxName = "EQ"
+fxAttr = "band3"
 minVal = -60
 maxVal = 24
 
 [node name="1000hz" parent="EQ" instance=ExtResource("3_go0pl")]
 position = Vector2(-184, -200)
+fxName = "EQ"
+fxAttr = "band4"
 minVal = -60
 maxVal = 24
 
 [node name="3200hz" parent="EQ" instance=ExtResource("3_go0pl")]
 position = Vector2(-112, -232)
+fxName = "EQ"
+fxAttr = "band5"
 minVal = -60
 maxVal = 24
 
 [node name="10000hz" parent="EQ" instance=ExtResource("3_go0pl")]
 position = Vector2(-40, -200)
+fxName = "EQ"
+fxAttr = "band6"
 minVal = -60
 maxVal = 24
 
 [node name="1Px6" type="Sprite2D" parent="."]
 modulate = Color(0.45679, 0.45679, 0.45679, 1)
-position = Vector2(-288, 177)
+position = Vector2(-304, 169)
 scale = Vector2(400, 1.99999)
 texture = ExtResource("1_qnq13")
 
 [node name="Reverb" type="Node2D" parent="."]
-position = Vector2(-8, 465)
+position = Vector2(-24, 457)
+metadata/_edit_group_ = true
 
 [node name="Button" type="Button" parent="Reverb"]
 offset_left = -536.0
@@ -204,22 +240,39 @@ text = "Rvrb"
 
 [node name="Size" parent="Reverb" instance=ExtResource("3_go0pl")]
 position = Vector2(-400, -232)
+fxName = "Reverb"
+fxAttr = "room_size"
 maxVal = 1
 
 [node name="Damp" parent="Reverb" instance=ExtResource("3_go0pl")]
-position = Vector2(-312, -232)
+position = Vector2(-328, -201)
+fxName = "Reverb"
+fxAttr = "damping"
 maxVal = 1
 
 [node name="Spread" parent="Reverb" instance=ExtResource("3_go0pl")]
-position = Vector2(-224, -232)
+position = Vector2(-256, -233)
+fxName = "Reverb"
+fxAttr = "spread"
 maxVal = 1
 
+[node name="Pre-Dly" parent="Reverb" instance=ExtResource("3_go0pl")]
+position = Vector2(-184, -201)
+fxName = "Reverb"
+fxAttr = "predelay_msec"
+minVal = 20
+maxVal = 500
+
 [node name="Hi-Pass" parent="Reverb" instance=ExtResource("3_go0pl")]
-position = Vector2(-136, -232)
+position = Vector2(-112, -233)
+fxName = "Reverb"
+fxAttr = "hipass"
 maxVal = 1
 
 [node name="Dry-Wet" parent="Reverb" instance=ExtResource("3_go0pl")]
-position = Vector2(-48, -232)
+position = Vector2(-40, -201)
+fxName = "Reverb"
+fxAttr = "wet"
 maxVal = 1
 
 [connection signal="pressed" from="ClosePopup" to="." method="_on_close_popup_pressed"]

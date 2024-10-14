@@ -16,6 +16,8 @@ var pressed = false
 var startPos = 0
 
 func _ready():
+	initVal = Globals.fx[fxName][fxAttr]
+	
 	pos = (initVal - minVal) * 100.0 / (maxVal - minVal)
 	
 	$KnobArrow.rotation_degrees = (pos * 2.0 / 100.0) * 150.0 - 150.0
