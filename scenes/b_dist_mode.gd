@@ -10,6 +10,11 @@ var mode = 0
 func _ready():
 	mode = modes.find(Globals.fx[fxName][fxAttr])
 	text = modes[mode]
+	Globals.connect("update_ui", Callable(self, "_on_update_ui"))
+
+func _on_update_ui():
+	mode = modes.find(Globals.fx[fxName][fxAttr])
+	text = modes[mode]
 
 func _on_pressed():
 	if mode == 4:

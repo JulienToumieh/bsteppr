@@ -318,9 +318,17 @@ fxAttr = "wet"
 maxVal = 1
 defaultVal = 0.5
 
+[node name="bResetFX" type="Button" parent="."]
+offset_left = -128.0
+offset_top = -304.0
+offset_right = -48.0
+offset_bottom = -272.0
+text = "Reset"
+
 [connection signal="pressed" from="ClosePopup" to="." method="_on_close_popup_pressed"]
 [connection signal="pressed" from="Compressor/bComp" to="." method="_on_b_comp_pressed"]
 [connection signal="pressed" from="Distortion/bDist" to="." method="_on_b_dist_pressed"]
 [connection signal="pressed" from="Distortion/bDistMode" to="Distortion/bDistMode" method="_on_pressed"]
 [connection signal="pressed" from="EQ/bEQ" to="." method="_on_b_eq_pressed"]
 [connection signal="pressed" from="Reverb/bRev" to="." method="_on_b_rev_pressed"]
+[connection signal="pressed" from="bResetFX" to="." method="_on_b_reset_fx_pressed"]

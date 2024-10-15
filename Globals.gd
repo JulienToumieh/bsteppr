@@ -152,7 +152,7 @@ func updateRevFX():
 			
 
 func initFX():
-	var fx = {
+	fx = {
 		"Compressor": {
 			"enabled": false,
 			"threshold": 0,
@@ -188,6 +188,7 @@ func initFX():
 			"predelay_msec": 0 
 		}
 	}
+	
 	updateFXEnabled()
 	updateCompFX()
 	updateDistFX()

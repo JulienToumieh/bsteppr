@@ -5,7 +5,6 @@ extends Node2D
 
 @export var minVal = 0
 @export var maxVal = 100
-@export var integer = false
 
 @export var defaultVal = 50.0
 
@@ -29,7 +28,21 @@ func _ready():
 	else:
 		$KnobVal.text = str("%.2f" % val)
 	$Label.text = name
+	
+	Globals.connect("update_ui", Callable(self, "_on_update_ui"))
 
+func _on_update_ui():
+	var val = Globals.fx[fxName][fxAttr]
+	
+	pos = (val - minVal) * 100.0 / (maxVal - minVal)
+	
+	$KnobArrow.rotation_degrees = (pos * 2.0 / 100.0) * 150.0 - 150.0
+	val = minVal + (maxVal - minVal) * pos / 100.0
+	if abs(abs(maxVal) - abs(minVal)) > 5:
+		$KnobVal.text = str(int(val))
+	else:
+		$KnobVal.text = str("%.2f" % val)
+	$Label.text = name
 
 func _process(_delta):
 	if pressed:
@@ -61,8 +74,6 @@ func _process(_delta):
 func doubleClick():
 	Globals.fx[fxName][fxAttr] = defaultVal
 	_ready()
-
-
 
 func _on_b_knob_button_down():
 	pressed = true
