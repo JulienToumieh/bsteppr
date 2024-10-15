@@ -23,6 +23,7 @@ func updateSettingsUI():
 	else: get_node("Reverb/enabledVis").modulate.a = 0.3
 
 func _on_close_popup_pressed():
+	Globals.saveConfig()
 	queue_free()
  
 

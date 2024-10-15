@@ -150,7 +150,49 @@ func updateRevFX():
 			effect.dry = 1 - fx["Reverb"]["wet"] 
 			break
 			
-			
+
+func initFX():
+	var fx = {
+		"Compressor": {
+			"enabled": false,
+			"threshold": 0,
+			"ratio": 4,
+			"gain": 0,
+			"attack_us": 20,
+			"release_ms": 250,
+			"mix": 1
+		},
+		"EQ": {
+			"enabled": false,
+			"band1": 0,
+			"band2": 0,
+			"band3": 0,
+			"band4": 0,
+			"band5": 0,
+			"band6": 0
+		},
+		"Distortion": {
+			"enabled": false,
+			"mode": "Clip",
+			"pre_gain": 0,
+			"drive": 0,
+			"post_gain": 0
+		},
+		"Reverb": {
+			"enabled": false,
+			"room_size": 0.8,
+			"damping": 0.5,
+			"spread": 1,
+			"wet": 0.5,
+			"hipass": 0,
+			"predelay_msec": 0 
+		}
+	}
+	updateFXEnabled()
+	updateCompFX()
+	updateDistFX()
+	updateEQFX()
+	updateRevFX()
 
 func togglePlayback():
 	if playing:
@@ -206,7 +248,8 @@ func save_loop(loopName):
 		"beat": beat,
 		"loop": loop,
 		"tempo": bpm,
-		"swing": swing
+		"swing": swing,
+		"fx": fx
 	}
 	
 	save_file.store_line(JSON.stringify(loop_data))
@@ -230,6 +273,7 @@ func load_loop(loopName):
 	loop = loop_data["loop"]
 	bpm = loop_data["tempo"]
 	swing = loop_data["swing"]
+	fx = loop_data["fx"]
 	
 	activeBeat = beat[activeLoop]
 	activeBeatQueue = activeBeat
@@ -245,17 +289,12 @@ func _ready():
 			for j in range(8):
 				beat[key][i].append("0000")
 	initLoop()
-	
 	#relocKit()
 	
 	loadInstruments(currentKit)
 	setTempo()
 	
-	updateFXEnabled()
-	updateCompFX()
-	updateDistFX()
-	updateEQFX()
-	updateRevFX()
+	initFX()
 	
 	loadConfig()
 	autoSaveConf = true
@@ -268,7 +307,8 @@ func saveConfig():
 		"loop": loop,
 		"tempo": bpm,
 		"swing": swing,
-		"kit": currentKit
+		"kit": currentKit,
+		"fx": fx
 	}
 	
 	save_file.store_line(JSON.stringify(data))
@@ -293,11 +333,18 @@ func loadConfig():
 		loop = data["loop"]
 		bpm = data["tempo"]
 		swing = data["swing"]
+		fx = data["fx"]
 		
 		loadInstruments(data["kit"])
 		activeBeat = beat[activeLoop]
 		activeBeatQueue = activeBeat
 		setTempo()
+		
+		updateFXEnabled()
+		updateCompFX()
+		updateDistFX()
+		updateEQFX()
+		updateRevFX()
 		
 		updateUI()
 	else:
@@ -369,6 +416,8 @@ func initLoop():
 			beat[key].append(Array())
 			for j in range(8):
 				beat[key][i].append("0000")
+	
+	initFX()
 	
 	bpm = 120
 	swing = 0
