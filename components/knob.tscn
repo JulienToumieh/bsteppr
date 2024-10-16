@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ddwodawk8kg6l" path="res://assets/knob arrow.svg" id="3_rmk36"]
 
 [node name="Knob" type="Node2D"]
-modulate = Color(0.73251, 0.891023, 1, 1)
+modulate = Color(0.647767, 0.812602, 0.925926, 1)
 scale = Vector2(0.65, 0.65)
 script = ExtResource("1_hcu6u")
 
