@@ -322,7 +322,7 @@ fxName = "Reverb"
 fxAttr = "predelay_msec"
 minVal = 20
 maxVal = 500
-defaultVal = 0.0
+defaultVal = 150.0
 
 [node name="Hi-Pass" parent="Reverb" instance=ExtResource("3_go0pl")]
 modulate = Color(0.312757, 0.601229, 1, 1)

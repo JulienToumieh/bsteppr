@@ -185,7 +185,7 @@ func initFX():
 			"spread": 1,
 			"wet": 0.5,
 			"hipass": 0,
-			"predelay_msec": 0 
+			"predelay_msec": 150 
 		}
 	}
 	
