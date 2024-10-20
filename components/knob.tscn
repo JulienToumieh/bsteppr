@@ -47,3 +47,5 @@ vertical_alignment = 1
 
 [connection signal="button_down" from="bKnob" to="." method="_on_b_knob_button_down"]
 [connection signal="button_up" from="bKnob" to="." method="_on_b_knob_button_up"]
+[connection signal="mouse_entered" from="bKnob" to="." method="_on_b_knob_mouse_entered"]
+[connection signal="mouse_exited" from="bKnob" to="." method="_on_b_knob_mouse_exited"]

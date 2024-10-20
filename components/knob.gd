@@ -16,6 +16,8 @@ var last_click_time = 0.0
 var click_count = 0
 var double_click_threshold = 0.25 
 
+var hovering = false
+
 func _ready():
 	var val = Globals.fx[fxName][fxAttr]
 	
@@ -44,6 +46,25 @@ func _on_update_ui():
 		$KnobVal.text = str("%.2f" % val)
 	$Label.text = name
 
+func updateKnobUI():
+	$KnobArrow.rotation_degrees = (pos * 2.0 / 100.0) * 150.0 - 150.0
+	var val = minVal + (maxVal - minVal) * pos / 100.0
+	if abs(abs(maxVal) - abs(minVal)) > 5:
+		$KnobVal.text = str(int(val))
+	else:
+		$KnobVal.text = str("%.2f" % val)
+		
+	Globals.fx[fxName][fxAttr] = val
+	match fxName: 
+		"Compressor":
+			Globals.updateCompFX()
+		"EQ":
+			Globals.updateEQFX()
+		"Distortion":
+			Globals.updateDistFX()
+		"Reverb":
+			Globals.updateRevFX()
+
 func _process(_delta):
 	if pressed:
 		if abs((get_global_mouse_position() - startPos).y) > abs((get_global_mouse_position() - startPos).x):
@@ -53,23 +74,16 @@ func _process(_delta):
 		startPos = get_global_mouse_position()
 		if pos > 100: pos = 100
 		if pos < 0: pos = 0
-		$KnobArrow.rotation_degrees = (pos * 2.0 / 100.0) * 150.0 - 150.0
-		var val = minVal + (maxVal - minVal) * pos / 100.0
-		if abs(abs(maxVal) - abs(minVal)) > 5:
-			$KnobVal.text = str(int(val))
-		else:
-			$KnobVal.text = str("%.2f" % val)
-			
-		Globals.fx[fxName][fxAttr] = val
-		match fxName: 
-			"Compressor":
-				Globals.updateCompFX()
-			"EQ":
-				Globals.updateEQFX()
-			"Distortion":
-				Globals.updateDistFX()
-			"Reverb":
-				Globals.updateRevFX()
+		updateKnobUI()
+		
+	if hovering == true:
+		if Input.is_action_just_pressed("scroll_up"):
+			pos += 5
+		elif Input.is_action_just_pressed("scroll_down"):
+			pos -= 5
+		if pos > 100: pos = 100
+		if pos < 0: pos = 0
+		updateKnobUI()
 
 func doubleClick():
 	Globals.fx[fxName][fxAttr] = defaultVal
@@ -91,3 +105,11 @@ func _on_b_knob_button_down():
 
 func _on_b_knob_button_up():
 	pressed = false
+
+
+func _on_b_knob_mouse_entered():
+	hovering = true
+
+
+func _on_b_knob_mouse_exited():
+	hovering = false
