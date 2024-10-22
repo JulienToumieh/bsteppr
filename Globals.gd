@@ -208,7 +208,7 @@ func togglePlayback():
 		barRound = 0
 	else:
 		if countIn:
-			countInCounter = countInVal * 4
+			countInCounter = int(countInVal * 4)
 		else:
 			countInCounter = 0
 		timer.start()
@@ -324,7 +324,9 @@ func saveConfig():
 		"tempo": bpm,
 		"swing": swing,
 		"kit": currentKit,
-		"fx": fx
+		"fx": fx,
+		"countin": countIn,
+		"countinval": countInVal
 	}
 	
 	save_file.store_line(JSON.stringify(data))
@@ -350,6 +352,8 @@ func loadConfig():
 		bpm = data["tempo"]
 		swing = data["swing"]
 		fx = data["fx"]
+		countIn = data["countin"]
+		countInVal = data["countinval"]
 		
 		loadInstruments(data["kit"])
 		activeBeat = beat[activeLoop]
