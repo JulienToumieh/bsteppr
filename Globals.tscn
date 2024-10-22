@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://8cfy385fp777"]
+[gd_scene load_steps=3 format=3 uid="uid://8cfy385fp777"]
 
 [ext_resource type="Script" path="res://Globals.gd" id="1_wmx5g"]
+[ext_resource type="AudioStream" uid="uid://c2howoi3txp2j" path="res://assets/sounds/Metronome1.wav" id="2_117yb"]
 
 [node name="Globals" type="Node2D"]
 process_mode = 3
@@ -32,5 +33,8 @@ max_polyphony = 4
 max_polyphony = 4
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="CountInSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_117yb")
 
 [connection signal="timeout" from="Timer" to="." method="tick"]

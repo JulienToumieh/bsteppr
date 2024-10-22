@@ -58,6 +58,10 @@ var fx = {
 	}
 }
 
+var countIn = false
+var countInCounter = 0
+var countInVal = 4
+
 signal update_ui
 var instrumentNames = []
 
@@ -196,45 +200,56 @@ func initFX():
 	updateRevFX()
 
 func togglePlayback():
+	loopCounter = loop[activeLoop][0]
+	get_parent().get_node("Main/BeatGrid").updateTrackerPos()
 	if playing:
 		timer.stop()
 		playbackPosition = 0
 		barRound = 0
 	else:
+		if countIn:
+			countInCounter = countInVal * 4
+		else:
+			countInCounter = 0
 		timer.start()
-	loopCounter = loop[activeLoop][0]
+	
 	playing = !playing
-	get_parent().get_node("Main/BeatGrid").updateTrackerPos()
 	updateUI()
 
+
 func tick():
-	if playbackPosition % 16 == 0: 
-		playbackPosition = 1
-		if barRound == 4: barRound = 1
-		else: barRound += 1
-		if activeBeat != activeBeatQueue:
-			loopCounter = loop[activeLoop][0]
-		activeBeat = activeBeatQueue
-		if loopCounter == 0:
-			if loop[activeLoop][1] == "Ø":
-				togglePlayback()
-			else:
-				activeLoop = loop[activeLoop][1]
-				activeBeat = beat[activeLoop]
-				activeBeatQueue = activeBeat
+	if countInCounter != 0:
+		if countInCounter % 4 == 0:
+			get_node("CountInSound").play() 
+		countInCounter -= 1
+	else:
+		if playbackPosition % 16 == 0: 
+			playbackPosition = 1
+			if barRound == 4: barRound = 1
+			else: barRound += 1
+			if activeBeat != activeBeatQueue:
 				loopCounter = loop[activeLoop][0]
-		updateUI()
-		loopCounter -= 1
-	else: 
-		playbackPosition += 1
-	get_parent().get_node("Main/BeatGrid").updateTrackerPos()
-	get_parent().get_node("Main").updateBarIndicator()
-	
-	if playbackPosition % 2 and swing != 0: await get_tree().create_timer(((60.0 / bpm) * 4) * (swing * 1.0 / 100.0) * 0.035).timeout
-	for ins in range(8):
-		if activeBeat[playbackPosition - 1][ins][barRound-1] != "0": 
-			get_node("Instrument" + str(ins+1)).volume_db = mapVol(activeBeat[playbackPosition - 1][ins][barRound-1])
-		if activeBeat[playbackPosition - 1][ins][barRound-1] != "0": playSound(ins+1)
+			activeBeat = activeBeatQueue
+			if loopCounter == 0:
+				if loop[activeLoop][1] == "Ø":
+					togglePlayback()
+				else:
+					activeLoop = loop[activeLoop][1]
+					activeBeat = beat[activeLoop]
+					activeBeatQueue = activeBeat
+					loopCounter = loop[activeLoop][0]
+			updateUI()
+			loopCounter -= 1
+		else: 
+			playbackPosition += 1
+		get_parent().get_node("Main/BeatGrid").updateTrackerPos()
+		get_parent().get_node("Main").updateBarIndicator()
+		
+		if playbackPosition % 2 and swing != 0: await get_tree().create_timer(((60.0 / bpm) * 4) * (swing * 1.0 / 100.0) * 0.035).timeout
+		for ins in range(8):
+			if activeBeat[playbackPosition - 1][ins][barRound-1] != "0": 
+				get_node("Instrument" + str(ins+1)).volume_db = mapVol(activeBeat[playbackPosition - 1][ins][barRound-1])
+			if activeBeat[playbackPosition - 1][ins][barRound-1] != "0": playSound(ins+1)
 
 
 func _process(_delta):

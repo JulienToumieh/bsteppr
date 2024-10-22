@@ -11,6 +11,7 @@ var effect_count = AudioServer.get_bus_effect_count(master_bus_index)
 signal resetFxSignal
 
 func _ready():
+	get_node("Settings/bCountIn").button_pressed = Globals.countIn
 	position = get_viewport().get_size() / 2
 	Globals.connect("update_ui", Callable(self, "_on_update_ui"))
 	Globals.updateUI()
@@ -57,3 +58,7 @@ func _on_b_rev_pressed():
 func _on_b_reset_fx_pressed():
 	Globals.initFX()
 	Globals.updateUI()
+
+
+func _on_b_count_in_toggled(toggled_on):
+	Globals.countIn = toggled_on
