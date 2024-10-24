@@ -17,6 +17,18 @@ func _ready():
 	updateGlobal()
 	tapTempoIndicator()
 
+func updateGlobal():
+	get_node("TempoSlider").value = bpm
+	get_node("SwingSlider").value = swing
+	get_node("BPMLabel").text = str(bpm)
+	get_node("SwingLabel").text = str(swing)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	Globals.bpm = bpm
+	Globals.swing = swing
+	Globals.setTempo()
+	Globals.updateUI()
+
 func tapTempo():
 	tapTempoVals.append(Time.get_ticks_msec())
 	var subs = []
@@ -28,7 +40,6 @@ func tapTempo():
 		updateGlobal()
 		
 	tapTempoIndicator()
-	
 	
 	if tapTempoVals.size() == 8:
 		subs.clear()
@@ -50,17 +61,11 @@ func tapTempoIndicator():
 			get_node("TapTempoIndicator/P" + str(i+1)).modulate.a = 0.3
 
 func _on_close_popup_pressed():
-	Globals.bpm = bpm
-	Globals.swing = swing
-	Globals.setTempo()
-	Globals.updateUI()
+	#Globals.bpm = bpm
+	#Globals.swing = swing
+	#Globals.setTempo()
+	#Globals.updateUI()
 	queue_free()
-
-func updateGlobal():
-	get_node("TempoSlider").value = bpm
-	get_node("SwingSlider").value = swing
-	get_node("BPMLabel").text = str(bpm)
-	get_node("SwingLabel").text = str(swing)
 
 
 func _on_increase_tempo_pressed():
