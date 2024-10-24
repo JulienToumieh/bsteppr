@@ -31,28 +31,24 @@ texture = ExtResource("2_x67h4")
 
 [node name="Button" type="Button" parent="."]
 offset_left = -264.0
-offset_top = -112.0
+offset_top = -128.0
 offset_right = 264.0
-offset_bottom = 112.0
+offset_bottom = 128.0
 
 [node name="1Px2" type="Sprite2D" parent="."]
 position = Vector2(-9.05991e-06, -6.4373e-06)
-scale = Vector2(528, 224)
+scale = Vector2(528, 256)
 texture = ExtResource("2_x67h4")
 
 [node name="1Px" type="Sprite2D" parent="."]
 modulate = Color(0.1365, 0.133, 0.14, 1)
 position = Vector2(2.86102e-05, 0)
-scale = Vector2(512, 208)
+scale = Vector2(512, 240)
 texture = ExtResource("2_x67h4")
 
-[node name="Arrow" type="Sprite2D" parent="."]
-modulate = Color(0.560535, 0.769547, 0.715359, 1)
-position = Vector2(-225.046, -55.931)
-scale = Vector2(0.314815, 0.314815)
-texture = ExtResource("3_3x8pl")
-
 [node name="NextLoops" type="Node2D" parent="."]
+position = Vector2(0, -16)
+metadata/_edit_group_ = true
 
 [node name="SelectA" type="Sprite2D" parent="NextLoops"]
 modulate = Color(0.213839, 0.283951, 0.274429, 1)
@@ -145,7 +141,15 @@ offset_right = 43.0
 offset_bottom = 43.0
 flat = true
 
+[node name="Arrow" type="Sprite2D" parent="NextLoops"]
+modulate = Color(0.560535, 0.769547, 0.715359, 1)
+position = Vector2(-225.046, -55.931)
+scale = Vector2(0.314815, 0.314815)
+texture = ExtResource("3_3x8pl")
+
 [node name="LoopCount" type="Node2D" parent="."]
+position = Vector2(0, -16)
+metadata/_edit_group_ = true
 
 [node name="arrows" type="Node2D" parent="LoopCount"]
 modulate = Color(0.693255, 0.707819, 0.700807, 1)
@@ -213,11 +217,31 @@ flat = true
 [node name="Label" type="Label" parent="LoopCount"]
 offset_left = -40.0
 offset_right = 40.0
-offset_bottom = 64.0
+offset_bottom = 56.0
 theme_override_font_sizes/font_size = 40
 text = "64"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="LoopCount"]
+modulate = Color(0.683128, 0.683128, 0.683128, 1)
+offset_left = -63.9997
+offset_top = 39.569
+offset_right = 64.0003
+offset_bottom = 67.569
+theme_override_font_sizes/font_size = 20
+text = "x repeat"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="loopCountSlider" type="HSlider" parent="LoopCount"]
+offset_left = -200.0
+offset_top = 88.0
+offset_right = 200.0
+offset_bottom = 104.0
+min_value = 1.0
+value = 1.0
 
 [connection signal="pressed" from="ClosePopup" to="." method="_on_close_popup_pressed"]
 [connection signal="pressed" from="NextLoops/SelectA/selA" to="." method="_on_sel_a_pressed"]
@@ -231,3 +255,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="LoopCount/increase2" to="." method="_on_increase_2_pressed"]
 [connection signal="pressed" from="LoopCount/decrease1" to="." method="_on_decrease_1_pressed"]
 [connection signal="pressed" from="LoopCount/decrease2" to="." method="_on_decrease_2_pressed"]
+[connection signal="value_changed" from="LoopCount/loopCountSlider" to="." method="_on_loop_count_slider_value_changed"]
