@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cijlatr7tp2kd"]
 
 [ext_resource type="Texture2D" uid="uid://cwguhnm6ysoaf" path="res://assets/1px.png" id="1_4gpbf"]
-[ext_resource type="Script" path="res://scenes/change_kit_popup.gd" id="1_d71od"]
+[ext_resource type="Script" uid="uid://c7songqniyh5r" path="res://scenes/change_kit_popup.gd" id="1_d71od"]
 
 [node name="ChangeKitPopup" type="Node2D"]
 script = ExtResource("1_d71od")

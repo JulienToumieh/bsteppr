@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://rch5kmlbvg0y"]
 
-[ext_resource type="Script" path="res://components/knob.gd" id="1_hcu6u"]
+[ext_resource type="Script" uid="uid://prpcr2m0jxb5" path="res://components/knob.gd" id="1_hcu6u"]
 [ext_resource type="Texture2D" uid="uid://sw0llbq21x7j" path="res://assets/knob body.svg" id="2_eeyb5"]
 [ext_resource type="Texture2D" uid="uid://ddwodawk8kg6l" path="res://assets/knob arrow.svg" id="3_rmk36"]
 

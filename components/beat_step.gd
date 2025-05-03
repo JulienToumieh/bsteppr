@@ -16,6 +16,13 @@ var triggeredHold = false
 func _ready():
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 	Globals.connect("update_ui", Callable(self, "_on_update_ui"))
+	
+	var colorTheme = Globals.colorTheme
+	
+	for i in range(8):
+		if beatIDX.y == i : modulate = Color(colorTheme.get("instruments")[i])
+		
+	'''
 	if beatIDX.y == 0: modulate = Color("FF4141")
 	if beatIDX.y == 1: modulate = Color("FF44BF")
 	if beatIDX.y == 2: modulate = Color("854BFF")
@@ -23,8 +30,8 @@ func _ready():
 	if beatIDX.y == 4: modulate = Color("00F0FF")
 	if beatIDX.y == 5: modulate = Color("3CFF72")
 	if beatIDX.y == 6: modulate = Color("4CFF2F")
-	if beatIDX.y == 7: modulate = Color("#FF922D")
-
+	if beatIDX.y == 7: modulate = Color("FF922D")
+	'''
 
 func _on_update_ui():
 	var beatQ = Globals.activeBeat[beatIDX.x][beatIDX.y]

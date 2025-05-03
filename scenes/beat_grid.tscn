@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dyjphmfje7qcq"]
 
-[ext_resource type="Script" path="res://scenes/beat_grid.gd" id="1_31vxn"]
+[ext_resource type="Script" uid="uid://7bx75y75oc7q" path="res://scenes/beat_grid.gd" id="1_31vxn"]
 [ext_resource type="Texture2D" uid="uid://bchy7yf4dedqm" path="res://assets/Frame 5.png" id="2_x3yry"]
 [ext_resource type="Texture2D" uid="uid://cwguhnm6ysoaf" path="res://assets/1px.png" id="3_ic01s"]
 [ext_resource type="Texture2D" uid="uid://biflwov1pyjrn" path="res://assets/playback tracker.svg" id="4_suubu"]

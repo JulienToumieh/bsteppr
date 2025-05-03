@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3evge8sojuv8"]
 
-[ext_resource type="Script" path="res://scenes/edit_beat_popup.gd" id="1_h0ecr"]
+[ext_resource type="Script" uid="uid://tqvv52vedt4o" path="res://scenes/edit_beat_popup.gd" id="1_h0ecr"]
 [ext_resource type="Texture2D" uid="uid://cwguhnm6ysoaf" path="res://assets/1px.png" id="2_w7tyu"]
 [ext_resource type="Texture2D" uid="uid://cvkx4y0ypjoip" path="res://assets/beat edit quarter.svg" id="3_3c73c"]
 

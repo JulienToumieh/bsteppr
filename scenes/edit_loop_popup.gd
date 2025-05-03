@@ -17,13 +17,13 @@ func _ready():
 		get_node("NextLoops/Select" + l).modulate.v = 0.3
 	get_node("NextLoops/Select" + nextLoop).modulate.v = 1
 	loopCount = Globals.loop[loopName][0]
-	get_node("LoopCount/Label").text = str(loopCount)
+	get_node("LoopCount/Label").text = str(int(loopCount))
 	
 	updateLocal()
 
 
 func updateGlobal():
-	get_node("LoopCount/Label").text = str(loopCount)
+	get_node("LoopCount/Label").text = str(int(loopCount))
 	$LoopCount/loopCountSlider.value = loopCount
 	for l in loops:
 		get_node("NextLoops/Select" + l).modulate.v = 0.3
@@ -33,7 +33,7 @@ func updateGlobal():
 	Globals.loopCounter = Globals.loop[Globals.activeLoop][0]
 
 func updateLocal():
-	get_node("LoopCount/Label").text = str(loopCount)
+	get_node("LoopCount/Label").text = str(int(loopCount))
 	for l in loops:
 		get_node("NextLoops/Select" + l).modulate.v = 0.3
 	get_node("NextLoops/Select" + nextLoop).modulate.v = 1

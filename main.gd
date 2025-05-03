@@ -14,8 +14,8 @@ func _ready():
 func _on_update_ui():
 	get_node("PlayPauseButton/Play").visible = not Globals.playing
 	get_node("PlayPauseButton/Pause").visible = Globals.playing
-	get_node("TempoDisp/Tempo").text = str(Globals.bpm)
-	get_node("TempoDisp/Swing").text = str(Globals.swing) + "%"
+	get_node("TempoDisp/Tempo").text = str(int(Globals.bpm))
+	get_node("TempoDisp/Swing").text = str(int(Globals.swing)) + "%"
 	updateBarIndicator()
 
 func updateBarIndicator():

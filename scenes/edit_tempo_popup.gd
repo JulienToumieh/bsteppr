@@ -20,8 +20,8 @@ func _ready():
 func updateGlobal():
 	get_node("TempoSlider").value = bpm
 	get_node("SwingSlider").value = swing
-	get_node("BPMLabel").text = str(bpm)
-	get_node("SwingLabel").text = str(swing)
+	get_node("BPMLabel").text = str(int(bpm))
+	get_node("SwingLabel").text = str(int(swing))
 	await get_tree().process_frame
 	await get_tree().process_frame
 	Globals.bpm = bpm

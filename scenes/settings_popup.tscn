@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://clfu1x3y874cg"]
 
-[ext_resource type="Script" path="res://scenes/settings_popup.gd" id="1_i0dgv"]
+[ext_resource type="Script" uid="uid://b7w0r2dv62yc1" path="res://scenes/settings_popup.gd" id="1_i0dgv"]
 [ext_resource type="Texture2D" uid="uid://cwguhnm6ysoaf" path="res://assets/1px.png" id="1_qnq13"]
 [ext_resource type="PackedScene" uid="uid://rch5kmlbvg0y" path="res://components/knob.tscn" id="3_go0pl"]
-[ext_resource type="Script" path="res://scenes/b_dist_mode.gd" id="4_46hd8"]
+[ext_resource type="Script" uid="uid://hfnpjo6x3mvn" path="res://scenes/b_dist_mode.gd" id="4_46hd8"]
 
 [node name="SettingsPopup" type="Node2D"]
 script = ExtResource("1_i0dgv")

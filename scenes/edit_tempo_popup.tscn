@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2u3gkf4nof71"]
 
-[ext_resource type="Script" path="res://scenes/edit_tempo_popup.gd" id="1_1wo6j"]
+[ext_resource type="Script" uid="uid://bjub0722t4np1" path="res://scenes/edit_tempo_popup.gd" id="1_1wo6j"]
 [ext_resource type="Texture2D" uid="uid://cwguhnm6ysoaf" path="res://assets/1px.png" id="2_i6y0g"]
 [ext_resource type="Texture2D" uid="uid://n5533s2q5oj2" path="res://assets/arrow line.svg" id="3_8slsu"]
 

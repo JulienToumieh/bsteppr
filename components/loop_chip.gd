@@ -19,7 +19,7 @@ func _ready():
 func _on_update_ui():
 	if loopName != Globals.activeLoop: modulate.v = 0.4
 	else: modulate.v = 1
-	$LoopCount.text = "x" + str(Globals.loop[loopName][0])
+	$LoopCount.text = "x" + str(int(Globals.loop[loopName][0]))
 	$NextLoop.text = Globals.loop[loopName][1]
 
 

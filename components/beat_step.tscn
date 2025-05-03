@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d1mxqw7lvur67"]
 
 [ext_resource type="Texture2D" uid="uid://d0inxn2li420f" path="res://assets/beat step.svg" id="1_ifcqn"]
-[ext_resource type="Script" path="res://components/beat_step.gd" id="1_ns0ca"]
+[ext_resource type="Script" uid="uid://du8uvvf33k3ra" path="res://components/beat_step.gd" id="1_ns0ca"]
 [ext_resource type="Texture2D" uid="uid://bcabnitve336v" path="res://assets/beat quarter.svg" id="2_eola3"]
 
 [node name="BeatStep" type="Node2D"]

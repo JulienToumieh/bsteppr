@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://8cfy385fp777"]
 
-[ext_resource type="Script" path="res://Globals.gd" id="1_wmx5g"]
+[ext_resource type="Script" uid="uid://dl85qojdccijg" path="res://Globals.gd" id="1_wmx5g"]
 [ext_resource type="AudioStream" uid="uid://c2howoi3txp2j" path="res://assets/sounds/Metronome1.wav" id="2_117yb"]
 
 [node name="Globals" type="Node2D"]
