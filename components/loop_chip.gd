@@ -24,6 +24,9 @@ func _on_update_ui():
 	else: modulate.v = 1
 	$LoopCount.text = "x" + str(int(Globals.loop[loopName][0]))
 	$NextLoop.text = Globals.loop[loopName][1]
+	
+	var colorTheme = Globals.colorTheme
+	get_node("px").modulate = Color(colorTheme.get("loopChip"))
 
 
 func _on_loop_chip_button_gui_input(event):

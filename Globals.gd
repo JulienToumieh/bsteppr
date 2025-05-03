@@ -342,6 +342,7 @@ func _ready():
 	
 	loadConfig()
 	autoSaveConf = true
+	
 
 
 func saveTheme(themename):
@@ -372,6 +373,20 @@ func loadTheme(themename):
 		saveConfig()
 		updateUI()
 
+func getDataFileNames(directory) -> Array:
+	var dir = DirAccess.open(directory)
+	var file_names = []
+	
+	if dir:
+		dir.list_dir_begin() 
+		var file_name = dir.get_next()
+		
+		while file_name != "":
+			file_names.append(file_name) 
+			file_name = dir.get_next() 
+			
+		dir.list_dir_end() 
+	return file_names
 
 
 func saveConfig():
@@ -586,7 +601,7 @@ func mapVol(val):
 func getFileNames(directory: String) -> Array:
 	var dir = DirAccess.open(directory)
 	var file_names = []
-
+	
 	if dir:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()

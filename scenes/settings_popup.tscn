@@ -371,7 +371,7 @@ texture = ExtResource("1_qnq13")
 offset_left = 32.0
 offset_top = -232.0
 offset_right = 280.0
-offset_bottom = -201.0
+offset_bottom = -200.0
 text = "Count in "
 
 [node name="1Px7" type="Sprite2D" parent="Settings"]
@@ -379,6 +379,20 @@ modulate = Color(0.257075, 0.271605, 0.26425, 1)
 position = Vector2(296, 24)
 scale = Vector2(4, 512)
 texture = ExtResource("1_qnq13")
+
+[node name="ThemeDropdown" type="OptionButton" parent="Settings"]
+offset_left = 384.0
+offset_top = -232.0
+offset_right = 560.0
+offset_bottom = -200.0
+
+[node name="Label" type="Label" parent="Settings"]
+offset_left = 312.0
+offset_top = -232.0
+offset_right = 384.0
+offset_bottom = -200.0
+text = "Theme"
+vertical_alignment = 1
 
 [connection signal="pressed" from="ClosePopup" to="." method="_on_close_popup_pressed"]
 [connection signal="pressed" from="Compressor/bComp" to="." method="_on_b_comp_pressed"]
@@ -388,3 +402,4 @@ texture = ExtResource("1_qnq13")
 [connection signal="pressed" from="Reverb/bRev" to="." method="_on_b_rev_pressed"]
 [connection signal="pressed" from="bResetFX" to="." method="_on_b_reset_fx_pressed"]
 [connection signal="toggled" from="Settings/bCountIn" to="." method="_on_b_count_in_toggled"]
+[connection signal="item_selected" from="Settings/ThemeDropdown" to="." method="_on_theme_dropdown_item_selected"]

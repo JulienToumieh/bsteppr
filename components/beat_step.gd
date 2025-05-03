@@ -50,6 +50,11 @@ func _on_update_ui():
 	for bQ in range(4):
 		if val < int(beatQ[bQ]): val = int(beatQ[bQ])
 	modulate.v = 0.5 + val/10.0
+	
+	var colorTheme = Globals.colorTheme
+	
+	for i in range(8):
+		if beatIDX.y == i : modulate = Color(colorTheme.get("instrumentRowBeats")[i])
 
 
 func _on_step_click_gui_input(event):
