@@ -15,6 +15,9 @@ func _ready():
 	_on_update_ui()
 	Globals.connect("update_ui", Callable(self, "_on_update_ui"))
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
+	
+	var colorTheme = Globals.colorTheme
+	get_node("px").modulate = Color(colorTheme.get("loopChip"))
 
 func _on_update_ui():
 	if loopName != Globals.activeLoop: modulate.v = 0.4

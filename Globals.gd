@@ -59,7 +59,7 @@ var fx = {
 }
 
 var colorTheme = {
-	"instruments": [
+	"instrumentRows": [
 		"FF4141",
 		"FF44BF",
 		"854BFF",
@@ -68,7 +68,18 @@ var colorTheme = {
 		"3CFF72",
 		"4CFF2F",
 		"FF922D"
-	]
+	],
+	"instrumentRowBeats": [
+		"FF4141",
+		"FF44BF",
+		"854BFF",
+		"3385FF",
+		"00F0FF",
+		"3CFF72",
+		"4CFF2F",
+		"FF922D"
+	],
+	"loopChip": "07FCAE"
 }
 
 var themeName = "default"
@@ -331,13 +342,11 @@ func _ready():
 	
 	loadConfig()
 	autoSaveConf = true
-	loadTheme(themeName)
 
 
-
-func saveTheme(themeName):
+func saveTheme(themename):
 	DirAccess.make_dir_absolute(data_path + "/Themes/")
-	var save_file = FileAccess.open(data_path + "/Themes/"+ themeName +".bclrs", FileAccess.WRITE)
+	var save_file = FileAccess.open(data_path + "/Themes/"+ themename +".bclrs", FileAccess.WRITE)
 	
 	var data = {
 		"colorTheme": colorTheme,
@@ -346,9 +355,10 @@ func saveTheme(themeName):
 	save_file.store_line(JSON.stringify(data))
 	save_file.close()
 
-func loadTheme(themeName):
-	if FileAccess.file_exists(data_path + "/Themes/"+ themeName +".bclrs"):
-		var load_file = FileAccess.open(data_path + "/Themes/"+ themeName +".bclrs", FileAccess.READ)
+
+func loadTheme(themename):
+	if FileAccess.file_exists(data_path + "/Themes/"+ themename +".bclrs"):
+		var load_file = FileAccess.open(data_path + "/Themes/"+ themename +".bclrs", FileAccess.READ)
 		
 		var json_data = load_file.get_line()
 		load_file.close() 
@@ -357,6 +367,7 @@ func loadTheme(themeName):
 		var data = json.data
 		
 		colorTheme = data["colorTheme"]
+		themeName = themename
 		
 		saveConfig()
 		updateUI()
@@ -417,6 +428,7 @@ func loadConfig():
 		updateDistFX()
 		updateEQFX()
 		updateRevFX()
+		loadTheme(themeName)
 		
 		updateUI()
 	else:

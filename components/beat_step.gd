@@ -20,7 +20,7 @@ func _ready():
 	var colorTheme = Globals.colorTheme
 	
 	for i in range(8):
-		if beatIDX.y == i : modulate = Color(colorTheme.get("instruments")[i])
+		if beatIDX.y == i : modulate = Color(colorTheme.get("instrumentRowBeats")[i])
 		
 	'''
 	if beatIDX.y == 0: modulate = Color("FF4141")
