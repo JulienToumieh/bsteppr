@@ -7,6 +7,9 @@ var grid = Globals.beat["A"]
 var playbackTracker = [-1000,0,72,144,216,317,389,461,533,634,706,778,850,951,1023,1095,1167]
 
 func _ready():
+	update_theme()
+	Globals.connect("update_ui", Callable(self, "_on_update_ui"))
+	
 	var x = 0
 	var y = 0
 	
@@ -31,6 +34,14 @@ func _ready():
 		
 	Globals.updateUI()
 	updateTrackerPos()
+
+func update_theme():
+	var colorTheme = Globals.colorTheme
+	get_node("PlaybackTracker").modulate = Color(colorTheme.get("playbackTracker"))
+
+func _on_update_ui():
+	update_theme()
+
 
 func updateTrackerPos():
 	get_node("PlaybackTracker").position.x = playbackTracker[Globals.playbackPosition]

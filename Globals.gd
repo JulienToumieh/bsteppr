@@ -81,7 +81,8 @@ var colorTheme = {
 	],
 	"loopChip": "07FCAE",
 	"UIIcons": "1dc18d",
-	"barIndicators": "07FCAE"
+	"barIndicators": "07FCAE",
+	"playbackTracker": "3FE874"
 }
 
 var themeName = "default"
