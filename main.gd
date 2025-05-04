@@ -17,6 +17,10 @@ func _on_update_ui():
 	get_node("TempoDisp/Tempo").text = str(int(Globals.bpm))
 	get_node("TempoDisp/Swing").text = str(int(Globals.swing)) + "%"
 	updateBarIndicator()
+	
+	var colorTheme = Globals.colorTheme
+	get_node("UIButtons").modulate = Color(colorTheme.get("UIIcons"))
+	get_node("BarIndicator").modulate = Color(colorTheme.get("barIndicators"))
 
 func updateBarIndicator():
 	get_node("BarIndicator/b1").modulate.a = 0.3

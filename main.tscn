@@ -81,14 +81,12 @@ flat = true
 
 [node name="UIButtons" type="Node2D" parent="."]
 
-[node name="DrumSet" type="Sprite2D" parent="UIButtons"]
-modulate = Color(0.598537, 0.769547, 0.632317, 1)
+[node name="DrumSetIcon" type="Sprite2D" parent="UIButtons"]
 position = Vector2(85.0312, 690.031)
 scale = Vector2(0.287183, 0.287183)
 texture = ExtResource("7_jdhqv")
 
-[node name="Settings" type="Sprite2D" parent="UIButtons"]
-modulate = Color(0.598537, 0.769547, 0.632317, 1)
+[node name="SettingsIcon" type="Sprite2D" parent="UIButtons"]
 position = Vector2(165.031, 691.031)
 scale = Vector2(0.228903, 0.228903)
 texture = ExtResource("8_own0v")
@@ -133,25 +131,21 @@ flat = true
 position = Vector2(120, 640)
 
 [node name="b4" type="Sprite2D" parent="BarIndicator"]
-modulate = Color(0.606547, 0.995885, 0.683453, 1)
 position = Vector2(48, 0)
 scale = Vector2(24, 7.99999)
 texture = ExtResource("9_7kt5k")
 
 [node name="b3" type="Sprite2D" parent="BarIndicator"]
-modulate = Color(0.606547, 0.995885, 0.683453, 1)
 position = Vector2(16, 0)
 scale = Vector2(24, 7.99999)
 texture = ExtResource("9_7kt5k")
 
 [node name="b2" type="Sprite2D" parent="BarIndicator"]
-modulate = Color(0.606547, 0.995885, 0.683453, 1)
 position = Vector2(-16, 0)
 scale = Vector2(24, 7.99999)
 texture = ExtResource("9_7kt5k")
 
 [node name="b1" type="Sprite2D" parent="BarIndicator"]
-modulate = Color(0.606547, 0.995885, 0.683453, 1)
 position = Vector2(-48, 0)
 scale = Vector2(24, 7.99999)
 texture = ExtResource("9_7kt5k")

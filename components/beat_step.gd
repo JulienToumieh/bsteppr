@@ -21,19 +21,15 @@ func _ready():
 	
 	for i in range(8):
 		if beatIDX.y == i : modulate = Color(colorTheme.get("instrumentRowBeats")[i])
-		
-	'''
-	if beatIDX.y == 0: modulate = Color("FF4141")
-	if beatIDX.y == 1: modulate = Color("FF44BF")
-	if beatIDX.y == 2: modulate = Color("854BFF")
-	if beatIDX.y == 3: modulate = Color("3385FF")
-	if beatIDX.y == 4: modulate = Color("00F0FF")
-	if beatIDX.y == 5: modulate = Color("3CFF72")
-	if beatIDX.y == 6: modulate = Color("4CFF2F")
-	if beatIDX.y == 7: modulate = Color("FF922D")
-	'''
+
+func update_theme():
+	var colorTheme = Globals.colorTheme
+	
+	for i in range(8):
+		if beatIDX.y == i : modulate = Color(colorTheme.get("instrumentRowBeats")[i])
 
 func _on_update_ui():
+	update_theme()
 	var beatQ = Globals.activeBeat[beatIDX.x][beatIDX.y]
 	
 	Q1 = int(beatQ[0])
@@ -50,11 +46,6 @@ func _on_update_ui():
 	for bQ in range(4):
 		if val < int(beatQ[bQ]): val = int(beatQ[bQ])
 	modulate.v = 0.5 + val/10.0
-	
-	var colorTheme = Globals.colorTheme
-	
-	for i in range(8):
-		if beatIDX.y == i : modulate = Color(colorTheme.get("instrumentRowBeats")[i])
 
 
 func _on_step_click_gui_input(event):

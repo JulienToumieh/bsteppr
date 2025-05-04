@@ -79,7 +79,9 @@ var colorTheme = {
 		"4CFF2F",
 		"FF922D"
 	],
-	"loopChip": "07FCAE"
+	"loopChip": "07FCAE",
+	"UIIcons": "1dc18d",
+	"barIndicators": "07FCAE"
 }
 
 var themeName = "default"
