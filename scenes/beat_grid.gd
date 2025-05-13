@@ -38,6 +38,11 @@ func _ready():
 func update_theme():
 	var colorTheme = Globals.colorTheme
 	get_node("PlaybackTracker").modulate = Color(colorTheme.get("playbackTracker"))
+	
+	get_node("Beat1").modulate = Color(colorTheme.get("oddBeat"))
+	get_node("Beat2").modulate = Color(colorTheme.get("evenBeat"))
+	get_node("Beat3").modulate = Color(colorTheme.get("oddBeat"))
+	get_node("Beat4").modulate = Color(colorTheme.get("evenBeat"))
 
 func _on_update_ui():
 	update_theme()

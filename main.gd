@@ -21,6 +21,7 @@ func _on_update_ui():
 	var colorTheme = Globals.colorTheme
 	get_node("UIButtons").modulate = Color(colorTheme.get("UIIcons"))
 	get_node("BarIndicator").modulate = Color(colorTheme.get("barIndicators"))
+	get_node("PlayPauseButton/Play").modulate = Color(colorTheme.get("playButton"))
 
 func updateBarIndicator():
 	get_node("BarIndicator/b1").modulate.a = 0.3

@@ -82,7 +82,11 @@ var colorTheme = {
 	"loopChip": "07FCAE",
 	"UIIcons": "1dc18d",
 	"barIndicators": "07FCAE",
-	"playbackTracker": "3FE874"
+	"playbackTracker": "3FE874",
+	"oddBeat": "181818",
+	"evenBeat": "232323",
+	"playButton": "29ff88",
+	"background": "111111"
 }
 
 var themeName = "default"
@@ -115,6 +119,7 @@ var autoSaveConf = false
 
 func updateUI():
 	emit_signal("update_ui")
+	RenderingServer.set_default_clear_color("#" + colorTheme.get("background"))
 	if autoSaveConf: saveConfig()
 
 func updateFXEnabled():
