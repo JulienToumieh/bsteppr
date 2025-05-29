@@ -18,6 +18,8 @@ func _ready():
 	Globals.connect("update_ui", Callable(self, "_on_update_ui"))
 	Globals.updateUI()
 	
+	$Settings/bGlowFX.button_pressed = Globals.glowFX
+	
 	themeNames = Globals.getDataFileNames(Globals.data_path + "/Themes/")
 	var selectedThemeID = 0
 	
@@ -81,3 +83,8 @@ func _on_b_count_in_toggled(toggled_on):
 func _on_theme_dropdown_item_selected(index):
 	print(themeNames[index])
 	Globals.loadTheme(themeNames[index])
+
+
+func _on_b_bloom_fx_pressed():
+	Globals.glowFX = not Globals.glowFX
+	Globals.updateUI()

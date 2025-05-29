@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://gptqi34mccih"]
+[gd_scene load_steps=13 format=3 uid="uid://gptqi34mccih"]
 
 [ext_resource type="PackedScene" uid="uid://dyjphmfje7qcq" path="res://scenes/beat_grid.tscn" id="1_1by64"]
 [ext_resource type="Script" uid="uid://bocq8q113qvgh" path="res://main.gd" id="1_3c72v"]
@@ -13,6 +13,11 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcn34"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_58uxl"]
+
+[sub_resource type="Environment" id="Environment_kek77"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 0.53
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3c72v")
@@ -149,6 +154,9 @@ texture = ExtResource("9_7kt5k")
 position = Vector2(-48, 0)
 scale = Vector2(24, 7.99999)
 texture = ExtResource("9_7kt5k")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kek77")
 
 [connection signal="pressed" from="PlayPauseButton" to="." method="_on_play_pause_button_pressed"]
 [connection signal="pressed" from="TempoDisp/TempoButton" to="." method="_on_tempo_button_pressed"]

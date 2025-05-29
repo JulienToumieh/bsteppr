@@ -86,7 +86,8 @@ var colorTheme = {
 	"oddBeat": "181818",
 	"evenBeat": "232323",
 	"playButton": "29ff88",
-	"background": "111111"
+	"background": "111111",
+	"text": "FFFFFF"
 }
 
 var themeName = "default"
@@ -113,6 +114,8 @@ var playing = false
 var bpm = 120
 var swing = 0
 var timer : Timer
+
+var glowFX = false
 
 var data_path = "user:/"
 var autoSaveConf = false
@@ -410,7 +413,8 @@ func saveConfig():
 		"countin": countIn,
 		"countinval": countInVal,
 		"colorTheme": colorTheme,
-		"themeName": themeName
+		"themeName": themeName,
+		"glowFX": glowFX
 	}
 	
 	save_file.store_line(JSON.stringify(data))
@@ -440,6 +444,7 @@ func loadConfig():
 		countInVal = data["countinval"]
 		colorTheme = data["colorTheme"]
 		themeName = data["themeName"]
+		glowFX = data["glowFX"]
 		
 		loadInstruments(data["kit"])
 		activeBeat = beat[activeLoop]

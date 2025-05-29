@@ -22,6 +22,11 @@ func _on_update_ui():
 	get_node("UIButtons").modulate = Color(colorTheme.get("UIIcons"))
 	get_node("BarIndicator").modulate = Color(colorTheme.get("barIndicators"))
 	get_node("PlayPauseButton/Play").modulate = Color(colorTheme.get("playButton"))
+	$TempoDisp/Tempo.modulate = Color(colorTheme.get("text"))
+	$TempoDisp/Swing.modulate = Color(colorTheme.get("text"))
+	
+	$WorldEnvironment.environment.glow_enabled = Globals.glowFX
+	
 
 func updateBarIndicator():
 	get_node("BarIndicator/b1").modulate.a = 0.3

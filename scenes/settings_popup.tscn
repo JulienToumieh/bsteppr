@@ -394,6 +394,13 @@ offset_bottom = -200.0
 text = "Theme"
 vertical_alignment = 1
 
+[node name="bGlowFX" type="CheckButton" parent="Settings"]
+offset_left = 32.0
+offset_top = -192.0
+offset_right = 280.0
+offset_bottom = -160.0
+text = "UI Glow"
+
 [connection signal="pressed" from="ClosePopup" to="." method="_on_close_popup_pressed"]
 [connection signal="pressed" from="Compressor/bComp" to="." method="_on_b_comp_pressed"]
 [connection signal="pressed" from="Distortion/bDist" to="." method="_on_b_dist_pressed"]
@@ -403,3 +410,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="bResetFX" to="." method="_on_b_reset_fx_pressed"]
 [connection signal="toggled" from="Settings/bCountIn" to="." method="_on_b_count_in_toggled"]
 [connection signal="item_selected" from="Settings/ThemeDropdown" to="." method="_on_theme_dropdown_item_selected"]
+[connection signal="pressed" from="Settings/bGlowFX" to="." method="_on_b_bloom_fx_pressed"]
